@@ -157,7 +157,8 @@ const run = async () => {
     const sm = await readFile(smPath, 'utf8');
     for (const loc of [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1])) {
       const local = loc.replace(/^https?:\/\/[^/]+/, '');
-      const f = path.join(DIST, local, 'index.html');
+      const html = path.join(DIST, local, 'index.html');
+      const f = existsSync(html) ? html : path.join(DIST, local, 'index.php');
       if (!existsSync(f)) errors.push(`sitemap lists ${loc} but the file does not exist`);
       else if (/<meta name="robots"[^>]*noindex/i.test(await readFile(f, 'utf8'))) {
         errors.push(`sitemap lists a noindex page: ${loc}`);
