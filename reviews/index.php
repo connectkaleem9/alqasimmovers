@@ -26,7 +26,7 @@
 <link rel="apple-touch-icon" href="/images/logo/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/site.css?v=3d254fdcd0">
+<link rel="stylesheet" href="/css/site.css?v=3a2277e017">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"MovingCompany","@id":"https://alqasimmovers.com/#business","name":"Al Qasim Movers","url":"https://alqasimmovers.com/","telephone":"+971556869224","image":"https://alqasimmovers.com/images/logo/mark-512.png","address":{"@type":"PostalAddress","addressLocality":"Dubai","addressRegion":"Dubai","addressCountry":"AE"},"areaServed":[{"@type":"City","name":"Dubai"},{"@type":"AdministrativeArea","name":"Abu Dhabi"},{"@type":"AdministrativeArea","name":"Sharjah"},{"@type":"AdministrativeArea","name":"Ajman"},{"@type":"AdministrativeArea","name":"Umm Al Quwain"},{"@type":"AdministrativeArea","name":"Ras Al Khaimah"},{"@type":"AdministrativeArea","name":"Fujairah"}],"email":"info@alqasimmovers.com"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Reviews","item":"https://alqasimmovers.com/reviews/"}]}]}</script>
 </head>
 <body class="page page--page">
@@ -56,7 +56,28 @@
         <li><a href="/">Home</a></li>
         <li><a href="/reviews/">Reviews</a></li>
         <li><a href="/projects/">Projects</a></li>
-        <li><a href="/services/">Services</a></li>
+        <li class="site-nav__has-sub">
+          <a href="/services/">Services</a>
+          <button class="site-nav__sub-toggle" type="button" aria-expanded="false" aria-controls="nav-services">
+            <span class="visually-hidden">Show services menu</span>
+            <svg class="icon" aria-hidden="true" width="14" height="14"><use href="/images/icons/sprite.svg#chevron"></use></svg>
+          </button>
+          <ul class="site-nav__sub" id="nav-services">
+            <li><a href="/services/home-movers-dubai/">Home Movers</a></li>
+            <li><a href="/services/apartment-movers-dubai/">Apartment Movers</a></li>
+            <li><a href="/services/villa-movers-dubai/">Villa Movers</a></li>
+            <li><a href="/services/office-movers-dubai/">Office Movers</a></li>
+            <li><a href="/services/packing-services-dubai/">Packing &amp; Unpacking</a></li>
+            <li><a href="/services/furniture-movers-dubai/">Furniture Movers</a></li>
+            <li><a href="/services/furniture-assembly-dubai/">Furniture Assembly</a></li>
+            <li><a href="/services/storage-services-dubai/">Storage Services</a></li>
+            <li><a href="/services/commercial-movers-dubai/">Commercial Movers</a></li>
+            <li><a href="/services/pickup-truck-with-driver-dubai/">Pickup Truck with Driver</a></li>
+            <li><a href="/services/piano-movers-dubai/">Piano &amp; Heavy Items</a></li>
+            <li><a href="/services/inter-emirate-movers/">Between Emirates</a></li>
+            <li><a class="site-nav__sub-all" href="/services/">All services</a></li>
+          </ul>
+        </li>
         <li><a href="/areas/">Areas</a></li>
         <li><a href="/about/">About</a></li>
         <li><a href="/contact/">Contact</a></li>
@@ -236,7 +257,7 @@
         <li><a href="/services/office-movers-dubai/">Office Movers</a></li>
         <li><a href="/services/packing-services-dubai/">Packing &amp; Unpacking</a></li>
         <li><a href="/services/furniture-movers-dubai/">Furniture Movers</a></li>
-        <li><a href="/services/pickup-truck-with-driver-dubai/">Loading &amp; Unloading</a></li>
+        <li><a href="/services/pickup-truck-with-driver-dubai/">Pickup Truck with Driver</a></li>
         <li><a href="/services/storage-services-dubai/">Storage Services</a></li>
       </ul>
     </nav>
@@ -301,6 +322,6 @@
   </div>
 </div>
 
-<script type="module" src="/js/main.js?v=1a85fb9164"></script>
+<script type="module" src="/js/main.js?v=030afb3ab8"></script>
 </body>
 </html>
