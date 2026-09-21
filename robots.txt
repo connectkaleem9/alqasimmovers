@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alqasimmovers.com/sitemap.xml

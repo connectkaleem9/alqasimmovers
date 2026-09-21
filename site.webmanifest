@@ -1,0 +1,21 @@
+{
+  "name": "Al Qasim Movers",
+  "short_name": "Al Qasim",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#FFFFFF",
+  "theme_color": "#0C3B5C",
+  "icons": [
+    {
+      "src": "/images/logo/mark-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/logo/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
