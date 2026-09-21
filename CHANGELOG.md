@@ -2,6 +2,17 @@
 
 All notable changes to the Al Qasim Movers project. Newest first. Format: date — stage — summary.
 
+## 2026-09-22 — Area pages published (EN + AR), Areas dropdown
+
+### Added
+- `/areas/` hub plus 10 area pages in both languages: Dubai Marina, JLT, Business Bay, Downtown Dubai, Palm Jumeirah, JVC, Al Barsha, Arabian Ranches, Dubai Hills and Dubai Silicon Oasis.
+- Each page passes the area-page minimum bar in `docs/seo/local-seo-strategy.md`: real local constraints (permit route, lift slots or gate registration, loading and parking, property mix, typical moves), unique FAQs, and links to the services that matter in that community. Briefs in `docs/seo/briefs/area-*.md`.
+- **Areas dropdown** in the header alongside the Services dropdown.
+- `config/business.json`: JLT added to `areasServed` (inside the owner-confirmed "all of Dubai").
+
+### Integrity
+Permit and access details are written generally, because building processes vary and change. No claims about jobs completed in any area, and no prices.
+
 ## 2026-09-22 — All 14 service pages published (EN + AR), Services dropdown
 
 ### Added

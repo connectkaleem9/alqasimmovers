@@ -18,7 +18,9 @@
     "reviews": "Reviews",
     "blog": "Blog",
     "servicesMenu": "Show services menu",
-    "allServices": "All services"
+    "allServices": "All services",
+    "areasMenu": "Show areas menu",
+    "allAreas": "All areas"
   },
   "cta": {
     "quote": "Get a Free Quote",
@@ -160,5 +162,17 @@
     "accept": "Accept",
     "decline": "Decline",
     "settings": "Cookie settings"
+  },
+  "areaNames": {
+    "dubai_marina": "Dubai Marina",
+    "jlt": "JLT",
+    "business_bay": "Business Bay",
+    "downtown_dubai": "Downtown Dubai",
+    "palm_jumeirah": "Palm Jumeirah",
+    "jvc": "JVC",
+    "al_barsha": "Al Barsha",
+    "arabian_ranches": "Arabian Ranches",
+    "dubai_hills": "Dubai Hills",
+    "silicon_oasis": "Dubai Silicon Oasis"
   }
 }

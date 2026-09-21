@@ -339,6 +339,11 @@
         "slug": "palm-jumeirah",
         "name": "Palm Jumeirah",
         "served": true
+      },
+      {
+        "slug": "jlt",
+        "name": "Jumeirah Lakes Towers (JLT)",
+        "served": true
       }
     ],
     "otherEmirates": {

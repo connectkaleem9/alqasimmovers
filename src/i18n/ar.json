@@ -18,7 +18,9 @@
     "reviews": "آراء العملاء",
     "blog": "المدونة",
     "servicesMenu": "عرض قائمة الخدمات",
-    "allServices": "جميع الخدمات"
+    "allServices": "جميع الخدمات",
+    "areasMenu": "عرض قائمة المناطق",
+    "allAreas": "جميع المناطق"
   },
   "cta": {
     "quote": "احصل على عرض سعر مجاني",
@@ -160,5 +162,17 @@
     "accept": "موافق",
     "decline": "رفض",
     "settings": "إعدادات ملفات الارتباط"
+  },
+  "areaNames": {
+    "dubai_marina": "دبي مارينا",
+    "jlt": "أبراج بحيرات جميرا",
+    "business_bay": "الخليج التجاري",
+    "downtown_dubai": "وسط مدينة دبي",
+    "palm_jumeirah": "نخلة جميرا",
+    "jvc": "قرية جميرا الدائرية",
+    "al_barsha": "البرشاء",
+    "arabian_ranches": "المرابع العربية",
+    "dubai_hills": "دبي هيلز",
+    "silicon_oasis": "واحة دبي للسيليكون"
   }
 }

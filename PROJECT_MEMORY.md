@@ -10,8 +10,8 @@
 ## Service pages live (2026-09-22)
 - All 14 service URLs from `docs/seo/page-inventory.md` are published in EN + AR, with briefs in `docs/seo/briefs/`.
 - Page content is generated from scratchpad scripts but the HTML in `src/pages/**` is the source of truth now — edit the HTML, not the scripts.
-- Still missing (next): `/areas/` hub + 10 area pages, `/about/`, `/contact/`, `/get-a-quote/` (+ thank-you, which `generate_lead` needs), `/faq/`, `/blog/`, privacy, terms, 404.
-- The Areas dropdown gets added to the header once the area pages exist.
+- Areas hub + 10 area pages shipped 2026-09-22, with the Areas dropdown in the header.
+- Still missing (next): `/about/`, `/contact/`, `/get-a-quote/` (+ thank-you, which `generate_lead` needs), `/faq/`, `/blog/`, privacy, terms, 404.
 
 ---
 
