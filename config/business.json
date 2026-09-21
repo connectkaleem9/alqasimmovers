@@ -109,9 +109,10 @@
     "note": "Recommend creating one later; site must be GBP-ready (consistent NAP)."
   },
   "socialProfiles": {
-    "value": [],
+    "facebook": null,
+    "instagram": null,
     "verified": false,
-    "note": "Design shows Facebook, Instagram, LinkedIn and YouTube icons but no URLs — icons stay hidden until the owner supplies links."
+    "note": "Top-bar icons render only for verified URLs. Owner to supply page links."
   },
   "services": {
     "note": "All tiers resolved 2026-09-19. International moving NOT offered. Details (own vs partner storage, which emirates, equipment) still to confirm before page copy.",

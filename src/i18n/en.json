@@ -41,7 +41,8 @@
     "quickLinks": "Quick Links",
     "location": "Dubai, United Arab Emirates",
     "tagline": "Professional Moving Services in Dubai",
-    "about": "Al Qasim Movers L.L.C is a Dubai moving company. We pack, move, dismantle and reassemble homes, villas and offices across all of Dubai and to every emirate."
+    "about": "Al Qasim Movers L.L.C is a Dubai moving company. We pack, move, dismantle and reassemble homes, villas and offices across all of Dubai and to every emirate.",
+    "designedBy": "Designed By"
   },
   "breadcrumb": {
     "label": "Breadcrumb",
@@ -139,5 +140,6 @@
     "crew": "Trained crew",
     "assembly": "Dismantle & reassemble",
     "coverage": "All Dubai & every emirate"
-  }
+  },
+  "langSwitch": "Language"
 }

@@ -159,8 +159,9 @@ function buildSchema(page, ctx) {
   if (street) org.address.streetAddress = street;
   const email = businessValue(business, 'email', { optional: true });
   if (email) org.email = email;
-  const social = business.socialProfiles?.verified ? business.socialProfiles.value : [];
-  if (social && social.length) org.sameAs = social;
+  const sp = business.socialProfiles || {};
+  const social = sp.verified ? [sp.facebook, sp.instagram].filter(Boolean) : [];
+  if (social.length) org.sameAs = social;
 
   if (page.meta.type === 'home') {
     graph.push(org, {
@@ -257,9 +258,10 @@ function renderSocialProof(business, t, preview) {
   } else {
     return '';
   }
-  const avatars = Array.from({ length: 5 }, () =>
-    '<span class="proof__avatar"><svg class="icon" aria-hidden="true" width="20" height="20"><use href="/images/icons/sprite.svg#users"></use></svg></span>'
-  ).join('');
+  const avatars = `<picture>
+          <source type="image/webp" srcset="/images/hero/customer-avatars.webp">
+          <img src="/images/hero/customer-avatars.png" alt="" width="390" height="109" class="proof__avatars-img" decoding="async">
+        </picture>`;
   return `<div class="proof"${sample ? ' data-sample="true"' : ''}>
         <div class="proof__avatars" aria-hidden="true">${avatars}</div>
         <div class="proof__text">
@@ -426,6 +428,18 @@ async function build() {
         ogLocale: lang === 'ar' ? 'ar_AE' : 'en_AE',
         bodyFont: lang === 'ar' ? 'tajawal-400.woff2' : 'poppins-400.woff2',
         year: String(new Date().getFullYear()),
+        socialLinks: (() => {
+          const sp = business.socialProfiles || {};
+          if (!sp.verified) return '';
+          return [['facebook', 'Facebook'], ['instagram', 'Instagram']]
+            .filter(([k]) => sp[k])
+            .map(([k, label]) => `<a class="topbar__social" href="${esc(sp[k])}" rel="noopener noreferrer" target="_blank" aria-label="${label}"><svg class="icon" aria-hidden="true" width="16" height="16"><use href="/images/icons/sprite.svg#${k}"></use></svg></a>`)
+            .join('');
+        })(),
+        langEnCurrent: lang === 'en' ? ' aria-current="true"' : '',
+        langArCurrent: lang === 'ar' ? ' aria-current="true"' : '',
+        enUrl: pair.en ? urlPath('en', page.route) : urlPath('en', ''),
+        arUrl: pair.ar ? urlPath('ar', page.route) : urlPath('ar', ''),
         cssVersion: assetVersion.css,
         jsVersion: assetVersion.js,
         tagline: esc(business.tagline?.verified ? business.tagline[lang] : ''),

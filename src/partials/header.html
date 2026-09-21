@@ -10,12 +10,10 @@
     <nav class="site-nav" id="site-nav" aria-label="{{t.nav.menu}}" data-nav>
       <ul class="site-nav__list">
         <li><a href="{{home}}">{{t.nav.home}}</a></li>
-        <li><a href="{{url:about}}">{{t.nav.about}}</a></li>
+        <li><a href="{{url:reviews}}">{{t.nav.reviews}}</a></li>
         <li><a href="{{url:services}}">{{t.nav.services}}</a></li>
         <li><a href="{{url:areas}}">{{t.nav.areas}}</a></li>
-        <li><a href="{{url:projects}}">{{t.nav.projects}}</a></li>
-        <li><a href="{{url:reviews}}">{{t.nav.reviews}}</a></li>
-        <li><a href="{{url:blog}}">{{t.nav.blog}}</a></li>
+        <li><a href="{{url:about}}">{{t.nav.about}}</a></li>
         <li><a href="{{url:contact}}">{{t.nav.contact}}</a></li>
       </ul>
       <div class="site-nav__actions">
@@ -25,11 +23,6 @@
             <b><bdi dir="ltr">{{business.phone.local}}</bdi></b>
             <small>{{t.cta.call}}</small>
           </span>
-        </a>
-        <a class="site-nav__lang" href="{{altUrl}}" lang="{{altLang}}" hreflang="{{altLang}}">{{t.otherLangName}}</a>
-        <a class="btn btn--whatsapp" href="{{business.whatsapp.link}}" rel="noopener noreferrer" target="_blank" data-event="whatsapp_click" data-placement="header">
-          <svg class="icon" aria-hidden="true" width="20" height="20"><use href="/images/icons/sprite.svg#whatsapp"></use></svg>
-          <span>{{t.cta.whatsapp}}</span>
         </a>
       </div>
     </nav>
