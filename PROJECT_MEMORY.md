@@ -7,6 +7,14 @@
 
 ---
 
+## Service pages live (2026-09-22)
+- All 14 service URLs from `docs/seo/page-inventory.md` are published in EN + AR, with briefs in `docs/seo/briefs/`.
+- Page content is generated from scratchpad scripts but the HTML in `src/pages/**` is the source of truth now — edit the HTML, not the scripts.
+- Still missing (next): `/areas/` hub + 10 area pages, `/about/`, `/contact/`, `/get-a-quote/` (+ thank-you, which `generate_lead` needs), `/faq/`, `/blog/`, privacy, terms, 404.
+- The Areas dropdown gets added to the header once the area pages exist.
+
+---
+
 ## Analytics + Search Console (2026-09-21)
 - GSC HTML-tag verification and the GA4 ID are in `config/business.json` → `integrations` (public IDs, not secrets).
 - GA4 is consent-gated (ADR in the Dependency Register). The owner still needs to: click Verify in Search Console, submit `sitemap.xml`, and mark `generate_lead`, `tel_click` and `whatsapp_click` as key events in GA4.

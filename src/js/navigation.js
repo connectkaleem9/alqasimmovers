@@ -1,7 +1,37 @@
 /** Mobile navigation: accessible disclosure with focus management. */
 const FOCUSABLE = 'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])';
 
+
+/** Header dropdowns (Services). Hover and keyboard focus work without JS;
+ *  the button makes them usable on touch screens and inside the mobile panel. */
+function initSubmenus() {
+  const groups = [...document.querySelectorAll('.site-nav__has-sub')];
+  if (!groups.length) return;
+  const close = (group) => {
+    group.dataset.open = 'false';
+    group.querySelector('[aria-expanded]')?.setAttribute('aria-expanded', 'false');
+  };
+  for (const group of groups) {
+    const button = group.querySelector('[aria-expanded]');
+    button?.addEventListener('click', () => {
+      const open = group.dataset.open === 'true';
+      for (const other of groups) close(other);
+      if (!open) {
+        group.dataset.open = 'true';
+        button.setAttribute('aria-expanded', 'true');
+      }
+    });
+  }
+  document.addEventListener('click', (e) => {
+    for (const group of groups) if (!group.contains(e.target)) close(group);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') groups.forEach(close);
+  });
+}
+
 export function initNavigation() {
+  initSubmenus();
   const toggle = document.querySelector('[data-nav-toggle]');
   const nav = document.querySelector('[data-nav]');
   if (!toggle || !nav) return;

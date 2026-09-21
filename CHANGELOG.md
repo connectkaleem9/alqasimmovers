@@ -2,6 +2,18 @@
 
 All notable changes to the Al Qasim Movers project. Newest first. Format: date — stage — summary.
 
+## 2026-09-22 — All 14 service pages published (EN + AR), Services dropdown
+
+### Added
+- **14 service URLs in both languages (28 pages):** home, apartment, villa, office and commercial movers; packing & unpacking; furniture moving; dismantling & assembly; storage; piano & heavy items; pickup truck with driver; the inter-emirate hub; and the Dubai→Abu Dhabi and Dubai→Sharjah route pages. Plus the `/services/` hub.
+- Targeting follows `docs/seo/keyword-map.md` (Stage 2 research): one primary keyword per page, no two pages sharing one. Arabic pages are written for Arabic searchers (نقل اثاث / فك وتركيب / تغليف), not translated.
+- Every page has unique content: what is included, how it works, the local reality (permits, lift slots, gated communities, mall hours, traffic), honest pricing factors, 5 FAQs and related-service links.
+- `Service` + `BreadcrumbList` schema from the build; SEO briefs for all 14 pages in `docs/seo/briefs/`.
+- **Services dropdown** in the header (hover, keyboard and touch), listing all 12 services plus "All services".
+
+### Integrity
+No prices, no invented capabilities. Storage is stated as a partner facility, same-day moves stay conditional, international moving is never mentioned as offered.
+
 ## 2026-09-22 — Projects page as cards, Projects in the navigation
 
 ### Changed

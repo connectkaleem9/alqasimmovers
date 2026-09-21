@@ -12,7 +12,28 @@
         <li><a href="{{home}}">{{t.nav.home}}</a></li>
         <li><a href="{{url:reviews}}">{{t.nav.reviews}}</a></li>
         <li><a href="{{url:projects}}">{{t.nav.projects}}</a></li>
-        <li><a href="{{url:services}}">{{t.nav.services}}</a></li>
+        <li class="site-nav__has-sub">
+          <a href="{{url:services}}">{{t.nav.services}}</a>
+          <button class="site-nav__sub-toggle" type="button" aria-expanded="false" aria-controls="nav-services">
+            <span class="visually-hidden">{{t.nav.servicesMenu}}</span>
+            <svg class="icon" aria-hidden="true" width="14" height="14"><use href="/images/icons/sprite.svg#chevron"></use></svg>
+          </button>
+          <ul class="site-nav__sub" id="nav-services">
+            <li><a href="{{url:services}}home-movers-dubai/">{{t.services.home}}</a></li>
+            <li><a href="{{url:services}}apartment-movers-dubai/">{{t.services.apartment}}</a></li>
+            <li><a href="{{url:services}}villa-movers-dubai/">{{t.services.villa}}</a></li>
+            <li><a href="{{url:services}}office-movers-dubai/">{{t.services.office}}</a></li>
+            <li><a href="{{url:services}}packing-services-dubai/">{{t.services.packing}}</a></li>
+            <li><a href="{{url:services}}furniture-movers-dubai/">{{t.services.furniture}}</a></li>
+            <li><a href="{{url:services}}furniture-assembly-dubai/">{{t.services.assembly}}</a></li>
+            <li><a href="{{url:services}}storage-services-dubai/">{{t.services.storage}}</a></li>
+            <li><a href="{{url:services}}commercial-movers-dubai/">{{t.services.commercial}}</a></li>
+            <li><a href="{{url:services}}pickup-truck-with-driver-dubai/">{{t.services.loading}}</a></li>
+            <li><a href="{{url:services}}piano-movers-dubai/">{{t.services.heavy}}</a></li>
+            <li><a href="{{url:services}}inter-emirate-movers/">{{t.services.interEmirate}}</a></li>
+            <li><a class="site-nav__sub-all" href="{{url:services}}">{{t.nav.allServices}}</a></li>
+          </ul>
+        </li>
         <li><a href="{{url:areas}}">{{t.nav.areas}}</a></li>
         <li><a href="{{url:about}}">{{t.nav.about}}</a></li>
         <li><a href="{{url:contact}}">{{t.nav.contact}}</a></li>
