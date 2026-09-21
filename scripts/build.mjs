@@ -238,8 +238,6 @@ function renderReviews(reviews, sample, t, lang, preview, business) {
   // show those (true) with a way for customers to leave a review.
   const sp = business.socialProof || {};
   if (sp.verified === true && sp.customers && sp.rating) {
-    const wa = business.whatsapp?.verified ? business.whatsapp.link : '';
-    const msg = encodeURIComponent(t.reviews.waMessage);
     return `<div class="review-summary">
       <div class="review-summary__score">
         <p class="review-summary__num">${esc(sp.rating)}</p>
@@ -255,7 +253,7 @@ function renderReviews(reviews, sample, t, lang, preview, business) {
       </div>
       <div class="review-summary__cta">
         <p>${esc(t.reviews.ctaText)}</p>
-        ${wa ? `<a class="btn btn--whatsapp" href="${esc(wa)}?text=${msg}" rel="noopener noreferrer" target="_blank" data-event="whatsapp_click" data-placement="review">${esc(t.reviews.ctaButton)}</a>` : ''}
+        <a class="btn btn--primary" href="${urlPath(lang, 'reviews')}#write-review">${esc(t.reviews.ctaButton)}</a>
       </div>
     </div>`;
   }
@@ -510,7 +508,8 @@ async function build() {
     // ---- write
     const outDir = path.join(DIST, urlPath(lang, page.route).replace(/^\//, ''));
     await mkdir(outDir, { recursive: true });
-    await writeFile(path.join(outDir, 'index.html'), html, 'utf8');
+    // pages that show live data (reviews, projects) are served by PHP
+    await writeFile(path.join(outDir, page.meta.php ? 'index.php' : 'index.html'), html, 'utf8');
 
     if (indexable) {
       sitemap.push({
@@ -533,7 +532,7 @@ async function build() {
   sm.push('</urlset>');
   await writeFile(path.join(DIST, 'sitemap.xml'), sm.join('\n'), 'utf8');
   await writeFile(path.join(DIST, 'robots.txt'),
-    `User-agent: *\nAllow: /\n\nSitemap: ${domain}/sitemap.xml\n`, 'utf8');
+    `User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /form/\n\nSitemap: ${domain}/sitemap.xml\n`, 'utf8');
 
   // 6. assets
   const css = cssSource;
@@ -548,6 +547,9 @@ async function build() {
       .replace(/(from\s+['"]\.\/[\w-]+\.js)(['"])/g, `$1?v=${assetVersion.js}$2`);
     await writeFile(path.join(DIST, 'js', path.basename(f)), code, 'utf8');
   }
+  // admin dashboard → /admin/
+  await copyDir(path.join(SRC, 'admin'), path.join(DIST, 'admin'));
+
   // PHP form handler → /form/ ; the sample config never ships (it would be a 404 anyway,
   // but .htaccess also denies *.sample.php)
   const phpFrom = path.join(SRC, 'php');

@@ -202,26 +202,6 @@
 .trust-bar__text b { font-weight: var(--fw-bold); font-size: var(--fs-small); color: var(--c-heading); }
 .trust-bar__text span { font-size: var(--fs-micro); color: var(--c-ink-soft); }
 
-/* phones: marquee. Two identical sets; moving by exactly one set (50%) loops seamlessly */
-@media (max-width: 47.99rem) {
-  .trust-bar .trust-bar__track {
-    display: flex; width: max-content; padding: var(--sp-4) 0;
-    animation: trust-marquee-ltr 22s linear infinite;
-  }
-  [dir="rtl"] .trust-bar .trust-bar__track { animation-name: trust-marquee-rtl; }
-  .trust-bar__item { flex: none; padding-inline: var(--sp-4); }
-  /* pause while someone is touching or reading it */
-  .trust-bar__inner:hover .trust-bar__track,
-  .trust-bar__inner:focus-within .trust-bar__track { animation-play-state: paused; }
-}
-@keyframes trust-marquee-ltr { from { transform: translateX(-50%); } to { transform: translateX(0); } }
-@keyframes trust-marquee-rtl { from { transform: translateX(0); } to { transform: translateX(50%); } }
-@media (max-width: 47.99rem) and (prefers-reduced-motion: reduce) {
-  /* no motion: let people swipe it instead */
-  .trust-bar .trust-bar__track { animation: none; }
-  .trust-bar__inner { overflow-x: auto; }
-  .trust-bar__item--dup { display: none; }
-}
 
 /* tablet and desktop: static, five columns, duplicates hidden */
 @media (min-width: 48rem) {
@@ -229,7 +209,6 @@
     display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--sp-3);
     padding: var(--sp-5) var(--sp-6);
   }
-  .trust-bar__item--dup { display: none; }
   .trust-bar__text { white-space: normal; }
   .trust-bar__text b { font-size: var(--fs-body); }
   .trust-bar__text span { font-size: var(--fs-small); }
@@ -239,6 +218,45 @@
 @media (min-width: 62rem) { .hero__inner { padding-block-end: calc(var(--sp-9) + 3rem); } }
 /* the bar's own layout box already leaves room above the services heading */
 .section--after-bar { padding-block-start: var(--sp-5); }
+
+/* ---------- phone auto-sliders (continuous loop) ----------
+   marquee.js clones each [data-marquee] track's children once and adds .is-marquee
+   to its parent. Moving the track by exactly 50% (one full set) loops seamlessly.
+   Every item carries its own trailing margin so the two halves are identical. */
+@media (max-width: 47.99rem) {
+  .is-marquee { overflow: hidden; }
+  .is-marquee > [data-marquee] {
+    display: flex; width: max-content; gap: 0; padding-block: var(--sp-2);
+    animation: mq-l2r-ltr var(--mq-speed, 26s) linear infinite;
+  }
+  .is-marquee > [data-marquee="r2l"] { animation-name: mq-r2l-ltr; }
+  [dir="rtl"] .is-marquee > [data-marquee="l2r"] { animation-name: mq-l2r-rtl; }
+  [dir="rtl"] .is-marquee > [data-marquee="r2l"] { animation-name: mq-r2l-rtl; }
+  .is-marquee > [data-marquee] > * { flex: none; margin-inline-end: var(--sp-4); }
+  /* pause while a finger is on it (WCAG 2.2.2) */
+  .is-marquee:hover > [data-marquee],
+  .is-marquee:active > [data-marquee],
+  .is-marquee:focus-within > [data-marquee] { animation-play-state: paused; }
+
+  /* item sizes inside each slider */
+  .is-marquee > .features > .feature { width: 15rem; padding: var(--sp-5); background: var(--c-white); border: 1px solid var(--c-hairline); border-radius: var(--r-md); box-shadow: var(--sh-1); }
+  .is-marquee > .steps > .step { width: 17rem; }
+  .trust-bar .is-marquee > .trust-bar__track { padding: var(--sp-4) 0; }
+  .trust-bar .is-marquee > .trust-bar__track > .trust-bar__item { padding-inline-start: var(--sp-4); margin-inline-end: var(--sp-3); }
+}
+/* The owner wants these sliders moving on every phone, including ones set to
+   "reduce motion" (the global reset in reset.css would otherwise stop them dead).
+   They still pause on touch. */
+@media (max-width: 47.99rem) and (prefers-reduced-motion: reduce) {
+  .is-marquee > [data-marquee] {
+    animation-duration: var(--mq-speed, 26s) !important;
+    animation-iteration-count: infinite !important;
+  }
+}
+@keyframes mq-l2r-ltr { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+@keyframes mq-r2l-ltr { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes mq-l2r-rtl { from { transform: translateX(0); } to { transform: translateX(50%); } }
+@keyframes mq-r2l-rtl { from { transform: translateX(50%); } to { transform: translateX(0); } }
 
 /* ---------- service cards ---------- */
 .card-grid { display: grid; gap: var(--sp-4); }
@@ -496,6 +514,50 @@
 .faq__q::after { content: ""; width: .6em; height: .6em; border-inline-end: 2px solid var(--c-orange); border-block-end: 2px solid var(--c-orange); transform: rotate(45deg); transition: transform var(--transition); flex: none; }
 .faq__item[open] .faq__q::after { transform: rotate(-135deg); }
 .faq__a { padding-block-end: var(--sp-4); }
+
+/* ---------- inner-page hero ---------- */
+.page-hero { background: var(--c-navy); color: var(--c-white); padding-block: var(--sp-6) var(--sp-7); }
+.page-hero__title { color: var(--c-white); font-size: var(--fs-h1); margin-block: var(--sp-2) var(--sp-3); }
+.page-hero__lead { color: var(--c-on-navy-soft); max-width: 44rem; }
+.breadcrumb--light, .breadcrumb--light a { color: var(--c-on-navy-soft); }
+.breadcrumb--light a:hover { color: var(--c-white); }
+.section--tight { padding-block: var(--sp-7); }
+.section-title { text-align: center; margin-block-end: var(--sp-5); }
+
+/* ---------- notices (form results) ---------- */
+.notice { max-width: 46rem; margin: 0 auto var(--sp-5); padding: var(--sp-4); border-radius: var(--r-md); font-weight: var(--fw-semi); text-align: center; }
+.notice--ok { background: rgb(14 124 67 / .1); color: var(--c-success); }
+.notice--error { background: rgb(179 38 30 / .08); color: var(--c-error); }
+
+/* ---------- review form ---------- */
+.review-form-wrap { display: grid; gap: var(--sp-6); max-width: 56rem; }
+@media (min-width: 62rem) { .review-form-wrap { grid-template-columns: 1fr 1.6fr; align-items: start; } }
+.review-form-intro p { color: var(--c-ink-soft); }
+.review-form { background: var(--c-white); border: 1px solid var(--c-hairline); border-radius: var(--r-lg); padding: var(--sp-5); box-shadow: var(--sh-1); }
+.rating-input { border: 0; padding: 0; margin: 0; }
+/* DOM order is 5..1 and the row is reversed, so the stars read 1..5 in either direction,
+   and "checked ~ label" lights the chosen star and every lower one */
+.rating-input__stars { display: inline-flex; flex-direction: row-reverse; gap: var(--sp-1); }
+.rating-input__stars input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.rating-input__stars label { font-size: 2rem; line-height: 1; color: var(--c-hairline); cursor: pointer; padding: var(--sp-1); transition: color var(--transition); }
+.rating-input__stars input:checked ~ label,
+.rating-input__stars label:hover, .rating-input__stars label:hover ~ label { color: var(--c-orange); }
+.rating-input__stars input:focus-visible + label { outline: var(--focus-ring); outline-offset: 2px; border-radius: var(--r-sm); }
+
+/* ---------- projects page ---------- */
+.project-list { display: grid; gap: var(--sp-7); }
+.project { border-block-end: 1px solid var(--c-hairline); padding-block-end: var(--sp-7); }
+.project:last-child { border-block-end: 0; }
+.project__title { font-size: var(--fs-h2); margin: 0; }
+.project__meta { color: var(--c-orange-text); font-weight: var(--fw-semi); margin-block: var(--sp-2) 0; }
+.project__desc { color: var(--c-ink-soft); margin-block: var(--sp-3) var(--sp-4); }
+.project__gallery { display: grid; gap: var(--sp-3); grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 48rem) { .project__gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 62rem) { .project__gallery { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.project__item { margin: 0; border-radius: var(--r-md); overflow: hidden; background: var(--c-surface-2); }
+.project__item img, .project__item video { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.project__item--video { grid-column: span 2; }
+.project__item--video video { aspect-ratio: 16 / 9; background: #000; }
 
 /* ---------- breadcrumbs ---------- */
 .breadcrumb { font-size: var(--fs-small); color: var(--c-ink-soft); padding-block: var(--sp-3); }

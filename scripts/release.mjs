@@ -8,7 +8,7 @@
  * It refuses to publish a preview build (sample reviews) or a build with errors.
  */
 import { execFileSync } from 'node:child_process';
-import { readFile, rm, mkdir, readdir, copyFile, stat } from 'node:fs/promises';
+import { readFile, writeFile, rm, mkdir, readdir, copyFile, stat } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
@@ -55,6 +55,8 @@ try {
     if (entry !== '.git') await rm(path.join(tmp, entry), { recursive: true, force: true });
   }
   await copyDir(DIST, tmp);
+  // uploads live only on the server; git must never track or remove them
+  await writeFile(path.join(tmp, '.gitignore'), 'uploads/*\n!uploads/.htaccess\n', 'utf8');
 
   // the temp clone has no identity of its own — reuse the one from this repo
   const who = {

@@ -1,0 +1,33 @@
+<!--page
+{
+  "title": "Our Projects | Recent Moves by Al Qasim Movers",
+  "description": "Photos and videos from recent home, villa and office moves completed by Al Qasim Movers across Dubai and the UAE.",
+  "type": "page",
+  "php": true,
+  "navTitle": "Projects",
+  "h1": "Projects",
+  "breadcrumbs": [
+    {
+      "name": "Projects",
+      "path": "projects"
+    }
+  ]
+}
+-->
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb breadcrumb--light" aria-label="{{t.breadcrumb.label}}">
+      <ol><li><a href="{{home}}">Home</a></li><li aria-current="page">Projects</li></ol>
+    </nav>
+    <h1 class="page-hero__title">Our Projects</h1>
+    <p class="page-hero__lead">Photos and videos from moves our team has completed across Dubai and the UAE.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <?php $LANG = 'en'; require $_SERVER['DOCUMENT_ROOT'] . '/form/views/projects-list.php'; ?>
+  </div>
+</section>
+
+{{> cta-band}}

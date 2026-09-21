@@ -1,0 +1,33 @@
+<!--page
+{
+  "title": "أعمالنا | عمليات نقل أنجزتها القاسم لنقل الأثاث",
+  "description": "صور وفيديوهات من عمليات نقل منازل وفلل ومكاتب أنجزتها القاسم لنقل الأثاث في دبي والإمارات.",
+  "type": "page",
+  "php": true,
+  "navTitle": "أعمالنا",
+  "h1": "أعمالنا",
+  "breadcrumbs": [
+    {
+      "name": "أعمالنا",
+      "path": "projects"
+    }
+  ]
+}
+-->
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb breadcrumb--light" aria-label="{{t.breadcrumb.label}}">
+      <ol><li><a href="{{home}}">الرئيسية</a></li><li aria-current="page">أعمالنا</li></ol>
+    </nav>
+    <h1 class="page-hero__title">أعمالنا</h1>
+    <p class="page-hero__lead">صور وفيديوهات من عمليات نقل أنجزها فريقنا في دبي والإمارات.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <?php $LANG = 'ar'; require $_SERVER['DOCUMENT_ROOT'] . '/form/views/projects-list.php'; ?>
+  </div>
+</section>
+
+{{> cta-band}}

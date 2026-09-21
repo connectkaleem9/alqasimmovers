@@ -1,0 +1,86 @@
+<!--page
+{
+  "title": "آراء العملاء | القاسم لنقل الأثاث في دبي",
+  "description": "اقرأ تقييمات عملاء القاسم لنقل الأثاث في دبي عن نقل المنازل والفلل والمكاتب، وشارك تجربتك في النقل معنا عبر نموذج التقييم في هذه الصفحة.",
+  "type": "page",
+  "php": true,
+  "navTitle": "آراء العملاء",
+  "h1": "آراء العملاء",
+  "breadcrumbs": [
+    {
+      "name": "آراء العملاء",
+      "path": "reviews"
+    }
+  ]
+}
+-->
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb breadcrumb--light" aria-label="{{t.breadcrumb.label}}">
+      <ol><li><a href="{{home}}">الرئيسية</a></li><li aria-current="page">آراء العملاء</li></ol>
+    </nav>
+    <h1 class="page-hero__title">آراء العملاء</h1>
+    <p class="page-hero__lead">ماذا يقول عملاؤنا عن النقل مع القاسم لنقل الأثاث. كل تقييم هنا كتبه عميل عبر النموذج أدناه.</p>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="container">
+    {{block:reviews}}
+  </div>
+</section>
+
+<section class="section section--soft section--tight" id="reviews">
+  <div class="container">
+    <h2 class="section-title">أحدث التقييمات</h2>
+    <?php $LANG = 'ar'; require $_SERVER['DOCUMENT_ROOT'] . '/form/views/reviews-list.php'; ?>
+  </div>
+</section>
+
+<section class="section" id="write-review">
+  <div class="container review-form-wrap">
+    <div class="review-form-intro">
+      <h2>اكتب تقييمك</h2>
+      <p>نقلت معنا؟ أخبر الآخرين في دبي عن تجربتك. سيظهر تقييمك في هذه الصفحة مباشرة.</p>
+    </div>
+    <form class="form form--2col review-form" method="POST" action="/form/review.php"
+          data-form data-msg-required="{{t.form.errorRequired}}" data-msg-phone="{{t.form.errorPhone}}"
+          data-msg-summary="{{t.form.errorSummary}}" data-msg-sending="{{t.form.sending}}">
+      <input type="hidden" name="lang" value="ar">
+      <input type="hidden" name="ts" value="" data-timestamp>
+      <p class="form__honey"><label>{{t.form.honeypot}} <input name="company-website" tabindex="-1" autocomplete="off"></label></p>
+
+      <div class="field">
+        <label class="field__label" for="rv-name">الاسم <span class="field__req">({{t.form.required}})</span></label>
+        <input class="input" id="rv-name" name="name" type="text" required maxlength="60" autocomplete="name">
+      </div>
+      <div class="field">
+        <label class="field__label" for="rv-phone">رقم الهاتف <span class="field__req">({{t.form.required}})</span></label>
+        <input class="input" id="rv-phone" name="phone" type="tel" required maxlength="20" inputmode="tel" autocomplete="tel" placeholder="05X XXX XXXX" aria-describedby="rv-phone-hint">
+        <p class="field__hint" id="rv-phone-hint">لا يظهر للعامة — فقط لنتأكد أنك من عملائنا.</p>
+      </div>
+      <div class="field">
+        <label class="field__label" for="rv-area">المنطقة (اختياري)</label>
+        <input class="input" id="rv-area" name="area" type="text" maxlength="60" placeholder="مثال: دبي مارينا">
+      </div>
+      <div class="field">
+        <label class="field__label" for="rv-service">الخدمة (اختياري)</label>
+        <select class="select" id="rv-service" name="service"><option value="">اختر الخدمة</option><option value="home">نقل منازل</option><option value="apartment">نقل شقق</option><option value="villa">نقل فلل</option><option value="office">نقل مكاتب</option><option value="packing">تغليف وتفريغ</option><option value="furniture">نقل أثاث</option><option value="storage">تخزين</option><option value="inter-emirate">نقل بين الإمارات</option><option value="other">أخرى</option></select>
+      </div>
+      <fieldset class="field field--wide rating-input">
+        <legend class="field__label">تقييمك <span class="field__req">({{t.form.required}})</span></legend>
+        <div class="rating-input__stars"><input type="radio" id="rv-star-5" name="rating" value="5" required><label for="rv-star-5" title="5 نجوم"><span class="visually-hidden">5 نجوم</span>★</label><input type="radio" id="rv-star-4" name="rating" value="4" required><label for="rv-star-4" title="4 نجوم"><span class="visually-hidden">4 نجوم</span>★</label><input type="radio" id="rv-star-3" name="rating" value="3" required><label for="rv-star-3" title="3 نجوم"><span class="visually-hidden">3 نجوم</span>★</label><input type="radio" id="rv-star-2" name="rating" value="2" required><label for="rv-star-2" title="2 نجوم"><span class="visually-hidden">2 نجوم</span>★</label><input type="radio" id="rv-star-1" name="rating" value="1" required><label for="rv-star-1" title="1 نجمة"><span class="visually-hidden">1 نجمة</span>★</label></div>
+      </fieldset>
+      <div class="field field--wide">
+        <label class="field__label" for="rv-body">تقييمك <span class="field__req">({{t.form.required}})</span></label>
+        <textarea class="textarea" id="rv-body" name="body" required minlength="20" maxlength="1000" rows="5" aria-describedby="rv-body-hint"></textarea>
+        <p class="field__hint" id="rv-body-hint">20 حرفاً على الأقل. يرجى عدم إضافة روابط.</p>
+      </div>
+      <div class="field--wide">
+        <button class="btn btn--primary" type="submit">إرسال التقييم</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+{{> cta-band}}

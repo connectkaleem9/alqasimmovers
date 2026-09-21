@@ -1,0 +1,86 @@
+<!--page
+{
+  "title": "Customer Reviews | Al Qasim Movers Dubai",
+  "description": "Read reviews from Al Qasim Movers customers across Dubai, and share your own experience of moving with us.",
+  "type": "page",
+  "php": true,
+  "navTitle": "Reviews",
+  "h1": "Reviews",
+  "breadcrumbs": [
+    {
+      "name": "Reviews",
+      "path": "reviews"
+    }
+  ]
+}
+-->
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb breadcrumb--light" aria-label="{{t.breadcrumb.label}}">
+      <ol><li><a href="{{home}}">Home</a></li><li aria-current="page">Reviews</li></ol>
+    </nav>
+    <h1 class="page-hero__title">Customer Reviews</h1>
+    <p class="page-hero__lead">What our customers say about moving with Al Qasim Movers. Every review here was written by a customer through the form below.</p>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="container">
+    {{block:reviews}}
+  </div>
+</section>
+
+<section class="section section--soft section--tight" id="reviews">
+  <div class="container">
+    <h2 class="section-title">Latest reviews</h2>
+    <?php $LANG = 'en'; require $_SERVER['DOCUMENT_ROOT'] . '/form/views/reviews-list.php'; ?>
+  </div>
+</section>
+
+<section class="section" id="write-review">
+  <div class="container review-form-wrap">
+    <div class="review-form-intro">
+      <h2>Write a review</h2>
+      <p>Moved with us? Tell other people in Dubai how it went. Your review appears on this page straight away.</p>
+    </div>
+    <form class="form form--2col review-form" method="POST" action="/form/review.php"
+          data-form data-msg-required="{{t.form.errorRequired}}" data-msg-phone="{{t.form.errorPhone}}"
+          data-msg-summary="{{t.form.errorSummary}}" data-msg-sending="{{t.form.sending}}">
+      <input type="hidden" name="lang" value="en">
+      <input type="hidden" name="ts" value="" data-timestamp>
+      <p class="form__honey"><label>{{t.form.honeypot}} <input name="company-website" tabindex="-1" autocomplete="off"></label></p>
+
+      <div class="field">
+        <label class="field__label" for="rv-name">Your name <span class="field__req">({{t.form.required}})</span></label>
+        <input class="input" id="rv-name" name="name" type="text" required maxlength="60" autocomplete="name">
+      </div>
+      <div class="field">
+        <label class="field__label" for="rv-phone">Phone number <span class="field__req">({{t.form.required}})</span></label>
+        <input class="input" id="rv-phone" name="phone" type="tel" required maxlength="20" inputmode="tel" autocomplete="tel" placeholder="05X XXX XXXX" aria-describedby="rv-phone-hint">
+        <p class="field__hint" id="rv-phone-hint">Not shown publicly — only so we can confirm you are our customer.</p>
+      </div>
+      <div class="field">
+        <label class="field__label" for="rv-area">Area (optional)</label>
+        <input class="input" id="rv-area" name="area" type="text" maxlength="60" placeholder="e.g. Dubai Marina">
+      </div>
+      <div class="field">
+        <label class="field__label" for="rv-service">Service (optional)</label>
+        <select class="select" id="rv-service" name="service"><option value="">Choose a service</option><option value="home">Home moving</option><option value="apartment">Apartment moving</option><option value="villa">Villa moving</option><option value="office">Office moving</option><option value="packing">Packing & unpacking</option><option value="furniture">Furniture moving</option><option value="storage">Storage</option><option value="inter-emirate">Move between emirates</option><option value="other">Other</option></select>
+      </div>
+      <fieldset class="field field--wide rating-input">
+        <legend class="field__label">Your rating <span class="field__req">({{t.form.required}})</span></legend>
+        <div class="rating-input__stars"><input type="radio" id="rv-star-5" name="rating" value="5" required><label for="rv-star-5" title="5 stars"><span class="visually-hidden">5 stars</span>★</label><input type="radio" id="rv-star-4" name="rating" value="4" required><label for="rv-star-4" title="4 stars"><span class="visually-hidden">4 stars</span>★</label><input type="radio" id="rv-star-3" name="rating" value="3" required><label for="rv-star-3" title="3 stars"><span class="visually-hidden">3 stars</span>★</label><input type="radio" id="rv-star-2" name="rating" value="2" required><label for="rv-star-2" title="2 stars"><span class="visually-hidden">2 stars</span>★</label><input type="radio" id="rv-star-1" name="rating" value="1" required><label for="rv-star-1" title="1 star"><span class="visually-hidden">1 star</span>★</label></div>
+      </fieldset>
+      <div class="field field--wide">
+        <label class="field__label" for="rv-body">Your review <span class="field__req">({{t.form.required}})</span></label>
+        <textarea class="textarea" id="rv-body" name="body" required minlength="20" maxlength="1000" rows="5" aria-describedby="rv-body-hint"></textarea>
+        <p class="field__hint" id="rv-body-hint">At least 20 characters. Please do not include links.</p>
+      </div>
+      <div class="field--wide">
+        <button class="btn btn--primary" type="submit">Submit Review</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+{{> cta-band}}

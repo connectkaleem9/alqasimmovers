@@ -39,14 +39,22 @@ function resolveLocal(href) {
   const clean = href.split('#')[0].split('?')[0];
   if (!clean.startsWith('/')) return { unsupported: true, clean };
   const target = path.join(DIST, clean);
-  if (clean.endsWith('/')) return { file: path.join(target, 'index.html'), clean };
+  if (clean.endsWith('/')) {
+    const html = path.join(target, 'index.html');
+    return { file: existsSync(html) ? html : path.join(target, 'index.php'), clean };
+  }
   return { file: target, clean };
 }
 
 const run = async () => {
   if (!existsSync(DIST)) { console.error('dist/ not found — run `node scripts/build.mjs` first'); process.exit(1); }
 
-  const files = (await walk(DIST)).filter((f) => f.endsWith('.html'));
+  // public pages: .html everywhere, plus index.php pages outside /form/ and /admin/
+  const files = (await walk(DIST)).filter((f) => {
+    const rel = path.relative(DIST, f).replace(/\\/g, '/');
+    if (rel.startsWith('form/') || rel.startsWith('admin/')) return false;
+    return f.endsWith('.html') || f.endsWith('index.php');
+  });
   if (!files.length) errors.push('no HTML files in dist/');
 
   const titles = new Map();
@@ -54,7 +62,7 @@ const run = async () => {
   const pages = [];
 
   for (const file of files) {
-    const rel = '/' + path.relative(DIST, file).replace(/\\/g, '/').replace(/index\.html$/, '');
+    const rel = '/' + path.relative(DIST, file).replace(/\\/g, '/').replace(/index\.(html|php)$/, '');
     const html = await readFile(file, 'utf8');
     pages.push({ rel, html, file });
 

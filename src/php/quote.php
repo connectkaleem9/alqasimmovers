@@ -15,7 +15,7 @@ declare(strict_types=1);
  *  - IP addresses are hashed with a salt before storage.
  */
 
-require __DIR__ . '/lib.php';
+require __DIR__ . '/bootstrap.php';
 
 /* --------------------------------------------------------------------- run */
 
@@ -35,7 +35,7 @@ if (!empty($_POST['company-website'])) {
 
 $config = [];
 try {
-    $config = load_config();
+    $config = config();
 } catch (Throwable $e) {
     error_log('[quote] config: ' . $e->getMessage());
     bail($backUrl, 'server');
@@ -98,31 +98,25 @@ $userAgent = clean($_SERVER['HTTP_USER_AGENT'] ?? '', 255);
 $ip = $_SERVER['HTTP_CF_CONNECTING_IP'] ?? $_SERVER['REMOTE_ADDR'] ?? '';
 $ipHash = hash('sha256', ($config['ip_salt'] ?? '') . $ip);
 
-// 4. Store
+// 4. Store (works with SQLite or MySQL — see bootstrap.php)
 try {
-    $db = $config['db'];
-    $dsn = sprintf('mysql:host=%s;dbname=%s;charset=%s', $db['host'], $db['name'], $db['charset'] ?? 'utf8mb4');
-    $pdo = new PDO($dsn, $db['user'], $db['password'], [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        PDO::ATTR_EMULATE_PREPARES => false,
-    ]);
+    $pdo = db();
 
-    // Rate limit per hashed IP
+    // Rate limit per hashed IP (portable: the cutoff is computed in PHP)
     $limit = (int) ($config['limits']['per_ip_per_10min'] ?? 5);
-    $recent = $pdo->prepare('SELECT COUNT(*) FROM leads WHERE ip_hash = ? AND created_at > (NOW() - INTERVAL 10 MINUTE)');
-    $recent->execute([$ipHash]);
+    $recent = $pdo->prepare('SELECT COUNT(*) FROM leads WHERE ip_hash = ? AND created_at >= ?');
+    $recent->execute([$ipHash, gmdate('Y-m-d H:i:s', time() - 600)]);
     if ((int) $recent->fetchColumn() >= $limit) {
         redirect($thanksUrl);   // do not tell a flooder anything useful
     }
 
     $stmt = $pdo->prepare(
-        'INSERT INTO leads (lang, source_page, name, phone, email, moving_from, moving_to,
+        'INSERT INTO leads (created_at, lang, source_page, name, phone, email, moving_from, moving_to,
                             property_type, moving_date, services, message, ip_hash, user_agent)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
     );
     $stmt->execute([
-        $lang, $sourcePage, $name, $phone, $email ?: null, $movingFrom ?: null, $movingTo ?: null,
+        now_utc(), $lang, $sourcePage, $name, $phone, $email ?: null, $movingFrom ?: null, $movingTo ?: null,
         $propertyType ?: null, $movingDate, $servicesText, $message ?: null, $ipHash, $userAgent,
     ]);
     $leadId = (int) $pdo->lastInsertId();
