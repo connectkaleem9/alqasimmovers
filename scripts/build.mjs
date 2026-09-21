@@ -498,7 +498,8 @@ async function build() {
       warn(`${where}: description is ${page.meta.description.length} chars (aim 140–160)`);
     }
     const h1s = (html.match(/<h1[\s>]/g) || []).length;
-    if (h1s !== 1) fail(`${where}: page has ${h1s} <h1> elements (needs exactly 1)`);
+    // "shell" pages are layout wrappers for PHP (the admin supplies its own <h1>)
+    if (h1s !== 1 && !page.meta.shell) fail(`${where}: page has ${h1s} <h1> elements (needs exactly 1)`);
     if (html.includes('[[OWNER-INPUT')) fail(`${where}: contains an [[OWNER-INPUT placeholder`);
     if (/lorem ipsum/i.test(html)) fail(`${where}: contains lorem ipsum`);
     const key = `${lang}|${page.meta.title}`;
@@ -506,6 +507,13 @@ async function build() {
     else titles.set(key, where);
 
     // ---- write
+    // the admin shell: site header + footer around a marker that /admin/index.php
+    // replaces with the dashboard. Not a public page, never in the sitemap.
+    if (page.meta.shell) {
+      await mkdir(path.join(DIST, 'admin'), { recursive: true });
+      await writeFile(path.join(DIST, 'admin', 'shell.html'), html, 'utf8');
+      continue;
+    }
     const outDir = path.join(DIST, urlPath(lang, page.route).replace(/^\//, ''));
     await mkdir(outDir, { recursive: true });
     // pages that show live data (reviews, projects) are served by PHP

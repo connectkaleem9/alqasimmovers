@@ -40,20 +40,38 @@ try {
 function page(string $title, string $body, bool $nav = false): never
 {
     $user = $_SESSION['admin_name'] ?? '';
-    $navHtml = $nav ? '<nav class="bar__nav">'
+    $bar = $nav ? '<div class="bar"><span class="bar__brand">Admin dashboard</span><nav class="bar__nav" aria-label="Admin">'
         . link_tab('projects', 'Projects') . link_tab('reviews', 'Reviews') . link_tab('leads', 'Leads')
         . '</nav><form method="post" action="/admin/" class="bar__logout">' . csrf_field()
         . '<input type="hidden" name="action" value="logout"><span>' . e($user) . '</span>'
-        . '<button class="btn btn--ghost btn--sm" type="submit">Log out</button></form>' : '';
+        . '<button class="btn btn--ghost btn--sm" type="submit">Log out</button></form></div>' : '';
+    $inner = '<div class="admin-app">' . $bar . '<div class="wrap">' . flash_html() . $body . '</div></div>';
+    $assets = '<link rel="stylesheet" href="/admin/admin.css?v=' . asset_v('admin.css') . '">'
+        . '<script src="/admin/admin.js?v=' . asset_v('admin.js') . '" defer></script>';
+
+    // The build renders the real site header + footer into shell.html around a marker.
+    $shell = @file_get_contents(__DIR__ . '/shell.html');
+    if ($shell !== false && str_contains($shell, '<!--ADMIN-CONTENT-->')) {
+        $shell = preg_replace('~<title>.*?</title>~s', '<title>' . e($title) . ' · Al Qasim Movers Admin</title>', $shell, 1);
+        $shell = preg_replace('~<meta name="robots"[^>]*>~', '<meta name="robots" content="noindex, nofollow">', $shell, 1);
+        $shell = str_replace('</head>', $assets . '</head>', $shell);
+        [$head, $foot] = explode('<!--ADMIN-CONTENT-->', $shell, 2);
+        echo $head, $inner, $foot;
+        exit;
+    }
+    // fallback if the shell is missing: the dashboard still works without the site chrome
     echo '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">'
         . '<meta name="viewport" content="width=device-width, initial-scale=1">'
         . '<meta name="robots" content="noindex, nofollow">'
-        . '<title>' . e($title) . ' · Al Qasim Movers Admin</title>'
-        . '<link rel="stylesheet" href="/admin/admin.css"><script src="/admin/admin.js" defer></script></head><body>'
-        . '<header class="bar"><a class="bar__brand" href="/admin/">Al Qasim Movers <small>Admin</small></a>' . $navHtml
-        . '<a class="bar__site" href="/" target="_blank" rel="noopener">View site ↗</a></header>'
-        . '<main class="wrap">' . flash_html() . $body . '</main></body></html>';
+        . '<title>' . e($title) . ' · Al Qasim Movers Admin</title>' . $assets . '</head><body>'
+        . '<main>' . $inner . '</main></body></html>';
     exit;
+}
+
+function asset_v(string $file): string
+{
+    $t = @filemtime(__DIR__ . '/' . $file);
+    return $t ? (string) $t : '1';
 }
 
 function link_tab(string $view, string $label): string

@@ -2,6 +2,14 @@
 
 All notable changes to the Al Qasim Movers project. Newest first. Format: date — stage — summary.
 
+## 2026-09-21 — Review form fixes, admin inside the site layout
+
+### Fixed
+- Review form: the name box no longer stretches to match the phone box (whose hint made it taller); the stars now start at the reading edge instead of floating right, empty stars are visible, and each star is a 44px tap target. The Arabic review field got its own label ("اكتب تجربتك") instead of repeating "تقييمك".
+
+### Changed
+- Admin login and dashboard now show the site's top bar, header and footer. The build renders them into `admin/shell.html`, which is blocked from direct access. The admin styles are scoped to `.admin-app`.
+
 ## 2026-09-21 — Live reviews, projects gallery, admin dashboard, real mobile sliders
 
 ### Added

@@ -1,0 +1,4 @@
+# shell.html is only a layout template read by index.php
+<Files "shell.html">
+  Require all denied
+</Files>

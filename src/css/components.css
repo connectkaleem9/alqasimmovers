@@ -478,7 +478,7 @@
   .form--2col { grid-template-columns: 1fr 1fr; }
   .form--2col .field--wide, .form--2col .form__summary, .form--2col .form__honey { grid-column: 1 / -1; }
 }
-.field { display: grid; gap: var(--sp-2); }
+.field { display: grid; gap: var(--sp-2); align-content: start; }
 .field__label { font-weight: var(--fw-semi); font-size: var(--fs-small); color: var(--c-heading); }
 .field__hint { font-size: var(--fs-small); color: var(--c-ink-soft); }
 .field__req { color: var(--c-ink-soft); font-weight: var(--fw-regular); }
@@ -534,12 +534,16 @@
 @media (min-width: 62rem) { .review-form-wrap { grid-template-columns: 1fr 1.6fr; align-items: start; } }
 .review-form-intro p { color: var(--c-ink-soft); }
 .review-form { background: var(--c-white); border: 1px solid var(--c-hairline); border-radius: var(--r-lg); padding: var(--sp-5); box-shadow: var(--sh-1); }
-.rating-input { border: 0; padding: 0; margin: 0; }
+@media (min-width: 48rem) { .review-form { padding: var(--sp-6); } }
+.review-form-intro h2 { margin-block-end: var(--sp-3); }
+.review-form .btn { width: 100%; }
+.rating-input { border: 0; padding: 0; margin: 0; min-width: 0; }
+.rating-input .field__label { display: block; margin-block-end: var(--sp-2); padding: 0; }
 /* DOM order is 5..1 and the row is reversed, so the stars read 1..5 in either direction,
    and "checked ~ label" lights the chosen star and every lower one */
-.rating-input__stars { display: inline-flex; flex-direction: row-reverse; gap: var(--sp-1); }
+.rating-input__stars { display: flex; flex-direction: row-reverse; justify-content: flex-end; gap: var(--sp-1); }
 .rating-input__stars input { position: absolute; opacity: 0; width: 1px; height: 1px; }
-.rating-input__stars label { font-size: 2rem; line-height: 1; color: var(--c-hairline); cursor: pointer; padding: var(--sp-1); transition: color var(--transition); }
+.rating-input__stars label { font-size: 2rem; line-height: 1; color: var(--c-border); cursor: pointer; padding: var(--sp-1); min-width: 2.75rem; min-height: 2.75rem; display: grid; place-items: center; transition: color var(--transition); }
 .rating-input__stars input:checked ~ label,
 .rating-input__stars label:hover, .rating-input__stars label:hover ~ label { color: var(--c-orange); }
 .rating-input__stars input:focus-visible + label { outline: var(--focus-ring); outline-offset: 2px; border-radius: var(--r-sm); }
