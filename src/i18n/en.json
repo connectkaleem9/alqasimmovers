@@ -128,5 +128,16 @@
   "reviews": {
     "sampleBanner": "SAMPLE LAYOUT — these are placeholder cards, not real customer reviews. They appear in local preview only and are never published.",
     "empty": "We publish reviews only from customers who have actually moved with us, and only with their permission. Real reviews will appear here as soon as we have them — we will never invent one."
+  },
+  "proof": {
+    "customers": "Happy Customers",
+    "rating": "Rating",
+    "sample": "SAMPLE — confirm real figures"
+  },
+  "trust": {
+    "packing": "Careful packing",
+    "crew": "Trained crew",
+    "assembly": "Dismantle & reassemble",
+    "coverage": "All Dubai & every emirate"
   }
 }

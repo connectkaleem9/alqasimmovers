@@ -29,17 +29,24 @@
         </a>
       </div>
 
-      <ul class="hero__points">
-        <li class="hero__point"><svg class="icon" aria-hidden="true" width="22" height="22"><use href="/images/icons/sprite.svg#shield"></use></svg><span>Careful packing</span></li>
-        <li class="hero__point"><svg class="icon" aria-hidden="true" width="22" height="22"><use href="/images/icons/sprite.svg#users"></use></svg><span>Trained crew</span></li>
-        <li class="hero__point"><svg class="icon" aria-hidden="true" width="22" height="22"><use href="/images/icons/sprite.svg#tools"></use></svg><span>Dismantle &amp; reassemble</span></li>
-        <li class="hero__point"><svg class="icon" aria-hidden="true" width="22" height="22"><use href="/images/icons/sprite.svg#truck"></use></svg><span>All Dubai &amp; every emirate</span></li>
-      </ul>
+      {{block:socialProof}}
     </div>
   </div>
 </section>
 
-<section class="section">
+<div class="trust-bar">
+  <div class="container">
+    <ul class="trust-bar__inner">
+      <li class="trust-bar__item"><svg class="icon" aria-hidden="true" width="26" height="26"><use href="/images/icons/sprite.svg#shield"></use></svg><span>{{t.trust.packing}}</span></li>
+      <li class="trust-bar__item"><svg class="icon" aria-hidden="true" width="26" height="26"><use href="/images/icons/sprite.svg#users"></use></svg><span>{{t.trust.crew}}</span></li>
+      <li class="trust-bar__item"><svg class="icon" aria-hidden="true" width="26" height="26"><use href="/images/icons/sprite.svg#tools"></use></svg><span>{{t.trust.assembly}}</span></li>
+      <li class="trust-bar__item"><svg class="icon" aria-hidden="true" width="26" height="26"><use href="/images/icons/sprite.svg#truck"></use></svg><span>{{t.trust.coverage}}</span></li>
+    </ul>
+  </div>
+</div>
+
+
+<section class="section section--after-bar">
   <div class="container">
     <div class="section__head">
       <p class="eyebrow">Our Services</p>

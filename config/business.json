@@ -436,5 +436,17 @@
     "ar": "شركة نقل أثاث محترفة في دبي. نجعل نقلك بسيطاً وآمناً وبلا متاعب.",
     "verified": true,
     "source": "Owner design mockup 2026-09-20 (design-reference/alqasimhompage.png)"
+  },
+  "socialProof": {
+    "customers": null,
+    "rating": null,
+    "ratingCount": null,
+    "ratingSource": null,
+    "verified": false,
+    "note": "Shown in the hero only when verified. 'customers' = real number of completed moves. 'rating' must come from a real review platform ('ratingSource', e.g. Google once a Business Profile exists) with its real review count. Never estimated.",
+    "previewSample": {
+      "customers": "1,200+",
+      "rating": "4.9"
+    }
   }
 }

@@ -235,6 +235,39 @@ function renderReviews(reviews, sample, t, lang, preview) {
   return `<p class="empty-note">${esc(t.reviews.empty)}</p>`;
 }
 
+/* -------------------------------------------------------- social proof */
+
+/**
+ * "1,200+ Happy Customers · ★★★★★ (4.9 Rating)" strip for the hero.
+ * Renders only when business.socialProof is verified. Under PREVIEW=1 it renders
+ * the owner's proposed sample figures with a visible SAMPLE tag. A normal build
+ * with unverified figures renders nothing — a customer count or rating must never
+ * be invented (content-integrity-rules.md).
+ */
+function renderSocialProof(business, t, preview) {
+  const sp = business.socialProof || {};
+  let customers, rating, source, sample = false;
+  if (sp.verified === true && sp.customers && sp.rating) {
+    ({ customers, rating } = sp);
+    source = sp.ratingSource || '';
+  } else if (preview && sp.previewSample) {
+    ({ customers, rating } = sp.previewSample);
+    sample = true;
+  } else {
+    return '';
+  }
+  const avatars = Array.from({ length: 5 }, () =>
+    '<span class="proof__avatar"><svg class="icon" aria-hidden="true" width="20" height="20"><use href="/images/icons/sprite.svg#users"></use></svg></span>'
+  ).join('');
+  return `<div class="proof"${sample ? ' data-sample="true"' : ''}>
+        <div class="proof__avatars" aria-hidden="true">${avatars}</div>
+        <div class="proof__text">
+          <p class="proof__count">${esc(customers)} ${esc(t.proof.customers)}</p>
+          <p class="proof__rating"><span class="proof__stars" aria-hidden="true">★★★★★</span> <span>(${esc(rating)} ${esc(t.proof.rating)}${source ? ' · ' + esc(source) : ''})</span></p>
+        </div>${sample ? `\n        <span class="proof__sample">${esc(t.proof.sample)}</span>` : ''}
+      </div>`;
+}
+
 /* -------------------------------------------------------------- rendering */
 
 function renderTokens(tpl, ctx) {
@@ -369,7 +402,10 @@ async function build() {
     const ctx = {
       business, domain, lang, t, page: page.meta, urls, legal,
       navLists: { services: listFor('services'), areas: listFor('areas') },
-      blocks: { reviews: renderReviews(reviewsFile.reviews || [], sampleFile.reviews || [], t, lang, preview) },
+      blocks: {
+        reviews: renderReviews(reviewsFile.reviews || [], sampleFile.reviews || [], t, lang, preview),
+        socialProof: renderSocialProof(business, t, preview)
+      },
       scalars: {
         lang, dir: t.dir, home: urls.home, domain,
         altLang: other,
