@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /form/
 
 Sitemap: https://alqasimmovers.com/sitemap.xml

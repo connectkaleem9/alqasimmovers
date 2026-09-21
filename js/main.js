@@ -1,10 +1,12 @@
-import { initNavigation } from './navigation.js?v=d632417d75';
-import { initForms } from './forms.js?v=d632417d75';
-import { initAnalytics } from './analytics.js?v=d632417d75';
+import { initNavigation } from './navigation.js?v=dd942a79d2';
+import { initForms } from './forms.js?v=dd942a79d2';
+import { initAnalytics } from './analytics.js?v=dd942a79d2';
+import { initMarquees } from './marquee.js?v=dd942a79d2';
 
 initNavigation();
 initForms();
 initAnalytics();
+initMarquees();
 
 /* Hide the sticky CTA bar while a text field has focus so it never covers
    the field or the on-screen keyboard (accessibility finding A11Y-D1). */
