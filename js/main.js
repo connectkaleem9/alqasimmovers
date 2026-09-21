@@ -1,6 +1,6 @@
-import { initNavigation } from './navigation.js';
-import { initForms } from './forms.js';
-import { initAnalytics } from './analytics.js';
+import { initNavigation } from './navigation.js?v=d632417d75';
+import { initForms } from './forms.js?v=d632417d75';
+import { initAnalytics } from './analytics.js?v=d632417d75';
 
 initNavigation();
 initForms();
