@@ -14,7 +14,8 @@
     "check": "node scripts/build.mjs && node scripts/qa-crawl.mjs && node scripts/secret-scan.mjs",
     "serve": "node --run build && node scripts/serve.mjs",
     "test": "php tests/lib-test.php",
-    "serve:php": "php -S localhost:4173 -t dist"
+    "serve:php": "php -S localhost:4173 -t dist",
+    "release": "node scripts/release.mjs"
   },
   "dependencies": {},
   "devDependencies": {}
