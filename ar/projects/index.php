@@ -26,7 +26,7 @@
 <link rel="apple-touch-icon" href="/images/logo/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/fonts/tajawal-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/site.css?v=dfc084ac54">
+<link rel="stylesheet" href="/css/site.css?v=3d254fdcd0">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"MovingCompany","@id":"https://alqasimmovers.com/#business","name":"القاسم لنقل الأثاث","url":"https://alqasimmovers.com/ar/","telephone":"+971556869224","image":"https://alqasimmovers.com/images/logo/mark-512.png","address":{"@type":"PostalAddress","addressLocality":"Dubai","addressRegion":"Dubai","addressCountry":"AE"},"areaServed":[{"@type":"City","name":"Dubai"},{"@type":"AdministrativeArea","name":"Abu Dhabi"},{"@type":"AdministrativeArea","name":"Sharjah"},{"@type":"AdministrativeArea","name":"Ajman"},{"@type":"AdministrativeArea","name":"Umm Al Quwain"},{"@type":"AdministrativeArea","name":"Ras Al Khaimah"},{"@type":"AdministrativeArea","name":"Fujairah"}],"email":"info@alqasimmovers.com"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"أعمالنا","item":"https://alqasimmovers.com/ar/projects/"}]}]}</script>
 </head>
 <body class="page page--page">
@@ -55,6 +55,7 @@
       <ul class="site-nav__list">
         <li><a href="/ar/">الرئيسية</a></li>
         <li><a href="/ar/reviews/">آراء العملاء</a></li>
+        <li><a href="/ar/projects/">أعمالنا</a></li>
         <li><a href="/ar/services/">خدماتنا</a></li>
         <li><a href="/ar/areas/">المناطق</a></li>
         <li><a href="/ar/about/">من نحن</a></li>
