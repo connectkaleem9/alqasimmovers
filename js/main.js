@@ -1,7 +1,7 @@
-import { initNavigation } from './navigation.js?v=030afb3ab8';
-import { initForms } from './forms.js?v=030afb3ab8';
-import { initAnalytics } from './analytics.js?v=030afb3ab8';
-import { initMarquees } from './marquee.js?v=030afb3ab8';
+import { initNavigation } from './navigation.js?v=8a2e9604b0';
+import { initForms } from './forms.js?v=8a2e9604b0';
+import { initAnalytics } from './analytics.js?v=8a2e9604b0';
+import { initMarquees } from './marquee.js?v=8a2e9604b0';
 
 initNavigation();
 initForms();
