@@ -25,7 +25,7 @@
 <link rel="apple-touch-icon" href="/images/logo/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/fonts/tajawal-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/site.css?v=68c2e62b87">
+<link rel="stylesheet" href="/css/site.css?v=cebbf96164">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"MovingCompany","@id":"https://alqasimmovers.com/#business","name":"القاسم لنقل الأثاث","url":"https://alqasimmovers.com/ar/","telephone":"+971556869224","image":"https://alqasimmovers.com/images/logo/mark-512.png","address":{"@type":"PostalAddress","addressLocality":"Dubai","addressRegion":"Dubai","addressCountry":"AE"},"areaServed":[{"@type":"City","name":"Dubai"},{"@type":"AdministrativeArea","name":"Abu Dhabi"},{"@type":"AdministrativeArea","name":"Sharjah"},{"@type":"AdministrativeArea","name":"Ajman"},{"@type":"AdministrativeArea","name":"Umm Al Quwain"},{"@type":"AdministrativeArea","name":"Ras Al Khaimah"},{"@type":"AdministrativeArea","name":"Fujairah"}],"email":"info@alqasimmovers.com"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"آراء العملاء","item":"https://alqasimmovers.com/ar/reviews/"}]}]}</script>
 </head>
 <body class="page page--page">
@@ -156,7 +156,7 @@
         <div class="rating-input__stars"><input type="radio" id="rv-star-5" name="rating" value="5" required><label for="rv-star-5" title="5 نجوم"><span class="visually-hidden">5 نجوم</span>★</label><input type="radio" id="rv-star-4" name="rating" value="4" required><label for="rv-star-4" title="4 نجوم"><span class="visually-hidden">4 نجوم</span>★</label><input type="radio" id="rv-star-3" name="rating" value="3" required><label for="rv-star-3" title="3 نجوم"><span class="visually-hidden">3 نجوم</span>★</label><input type="radio" id="rv-star-2" name="rating" value="2" required><label for="rv-star-2" title="2 نجوم"><span class="visually-hidden">2 نجوم</span>★</label><input type="radio" id="rv-star-1" name="rating" value="1" required><label for="rv-star-1" title="1 نجمة"><span class="visually-hidden">1 نجمة</span>★</label></div>
       </fieldset>
       <div class="field field--wide">
-        <label class="field__label" for="rv-body">تقييمك <span class="field__req">(مطلوب)</span></label>
+        <label class="field__label" for="rv-body">اكتب تجربتك <span class="field__req">(مطلوب)</span></label>
         <textarea class="textarea" id="rv-body" name="body" required minlength="20" maxlength="1000" rows="5" aria-describedby="rv-body-hint"></textarea>
         <p class="field__hint" id="rv-body-hint">20 حرفاً على الأقل. يرجى عدم إضافة روابط.</p>
       </div>
