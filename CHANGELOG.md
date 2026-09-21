@@ -2,6 +2,20 @@
 
 All notable changes to the Al Qasim Movers project. Newest first. Format: date — stage — summary.
 
+## 2026-09-22 — Admin uploads: on the create form, every photo/video format, hosting-size limits
+
+### Fixed
+- **"New project" had no upload box.** Photos and videos can now be chosen while creating the project; they are saved with it in one step (button: "Save project and upload"). The upload box also stays on the edit screen.
+
+### Changed
+- Every common photo format is accepted, including iPhone **HEIC/HEIF**, plus AVIF, TIFF, GIF and BMP. Formats GD cannot read are converted with Imagick, so they still display on the website.
+- Every common video format is accepted: MP4, MOV, WebM, AVI, MKV, WMV, 3GP, MPEG, FLV, M4V, TS.
+- The old 20 MB photo / 500 MB video caps are gone. The only limit is the hosting's own per-file limit (2 GB), shown in the upload box, with 20 files per upload and no total storage cap.
+- Clear messages when a file is refused (too large, stopped early, not a photo or video).
+
+### Security (unchanged)
+- Only files that really are images or videos are stored; scripts, HTML and programs are refused even when renamed, and `/uploads/` can never execute code.
+
 ## 2026-09-21 — Review form: centred layout, optional email instead of phone
 
 ### Changed
