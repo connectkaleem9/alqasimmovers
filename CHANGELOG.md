@@ -2,7 +2,16 @@
 
 All notable changes to the Al Qasim Movers project. Newest first. Format: date — stage — summary.
 
-## 2026-09-21 — Review form fixes, admin inside the site layout
+## 2026-09-21 — Google Search Console + Google Analytics 4
+
+### Added
+- Search Console verification meta tag on every page (from `config/business.json` → `integrations`).
+- GA4 (`G-K39C33QF13`) loads only after the visitor accepts the cookie notice. Decline, or withdrawing consent later, removes the `_ga` cookies. The notice can be reopened from "Cookie settings" in the footer. Analytics never loads in `/admin/`.
+- Events: `tel_click`, `whatsapp_click` (with placement), `quote_form_send`, `review_form_send`, `review_submit` (reviews thank-you), `generate_lead` (quote thank-you page, once it exists).
+- `/cookie-policy/` and `/ar/cookie-policy/`: a factual description of exactly what the site stores.
+- CSP (report-only) allows the Google Analytics origins.
+
+, admin inside the site layout
 
 ### Fixed
 - Review form: the name box no longer stretches to match the phone box (whose hint made it taller); the stars now start at the reading edge instead of floating right, empty stars are visible, and each star is a 44px tap target. The Arabic review field got its own label ("اكتب تجربتك") instead of repeating "تقييمك".

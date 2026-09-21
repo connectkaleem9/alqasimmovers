@@ -467,6 +467,11 @@ async function build() {
         jsVersion: assetVersion.js,
         tagline: esc(business.tagline?.verified ? business.tagline[lang] : ''),
         hours: esc(business.openingHours?.verified ? business.openingHours.display[lang] : ''),
+        gscMeta: (() => {
+          const v = business.integrations?.googleSiteVerification;
+          return v && /^[\w-]+$/.test(v) ? `<meta name="google-site-verification" content="${v}">` : '';
+        })(),
+        gaId: /^G-[A-Z0-9]+$/.test(business.integrations?.ga4MeasurementId || '') ? business.integrations.ga4MeasurementId : '',
         hreflang,
         robots: indexable ? '' : '<meta name="robots" content="noindex, follow">',
         schema: '',

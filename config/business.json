@@ -450,5 +450,11 @@
       "rating": "4.9"
     },
     "source": "Owner confirmed 2026-09-21: 1,200+ completed moves; 4.9 average from real customer reviews. Not presented as a Google rating (no Google Business Profile exists)."
+  },
+  "integrations": {
+    "_note": "Public identifiers, not secrets: both appear in the page HTML by design.",
+    "googleSiteVerification": "UNRSFbXGFtaKRRXrKn0O3dzXPLuR4CXuFWrY4lq69yY",
+    "ga4MeasurementId": "G-K39C33QF13",
+    "source": "Owner, 2026-09-21"
   }
 }

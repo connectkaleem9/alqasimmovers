@@ -146,5 +146,13 @@
     "assembly": "Dismantle & reassemble",
     "coverage": "All Dubai & every emirate"
   },
-  "langSwitch": "Language"
+  "langSwitch": "Language",
+  "cookies": {
+    "label": "Cookie consent",
+    "text": "We use Google Analytics cookies to see how visitors use this site, so we can improve it. They are only set if you accept.",
+    "more": "Cookie Policy",
+    "accept": "Accept",
+    "decline": "Decline",
+    "settings": "Cookie settings"
+  }
 }

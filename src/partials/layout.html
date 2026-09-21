@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{lang}}" dir="{{dir}}">
+<html lang="{{lang}}" dir="{{dir}}" data-ga="{{gaId}}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,6 +8,7 @@
 <link rel="canonical" href="{{page.canonical}}">
 {{hreflang}}
 {{robots}}
+{{gscMeta}}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{{business.name.value}}">
 <meta property="og:title" content="{{page.title}}">
@@ -35,6 +36,7 @@
 </main>
 {{> footer}}
 {{> sticky-cta}}
+{{> cookie-banner}}
 <script type="module" src="/js/main.js?v={{jsVersion}}"></script>
 </body>
 </html>

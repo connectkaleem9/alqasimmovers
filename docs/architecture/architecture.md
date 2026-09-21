@@ -137,7 +137,7 @@ ES modules, loaded with `type="module"` (implicitly deferred): `main.js` (bootst
 
 | Dependency | Purpose | Size | Licence | Alternatives considered | Approved |
 |---|---|---|---|---|---|
-| *(none)* | | | | | |
+| Google Analytics 4 (gtag.js, `G-K39C33QF13`) | Traffic + conversion measurement (tel/WhatsApp taps, quote and review sends, `generate_lead`, `review_submit`) | ~90 KB, async, only after consent | Google terms | Plausible or self-hosted Matomo (paid, or needs server resources); the owner chose GA4 | Owner 2026-09-21. Loaded by `analytics.js` **only after Accept**; CSP allows googletagmanager.com and google-analytics.com; disclosed on /cookie-policy/ |
 
 Add a row before introducing any library, font service, or third-party script.
 

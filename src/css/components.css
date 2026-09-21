@@ -634,3 +634,19 @@
 .site-footer__base a { color: var(--c-white); display: inline-block; padding-block: var(--sp-2); }
 .site-footer__credit { color: var(--c-on-navy-soft); }
 .site-footer__credit a { color: var(--c-orange); font-weight: var(--fw-semi); }
+
+/* ---------- cookie consent ----------
+   Shown only by analytics.js (so never without JS); sits above the phone sticky bar. */
+.cookie-banner {
+  position: fixed; z-index: 70; inset-inline: var(--sp-3); inset-block-end: calc(var(--sticky-h) + var(--sp-3));
+  display: grid; gap: var(--sp-3); max-width: 34rem; padding: var(--sp-4);
+  background: var(--c-navy-deep); color: var(--c-white); border: 1px solid var(--c-on-navy-soft); border-radius: var(--r-md); box-shadow: var(--sh-2);
+  font-size: var(--fs-small);
+}
+.cookie-banner[hidden] { display: none; }
+.cookie-banner__text { margin: 0; }
+.cookie-banner__text a { color: var(--c-white); text-decoration: underline; }
+.cookie-banner__actions { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+@media (min-width: 62rem) { .cookie-banner { inset-block-end: var(--sp-4); inset-inline-end: auto; } }
+.site-footer__cookie { background: none; border: 0; padding: 0; color: inherit; font: inherit; text-decoration: underline; cursor: pointer; }
+.site-footer__cookie[hidden] { display: none; }

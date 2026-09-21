@@ -7,7 +7,12 @@
 
 ---
 
-## Live content + admin (2026-09-21)
+## Analytics + Search Console (2026-09-21)
+- GSC HTML-tag verification and the GA4 ID are in `config/business.json` → `integrations` (public IDs, not secrets).
+- GA4 is consent-gated (ADR in the Dependency Register). The owner still needs to: click Verify in Search Console, submit `sitemap.xml`, and mark `generate_lead`, `tel_click` and `whatsapp_click` as key events in GA4.
+- Still missing: the `/get-a-quote/thank-you/` page, so `generate_lead` can't fire yet. The quote form redirects there.
+
+
 - /reviews/, /projects/ and /admin/ are live. See ADR-007. SQLite is at `~/domains/alqasimmovers.com/private/alqasim.sqlite`, and the config is next to it (600).
 - The owner creates the admin account at /admin/ with the one-time setup key, which is in the server config and was given to the owner in chat. After an account exists, the key is no longer accepted.
 - Still waiting on: Facebook and Instagram URLs (top-bar icons stay hidden until `socialProfiles` is verified).
