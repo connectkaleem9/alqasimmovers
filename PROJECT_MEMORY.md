@@ -11,7 +11,8 @@
 - All 14 service URLs from `docs/seo/page-inventory.md` are published in EN + AR, with briefs in `docs/seo/briefs/`.
 - Page content is generated from scratchpad scripts but the HTML in `src/pages/**` is the source of truth now — edit the HTML, not the scripts.
 - Areas hub + 10 area pages shipped 2026-09-22, with the Areas dropdown in the header.
-- Still missing (next): `/about/`, `/contact/`, `/get-a-quote/` (+ thank-you, which `generate_lead` needs), `/faq/`, `/blog/`, privacy, terms, 404.
+- 2026-09-22: every planned page is now built — core pages, FAQ, quote + thank-you, legal pages, 404, and the blog hub with five guides (three in Arabic).
+- Left to do: Arabic versions of the two English-only guides; flip `"index"` back on for /reviews/ and /projects/ once they hold real content; owner review of the Arabic copy.
 
 ---
 

@@ -461,8 +461,8 @@ async function build() {
         })(),
         langEnCurrent: lang === 'en' ? ' aria-current="true"' : '',
         langArCurrent: lang === 'ar' ? ' aria-current="true"' : '',
-        enUrl: pair.en ? urlPath('en', page.route) : urlPath('en', ''),
-        arUrl: pair.ar ? urlPath('ar', page.route) : urlPath('ar', ''),
+        enUrl: page.meta.output ? urlPath('en', '') : (pair.en ? urlPath('en', page.route) : urlPath('en', '')),
+        arUrl: page.meta.output ? urlPath('ar', '') : (pair.ar ? urlPath('ar', page.route) : urlPath('ar', '')),
         cssVersion: assetVersion.css,
         jsVersion: assetVersion.js,
         tagline: esc(business.tagline?.verified ? business.tagline[lang] : ''),
@@ -514,6 +514,16 @@ async function build() {
     // ---- write
     // the admin shell: site header + footer around a marker that /admin/index.php
     // replaces with the dashboard. Not a public page, never in the sitemap.
+    // a page can be written to a fixed file instead of a route folder (the 404 document)
+    if (page.meta.output) {
+      // an error document has no URL of its own: no canonical, no hreflang, no alternates
+      const doc = html
+        .replace(/\n?\s*<link rel="canonical"[^>]*>/g, '')
+        .replace(/\n?\s*<link rel="alternate"[^>]*>/g, '')
+        .replace(/\n?\s*<meta property="og:url"[^>]*>/g, '');
+      await writeFile(path.join(DIST, page.meta.output), doc, 'utf8');
+      continue;
+    }
     if (page.meta.shell) {
       await mkdir(path.join(DIST, 'admin'), { recursive: true });
       await writeFile(path.join(DIST, 'admin', 'shell.html'), html, 'utf8');

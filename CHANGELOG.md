@@ -2,6 +2,20 @@
 
 All notable changes to the Al Qasim Movers project. Newest first. Format: date — stage — summary.
 
+## 2026-09-22 — The rest of the site: About, Contact, Quote, FAQ, guides, legal, 404
+
+### Added
+- **Core pages (EN + AR):** `/about/`, `/contact/`, `/get-a-quote/` with the quote form, `/get-a-quote/thank-you/` (noindex — this is what Analytics counts as a lead), `/faq/`, `/privacy-policy/`, `/terms-and-conditions/`.
+- **Guides:** `/blog/` hub plus five English guides — move-in/move-out permits, what a move costs, a Dubai moving checklist, how to choose a mover, and an office relocation checklist. Three of them are also published in Arabic (permits, cost, checklist); the other two ship in Arabic once reviewed.
+- **`/404.html`**, bilingual, noindex, with routes back into the site. New build support: a page can declare `"output"` to be written as a fixed file, and the error document ships without canonical, hreflang or og:url.
+- Briefs for every new page in `docs/seo/briefs/`.
+
+### Changed
+- `/reviews/` and `/projects/` are now `noindex` until they hold real content, as the indexability register requires. Flip `"index"` in their page meta once there are reviews and projects to show.
+
+### Integrity
+The cost guide explains what drives a price and refuses to publish a price list. The terms page states only what we can stand behind: payment terms are confirmed with the quote, and nothing is claimed about insurance.
+
 ## 2026-09-22 — Area pages published (EN + AR), Areas dropdown
 
 ### Added

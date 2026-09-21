@@ -717,3 +717,17 @@
 .site-nav[data-open="true"] .site-nav__has-sub > a { flex: 1; }
 .site-nav[data-open="true"] .site-nav__has-sub[data-open="true"] .site-nav__sub { display: grid; width: 100%; }
 .site-nav[data-open="true"] .site-nav__sub a { padding-inline-start: var(--sp-4); font-size: var(--fs-small); }
+
+/* ---------- quote / contact form panel ---------- */
+.quote-panel {
+  max-width: 48rem; margin-inline: auto; background: var(--c-white); border: 1px solid var(--c-hairline);
+  border-radius: var(--r-lg); padding: var(--sp-5); box-shadow: var(--sh-1);
+}
+@media (min-width: 48rem) { .quote-panel { padding: var(--sp-6); } }
+.quote-panel .form { grid-template-columns: 1fr; }
+@media (min-width: 40rem) {
+  .quote-panel .form { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .quote-panel .form > .field--wide, .quote-panel .form > .form__summary,
+  .quote-panel .form > .form__honey, .quote-panel .form > fieldset,
+  .quote-panel .form > .field:has(textarea), .quote-panel .form > .btn { grid-column: 1 / -1; }
+}
