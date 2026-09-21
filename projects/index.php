@@ -9,7 +9,7 @@
 <link rel="alternate" hreflang="en" href="https://alqasimmovers.com/projects/">
 <link rel="alternate" hreflang="ar" href="https://alqasimmovers.com/ar/projects/">
 <link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/projects/">
-
+<meta name="robots" content="noindex, follow">
 <meta name="google-site-verification" content="UNRSFbXGFtaKRRXrKn0O3dzXPLuR4CXuFWrY4lq69yY">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Al Qasim Movers">
@@ -26,7 +26,7 @@
 <link rel="apple-touch-icon" href="/images/logo/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/site.css?v=3a2277e017">
+<link rel="stylesheet" href="/css/site.css?v=4d59923e98">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"MovingCompany","@id":"https://alqasimmovers.com/#business","name":"Al Qasim Movers","url":"https://alqasimmovers.com/","telephone":"+971556869224","image":"https://alqasimmovers.com/images/logo/mark-512.png","address":{"@type":"PostalAddress","addressLocality":"Dubai","addressRegion":"Dubai","addressCountry":"AE"},"areaServed":[{"@type":"City","name":"Dubai"},{"@type":"AdministrativeArea","name":"Abu Dhabi"},{"@type":"AdministrativeArea","name":"Sharjah"},{"@type":"AdministrativeArea","name":"Ajman"},{"@type":"AdministrativeArea","name":"Umm Al Quwain"},{"@type":"AdministrativeArea","name":"Ras Al Khaimah"},{"@type":"AdministrativeArea","name":"Fujairah"}],"email":"info@alqasimmovers.com"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Projects","item":"https://alqasimmovers.com/projects/"}]}]}</script>
 </head>
 <body class="page page--page">

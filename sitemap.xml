@@ -8,11 +8,25 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/"/>
   </url>
   <url>
+    <loc>https://alqasimmovers.com/about/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alqasimmovers.com/about/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alqasimmovers.com/ar/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/about/"/>
+  </url>
+  <url>
     <loc>https://alqasimmovers.com/ar/</loc>
     <lastmod>2026-09-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alqasimmovers.com/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alqasimmovers.com/ar/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/"/>
+  </url>
+  <url>
+    <loc>https://alqasimmovers.com/ar/about/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alqasimmovers.com/about/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alqasimmovers.com/ar/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/about/"/>
   </url>
   <url>
     <loc>https://alqasimmovers.com/ar/areas/</loc>
@@ -92,6 +106,41 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/areas/silicon-oasis/"/>
   </url>
   <url>
+    <loc>https://alqasimmovers.com/ar/blog/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alqasimmovers.com/blog/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alqasimmovers.com/ar/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/blog/"/>
+  </url>
+  <url>
+    <loc>https://alqasimmovers.com/ar/blog/move-in-move-out-permit-dubai/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alqasimmovers.com/blog/move-in-move-out-permit-dubai/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alqasimmovers.com/ar/blog/move-in-move-out-permit-dubai/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/blog/move-in-move-out-permit-dubai/"/>
+  </url>
+  <url>
+    <loc>https://alqasimmovers.com/ar/blog/moving-checklist-dubai/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alqasimmovers.com/blog/moving-checklist-dubai/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alqasimmovers.com/ar/blog/moving-checklist-dubai/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/blog/moving-checklist-dubai/"/>
+  </url>
+  <url>
+    <loc>https://alqasimmovers.com/ar/blog/moving-cost-dubai/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alqasimmovers.com/blog/moving-cost-dubai/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alqasimmovers.com/ar/blog/moving-cost-dubai/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/blog/moving-cost-dubai/"/>
+  </url>
+  <url>
+    <loc>https://alqasimmovers.com/ar/contact/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alqasimmovers.com/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alqasimmovers.com/ar/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/contact/"/>
+  </url>
+  <url>
     <loc>https://alqasimmovers.com/ar/cookie-policy/</loc>
     <lastmod>2026-09-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alqasimmovers.com/cookie-policy/"/>
@@ -99,18 +148,25 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/cookie-policy/"/>
   </url>
   <url>
-    <loc>https://alqasimmovers.com/ar/projects/</loc>
+    <loc>https://alqasimmovers.com/ar/faq/</loc>
     <lastmod>2026-09-21</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://alqasimmovers.com/projects/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://alqasimmovers.com/ar/projects/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/projects/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alqasimmovers.com/faq/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alqasimmovers.com/ar/faq/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/faq/"/>
   </url>
   <url>
-    <loc>https://alqasimmovers.com/ar/reviews/</loc>
+    <loc>https://alqasimmovers.com/ar/get-a-quote/</loc>
     <lastmod>2026-09-21</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://alqasimmovers.com/reviews/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://alqasimmovers.com/ar/reviews/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/reviews/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alqasimmovers.com/get-a-quote/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alqasimmovers.com/ar/get-a-quote/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/get-a-quote/"/>
+  </url>
+  <url>
+    <loc>https://alqasimmovers.com/ar/privacy-policy/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alqasimmovers.com/privacy-policy/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alqasimmovers.com/ar/privacy-policy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/privacy-policy/"/>
   </url>
   <url>
     <loc>https://alqasimmovers.com/ar/services/</loc>
@@ -218,6 +274,13 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/services/villa-movers-dubai/"/>
   </url>
   <url>
+    <loc>https://alqasimmovers.com/ar/terms-and-conditions/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alqasimmovers.com/terms-and-conditions/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alqasimmovers.com/ar/terms-and-conditions/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/terms-and-conditions/"/>
+  </url>
+  <url>
     <loc>https://alqasimmovers.com/areas/</loc>
     <lastmod>2026-09-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alqasimmovers.com/areas/"/>
@@ -295,6 +358,49 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/areas/silicon-oasis/"/>
   </url>
   <url>
+    <loc>https://alqasimmovers.com/blog/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alqasimmovers.com/blog/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alqasimmovers.com/ar/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/blog/"/>
+  </url>
+  <url>
+    <loc>https://alqasimmovers.com/blog/how-to-choose-movers-dubai/</loc>
+    <lastmod>2026-09-21</lastmod>
+  </url>
+  <url>
+    <loc>https://alqasimmovers.com/blog/move-in-move-out-permit-dubai/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alqasimmovers.com/blog/move-in-move-out-permit-dubai/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alqasimmovers.com/ar/blog/move-in-move-out-permit-dubai/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/blog/move-in-move-out-permit-dubai/"/>
+  </url>
+  <url>
+    <loc>https://alqasimmovers.com/blog/moving-checklist-dubai/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alqasimmovers.com/blog/moving-checklist-dubai/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alqasimmovers.com/ar/blog/moving-checklist-dubai/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/blog/moving-checklist-dubai/"/>
+  </url>
+  <url>
+    <loc>https://alqasimmovers.com/blog/moving-cost-dubai/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alqasimmovers.com/blog/moving-cost-dubai/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alqasimmovers.com/ar/blog/moving-cost-dubai/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/blog/moving-cost-dubai/"/>
+  </url>
+  <url>
+    <loc>https://alqasimmovers.com/blog/office-relocation-checklist-dubai/</loc>
+    <lastmod>2026-09-21</lastmod>
+  </url>
+  <url>
+    <loc>https://alqasimmovers.com/contact/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alqasimmovers.com/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alqasimmovers.com/ar/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/contact/"/>
+  </url>
+  <url>
     <loc>https://alqasimmovers.com/cookie-policy/</loc>
     <lastmod>2026-09-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alqasimmovers.com/cookie-policy/"/>
@@ -302,18 +408,25 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/cookie-policy/"/>
   </url>
   <url>
-    <loc>https://alqasimmovers.com/projects/</loc>
+    <loc>https://alqasimmovers.com/faq/</loc>
     <lastmod>2026-09-21</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://alqasimmovers.com/projects/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://alqasimmovers.com/ar/projects/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/projects/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alqasimmovers.com/faq/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alqasimmovers.com/ar/faq/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/faq/"/>
   </url>
   <url>
-    <loc>https://alqasimmovers.com/reviews/</loc>
+    <loc>https://alqasimmovers.com/get-a-quote/</loc>
     <lastmod>2026-09-21</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://alqasimmovers.com/reviews/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://alqasimmovers.com/ar/reviews/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/reviews/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alqasimmovers.com/get-a-quote/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alqasimmovers.com/ar/get-a-quote/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/get-a-quote/"/>
+  </url>
+  <url>
+    <loc>https://alqasimmovers.com/privacy-policy/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alqasimmovers.com/privacy-policy/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alqasimmovers.com/ar/privacy-policy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/privacy-policy/"/>
   </url>
   <url>
     <loc>https://alqasimmovers.com/services/</loc>
@@ -419,5 +532,12 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://alqasimmovers.com/services/villa-movers-dubai/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alqasimmovers.com/ar/services/villa-movers-dubai/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/services/villa-movers-dubai/"/>
+  </url>
+  <url>
+    <loc>https://alqasimmovers.com/terms-and-conditions/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alqasimmovers.com/terms-and-conditions/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alqasimmovers.com/ar/terms-and-conditions/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/terms-and-conditions/"/>
   </url>
 </urlset>
