@@ -1,0 +1,21 @@
+{
+  "name": "alqasim-movers",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static bilingual (EN/AR) website for Al Qasim Movers, Dubai. Static build with a small PHP form handler on Hostinger. Zero dependencies.",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "qa": "node scripts/qa-crawl.mjs",
+    "scan": "node scripts/secret-scan.mjs",
+    "check": "node scripts/build.mjs && node scripts/qa-crawl.mjs && node scripts/secret-scan.mjs",
+    "serve": "node --run build && node scripts/serve.mjs",
+    "test": "php tests/lib-test.php",
+    "serve:php": "php -S localhost:4173 -t dist"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

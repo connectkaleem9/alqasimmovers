@@ -1,0 +1,13 @@
+{
+  "_note": "REAL customer reviews only. Each one must come from a customer who actually moved with Al Qasim Movers, with their permission to publish. These are what the live site shows. Leave the list empty until real reviews exist.",
+  "_fields": {
+    "name": "Customer name or first name + initial",
+    "area": "Area or emirate",
+    "service": "Which service they used",
+    "date": "YYYY-MM (optional)",
+    "rating": "1-5, as the customer actually gave it",
+    "text": { "en": "their words in English", "ar": "their words in Arabic" },
+    "source": "where it came from, e.g. WhatsApp message, Google review link"
+  },
+  "reviews": []
+}

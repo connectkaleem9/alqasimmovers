@@ -1,0 +1,1537 @@
+AL QASIM MOVERS — COMPLETE PROJECT PLAN
+Website: alqasimmovers.com
+Business: Al Qasim Movers
+Phone: 0556869224
+Location: Dubai, UAE
+Technology: HTML5 + CSS3 + JavaScript
+Primary Goal: Local SEO + Organic Traffic + Lead Generation
+
+==================================================
+1. PROJECT ARCHITECTURE
+==================================================
+
+This is not just a website-design project. It is a Local SEO + Lead Generation + High-Performance Website Project.
+
+Recommended structure:
+
+Al Qasim Movers
+|
+|-- Homepage
+|-- About
+|-- Services
+|   |-- Home Movers Dubai
+|   |-- Furniture Movers Dubai
+|   |-- Office Movers Dubai
+|   |-- Villa Movers Dubai
+|   |-- Apartment Movers Dubai
+|   |-- Studio Movers Dubai
+|   |-- Packing & Unpacking
+|   |-- Furniture Disassembly & Assembly
+|   |-- Loading & Unloading
+|   |-- Storage & Warehousing
+|   |-- Commercial Movers
+|   |-- Local Moving Services
+|
+|-- Areas We Serve
+|   |-- Dubai Marina
+|   |-- JVC
+|   |-- Business Bay
+|   |-- Downtown Dubai
+|   |-- Jumeirah
+|   |-- Al Barsha
+|   |-- Deira
+|   |-- Bur Dubai
+|   |-- Arabian Ranches
+|   |-- Mirdif
+|   |-- Other validated areas
+|
+|-- Projects
+|-- Reviews
+|-- FAQ
+|-- Blog
+|-- Contact
+|-- Get a Quote
+|-- Privacy Policy
+|-- Terms & Conditions
+|-- Cookie Policy
+|-- 404
+
+IMPORTANT:
+Do not create dozens of thin area pages simply to target every Dubai location. An area page should only be created when there is enough unique, useful, location-specific information to justify it.
+
+==================================================
+2. CLAUDE.MD MUST BE CREATED FIRST
+==================================================
+
+The first Claude task must create:
+
+CLAUDE.md
+
+It should contain:
+
+Project Identity:
+- Project Name: Al Qasim Movers
+- Domain: https://alqasimmovers.com
+- Business: Movers & Packers
+- Location: Dubai, UAE
+- Phone: 0556869224
+- Technology: HTML5, CSS3, JavaScript
+- Primary Objective: Local SEO + Organic Traffic + Lead Generation
+
+Development Rules:
+- Semantic HTML5
+- Mobile-first development
+- Clean CSS architecture
+- Vanilla JavaScript unless a library is genuinely required
+- No unnecessary frameworks
+- No bloated dependencies
+- Accessible HTML
+- SEO-friendly URLs
+- Clean internal linking
+- Reusable components
+- Consistent design system
+- Fast page loading
+- Secure forms
+- No inline secrets
+- No unnecessary third-party scripts
+
+==================================================
+3. CLAUDE SKILLS
+==================================================
+
+Create:
+
+.claude/skills/
+
+Suggested skills:
+
+- seo-research/
+- keyword-research/
+- competitor-research/
+- local-seo/
+- content-strategy/
+- technical-seo/
+- ui-ux-design/
+- frontend-development/
+- accessibility/
+- performance/
+- security-audit/
+- schema-markup/
+- internal-linking/
+- image-optimization/
+- conversion-optimization/
+- qa-testing/
+- deployment/
+
+Each skill should contain its own instructions, checklist, and expected output.
+
+==================================================
+4. SPECIALIZED CLAUDE AGENTS
+==================================================
+
+Create specialized agents instead of one giant agent.
+
+Recommended agents:
+
+1. project-manager
+2. business-researcher
+3. competitor-researcher
+4. keyword-researcher
+5. seo-strategist
+6. local-seo-specialist
+7. content-strategist
+8. content-writer
+9. ui-ux-designer
+10. frontend-developer
+11. technical-seo-auditor
+12. schema-specialist
+13. internal-linking-specialist
+14. performance-engineer
+15. accessibility-auditor
+16. security-auditor
+17. conversion-optimizer
+18. qa-engineer
+19. deployment-engineer
+20. final-reviewer
+
+==================================================
+5. BUSINESS RESEARCH AGENT
+==================================================
+
+Research:
+- Dubai moving industry
+- Customer needs
+- Moving services
+- Customer objections
+- Search terminology
+- Customer search intent
+- Pricing expectations
+- Competitor positioning
+- Common moving problems
+- Trust factors
+
+Output:
+
+docs/research/business-research.md
+
+==================================================
+6. COMPETITOR RESEARCH AGENT
+==================================================
+
+Research actual Dubai movers competitors.
+
+Analyze:
+- Website structure
+- Services
+- Service pages
+- Area pages
+- Titles
+- Meta descriptions
+- H1/H2 structure
+- Content depth
+- Internal links
+- CTAs
+- Reviews
+- Trust signals
+- Images
+- FAQs
+- Schema
+- Page speed
+- Mobile UX
+- Backlink opportunities
+- Content gaps
+
+Output:
+
+docs/research/competitor-analysis.md
+
+Do not copy competitor content. Use competitors to understand search intent, market expectations, and content gaps.
+
+==================================================
+7. KEYWORD RESEARCH AGENT
+==================================================
+
+Create keyword clusters.
+
+Core keywords:
+- movers and packers dubai
+- movers dubai
+- packers and movers dubai
+- moving company dubai
+- moving services dubai
+- house movers dubai
+- home movers dubai
+- furniture movers dubai
+
+Service keywords:
+- villa movers dubai
+- apartment movers dubai
+- office movers dubai
+- commercial movers dubai
+- furniture movers dubai
+- packing services dubai
+- unpacking services dubai
+- storage movers dubai
+
+Location keywords:
+- movers in Dubai Marina
+- movers in JVC
+- movers in Jumeirah
+- movers in Al Barsha
+- movers in Business Bay
+- movers in Downtown Dubai
+
+Long-tail keywords:
+- best movers for villa relocation in Dubai
+- furniture moving company Dubai
+- office relocation company Dubai
+- professional packing services Dubai
+
+Classify keywords as:
+- Primary Keyword
+- Secondary Keywords
+- Supporting Keywords
+- Commercial Intent
+- Transactional Intent
+- Informational Intent
+- Local Intent
+
+Output:
+
+docs/seo/keyword-map.md
+
+==================================================
+8. SEO TOPICAL MAP
+==================================================
+
+Create:
+
+docs/seo/topical-map.md
+
+Recommended topical structure:
+
+MOVING SERVICES
+|
+|-- Home Moving
+|   |-- Apartment Moving
+|   |-- Villa Moving
+|   |-- Studio Moving
+|
+|-- Furniture Moving
+|   |-- Furniture Disassembly
+|   |-- Furniture Assembly
+|   |-- Heavy Furniture
+|
+|-- Commercial Moving
+|   |-- Office Moving
+|   |-- Retail Moving
+|
+|-- Packing
+|   |-- Packing Services
+|   |-- Unpacking Services
+|
+|-- Storage
+    |-- Moving + Storage
+
+==================================================
+9. WEBSITE CORE PAGES
+==================================================
+
+Homepage:
+/
+Primary target:
+- movers and packers dubai
+- movers dubai
+- moving company dubai
+
+About:
+/about/
+
+Services:
+/services/
+
+Projects:
+/projects/
+
+Reviews:
+/reviews/
+
+FAQ:
+/faq/
+
+Get Quote:
+/get-a-quote/
+
+Contact:
+/contact/
+
+Blog:
+/blog/
+
+Legal:
+/privacy-policy/
+/terms-and-conditions/
+/cookie-policy/
+
+404:
+/404.html
+
+==================================================
+10. SERVICE PAGES
+==================================================
+
+Create individual pages for commercially important services.
+
+Recommended URLs:
+
+/services/home-movers-dubai/
+/services/furniture-movers-dubai/
+/services/villa-movers-dubai/
+/services/apartment-movers-dubai/
+/services/studio-movers-dubai/
+/services/office-movers-dubai/
+/services/commercial-movers-dubai/
+/services/packing-services-dubai/
+/services/unpacking-services-dubai/
+/services/furniture-assembly-dubai/
+/services/loading-unloading-dubai/
+/services/storage-services-dubai/
+
+Only publish services that Al Qasim Movers actually provides.
+
+==================================================
+11. SERVICE PAGE TEMPLATE
+==================================================
+
+Each service page should contain:
+
+- Hero
+- Service Introduction
+- Why Customers Need This Service
+- What We Offer
+- Our Process
+- What Is Included
+- Types of Moves
+- Why Choose Al Qasim Movers
+- Service Areas
+- Real Project/Work Images where available
+- Customer Reviews
+- FAQ
+- CTA
+
+Each page must satisfy a distinct search intent and contain genuinely useful content.
+
+==================================================
+12. AREA PAGES
+==================================================
+
+Potential locations:
+
+- Dubai Marina
+- Jumeirah
+- JVC
+- Al Barsha
+- Business Bay
+- Downtown Dubai
+- Deira
+- Bur Dubai
+- Al Quoz
+- Mirdif
+- Arabian Ranches
+- Dubai Hills
+- Al Nahda
+- International City
+- Silicon Oasis
+- Discovery Gardens
+- Palm Jumeirah
+
+IMPORTANT:
+Do not automatically create all these pages.
+
+Only create a location page when:
+- The location is actually served
+- There is sufficient unique information
+- The page provides real user value
+- The page is not a duplicate of another location page
+
+Each area page should include:
+- Area-specific moving considerations
+- Property types
+- Parking/loading considerations where relevant
+- Moving process
+- Relevant services
+- Local context
+- Unique FAQs
+- Real project examples if available
+- Clear CTA
+
+==================================================
+13. PROJECTS PAGE
+==================================================
+
+Create:
+
+/projects/
+
+Use real completed work only.
+
+Each project can contain:
+- Project title
+- Location
+- Property type
+- Services provided
+- Before/after images
+- Moving requirements
+- Solution
+- Result
+
+Example:
+
+Villa Relocation in Jumeirah
+Location: Jumeirah, Dubai
+Property: 5-bedroom villa
+Services:
+- Packing
+- Furniture dismantling
+- Transportation
+- Furniture assembly
+- Unpacking
+
+Do not fabricate projects or claims.
+
+==================================================
+14. REVIEWS PAGE
+==================================================
+
+Create:
+
+/reviews/
+
+Include:
+- Customer name
+- Review
+- Service
+- Location
+- Date if available
+- Original source where appropriate
+
+Do not manufacture reviews.
+
+Do not create fake aggregate ratings for SEO.
+
+==================================================
+15. FAQ PAGE
+==================================================
+
+Create:
+
+/faq/
+
+Potential questions:
+- How much do movers cost in Dubai?
+- How long does a house move take?
+- Do movers provide packing materials?
+- Can you move furniture between apartments?
+- Do you dismantle and assemble furniture?
+- Do you provide office relocation?
+- Do you offer storage?
+- Do you move villas?
+- Do you provide same-day moving?
+- How should I prepare before moving?
+
+Answers must reflect actual company services and policies.
+
+==================================================
+16. GET A QUOTE PAGE
+==================================================
+
+Create:
+
+/get-a-quote/
+
+Recommended fields:
+- Name
+- Phone
+- Email
+- Moving From
+- Moving To
+- Property Type
+- Moving Date
+- Required Services
+- Number of Rooms
+- Message
+
+Primary CTA:
+Request a Free Moving Quote
+
+Secondary CTAs:
+- Call Now
+- WhatsApp Us
+
+==================================================
+17. CONTACT PAGE
+==================================================
+
+Create:
+
+/contact/
+
+Include:
+- Business Name
+- Phone
+- Dubai, UAE
+- WhatsApp
+- Contact Form
+- Map if appropriate
+- Business Hours only after confirming actual hours
+
+Phone:
+0556869224
+
+International:
++971 55 686 9224
+
+WhatsApp:
+https://wa.me/971556869224
+
+==================================================
+18. DESIGN SYSTEM AGENT
+==================================================
+
+Create a UI/UX agent responsible for:
+
+- Brand colors
+- Typography
+- Spacing
+- Buttons
+- Cards
+- Forms
+- Icons
+- Header
+- Footer
+- CTA system
+- Mobile navigation
+- Hero layout
+- Section layouts
+
+Output:
+
+docs/design/design-system.md
+
+Design should communicate:
+- Professional
+- Reliable
+- Modern
+- Local
+- Trustworthy
+- Fast
+- Easy to contact
+
+Avoid generic template-looking design.
+
+==================================================
+19. CONVERSION DESIGN
+==================================================
+
+Every important page should have:
+
+Primary CTA:
+Get a Free Quote
+
+Secondary CTA:
+WhatsApp Us
+
+Mobile sticky CTA:
+Call Now | WhatsApp
+
+Phone:
+tel:+971556869224
+
+WhatsApp:
+https://wa.me/971556869224
+
+==================================================
+20. TECHNICAL SEO
+==================================================
+
+Implement:
+
+- Semantic HTML5
+- One primary H1
+- Proper H2/H3 hierarchy
+- Image alt attributes
+- Canonical tags
+- Meta titles
+- Meta descriptions
+- Open Graph
+- Social metadata
+- Viewport
+- Favicon
+- SEO-friendly URLs
+- Breadcrumbs
+- XML sitemap
+- Robots.txt
+
+Example URL:
+
+/services/villa-movers-dubai/
+
+Avoid:
+
+/service?id=12
+
+==================================================
+21. XML SITEMAP
+==================================================
+
+Create:
+
+/sitemap.xml
+
+Only include canonical, indexable URLs.
+
+After deployment, submit sitemap through Google Search Console.
+
+==================================================
+22. ROBOTS.TXT
+==================================================
+
+Create:
+
+/robots.txt
+
+Basic concept:
+
+User-agent: *
+Allow: /
+
+Sitemap: https://alqasimmovers.com/sitemap.xml
+
+Claude must verify that important pages are not accidentally blocked.
+
+==================================================
+23. CANONICAL SYSTEM
+==================================================
+
+Every indexable page should normally have a self-referencing canonical unless there is a deliberate canonical relationship.
+
+Example:
+
+<link rel="canonical" href="https://alqasimmovers.com/services/villa-movers-dubai/">
+
+==================================================
+24. SCHEMA MARKUP
+==================================================
+
+Create a dedicated Schema Agent.
+
+Possible markup:
+
+Homepage:
+- LocalBusiness
+- Organization
+- WebSite
+
+Service pages:
+- Service
+- BreadcrumbList
+
+FAQ:
+- FAQPage only when appropriate and compliant with current Google eligibility/rules
+
+Reviews:
+- Only legitimate review markup where applicable
+
+Business information must be consistent with the actual business.
+
+==================================================
+25. CENTRAL BUSINESS CONFIGURATION
+==================================================
+
+Create a central configuration file, for example:
+
+/config/business.json
+
+Example:
+
+{
+  "name": "Al Qasim Movers",
+  "domain": "https://alqasimmovers.com",
+  "phone": "0556869224",
+  "country": "AE",
+  "city": "Dubai",
+  "countryName": "United Arab Emirates"
+}
+
+Use this to keep business information consistent across the website.
+
+==================================================
+26. LOCAL SEO AGENT
+==================================================
+
+Responsibilities:
+
+- Dubai location targeting
+- NAP consistency
+- LocalBusiness schema
+- Location pages
+- Service + location relationships
+- Google Business Profile alignment
+- Local keywords
+- Local internal links
+- Local content
+- Reviews
+- Local citations
+
+The website must use accurate business information only.
+
+==================================================
+27. INTERNAL LINKING
+==================================================
+
+Create:
+
+docs/seo/internal-link-map.md
+
+Example:
+
+Blog
+  |
+  v
+Home Moving
+  |
+  v
+Villa Moving
+  |
+  v
+Jumeirah Area Page
+  |
+  v
+Get Quote
+
+Use descriptive and natural anchor text. Do not spam exact-match anchors.
+
+==================================================
+28. SEO CONTENT AGENT
+==================================================
+
+For every page, prepare an SEO brief before writing content.
+
+Each page should define:
+- Search intent
+- Primary keyword
+- Secondary keywords
+- Supporting entities
+- H1
+- H2 structure
+- Meta title
+- Meta description
+- Internal links
+- CTA
+- Schema requirements
+- Image requirements
+
+Rule:
+Never create content simply to increase word count.
+
+Every page must answer:
+1. What search intent does this page satisfy?
+2. Why does this page deserve to exist?
+3. What unique information does it provide?
+4. What action should the user take?
+5. What internal pages should it connect to?
+
+==================================================
+29. BLOG STRATEGY
+==================================================
+
+Create:
+
+/blog/
+
+Do not launch with dozens of generic AI articles.
+
+Start with strategic topics such as:
+
+- How Much Does Moving Cost in Dubai?
+- Complete Moving Checklist for Dubai Residents
+- How to Prepare Your Villa for Moving
+- Apartment Moving Checklist in Dubai
+- How to Pack Furniture for Moving
+- Office Relocation Checklist in Dubai
+- How to Choose a Moving Company in Dubai
+
+Connect informational articles to relevant commercial service pages.
+
+Create:
+
+docs/seo/content-calendar.md
+
+Columns:
+- Topic
+- Keyword
+- Search Intent
+- URL
+- Primary Service
+- Target Location
+- Status
+- Internal Links
+- Author
+- Publish Date
+
+==================================================
+30. IMAGE OPTIMIZATION
+==================================================
+
+Recommended structure:
+
+/images/
+  /logo/
+  /hero/
+  /services/
+  /projects/
+  /team/
+  /areas/
+  /icons/
+
+Use descriptive filenames:
+
+villa-movers-dubai.webp
+furniture-movers-dubai.webp
+office-relocation-dubai.webp
+packing-services-dubai.webp
+
+Avoid:
+
+IMG_1234.webp
+image-final-new2.webp
+
+Use WebP or AVIF where appropriate.
+
+==================================================
+31. PERFORMANCE AGENT
+==================================================
+
+Optimize:
+
+- WebP/AVIF images
+- Image dimensions
+- Lazy loading
+- Responsive images
+- Critical CSS
+- CSS minification
+- JS minification
+- Font loading
+- Browser caching
+- Compression
+- Unused CSS
+- Unused JavaScript
+- Third-party scripts
+
+Core Web Vitals targets:
+- LCP < 2.5s
+- CLS < 0.1
+- INP < 200ms
+
+Do not sacrifice usability simply to achieve a perfect Lighthouse score.
+
+==================================================
+32. SECURITY AGENT
+==================================================
+
+Check:
+
+- XSS
+- Form injection
+- Malicious input
+- Unsafe redirects
+- Exposed API keys
+- Exposed credentials
+- Third-party scripts
+- CORS issues
+- Security headers
+- Clickjacking
+- MIME sniffing
+- CSP
+- Referrer Policy
+- Permissions Policy
+
+Potential headers where compatible:
+- Content-Security-Policy
+- X-Content-Type-Options
+- Referrer-Policy
+- Permissions-Policy
+- Strict-Transport-Security
+
+Claude must test security policies rather than blindly adding headers that break functionality.
+
+==================================================
+33. ACCESSIBILITY AGENT
+==================================================
+
+Check:
+
+- WCAG fundamentals
+- Keyboard navigation
+- Focus states
+- Contrast
+- Alt text
+- Form labels
+- ARIA only when necessary
+- Heading hierarchy
+- Button names
+- Link names
+- Mobile tap targets
+- Screen-reader compatibility
+
+==================================================
+34. QA AGENT
+==================================================
+
+Before launch, crawl and test the entire website.
+
+Links:
+- Broken links
+- Broken images
+- Wrong URLs
+- Redirects
+- 404s
+
+SEO:
+- Missing titles
+- Duplicate titles
+- Missing descriptions
+- Duplicate descriptions
+- Missing H1
+- Multiple H1
+- Missing canonical
+- Duplicate canonical
+- Noindex mistakes
+- Robots mistakes
+- Sitemap problems
+- Schema problems
+
+Technical:
+- Console errors
+- JS errors
+- CSS errors
+- Form errors
+- Mobile menu
+- Buttons
+- WhatsApp
+- Phone links
+
+==================================================
+35. SEO AUDIT AGENT
+==================================================
+
+Run a final audit covering:
+
+- Technical SEO
+- On-page SEO
+- Local SEO
+- Internal linking
+- Schema
+- Indexability
+- Performance
+- Accessibility
+- Security
+- UX
+- Conversion
+
+Output:
+
+docs/audits/pre-launch-seo-audit.md
+
+==================================================
+36. DEVELOPMENT STAGES
+==================================================
+
+STAGE 1 — FOUNDATION
+
+Create:
+- CLAUDE.md
+- Project architecture
+- Rules
+- Skills
+- Agents
+- Folder structure
+- Git configuration
+- Documentation
+- Project memory
+- Changelog
+
+STAGE 2 — RESEARCH
+
+Complete:
+- Business research
+- Competitor research
+- Keyword research
+- Search intent
+- Topical map
+- Local SEO research
+- Content strategy
+
+STAGE 3 — UX/UI
+
+Create:
+- Brand direction
+- Design system
+- Wireframes
+- Homepage design
+- Service page template
+- Area page template
+- Blog template
+- Contact template
+- Mobile design
+
+STAGE 4 — TECHNICAL ARCHITECTURE
+
+Build:
+- HTML structure
+- CSS architecture
+- JS architecture
+- Reusable components
+- SEO utilities
+- Schema system
+- Form system
+- Configuration system
+
+STAGE 5 — CORE WEBSITE
+
+Build:
+- Header
+- Navigation
+- Footer
+- Homepage
+- About
+- Services
+- Contact
+- Get Quote
+
+STAGE 6 — SERVICE PAGES
+
+Build all validated service pages.
+
+STAGE 7 — LOCAL SEO PAGES
+
+Build only validated location pages.
+
+STAGE 8 — SUPPORTING PAGES
+
+Build:
+- Reviews
+- Projects
+- FAQ
+- Blog
+- Privacy
+- Terms
+- Cookie
+- 404
+
+STAGE 9 — SEO IMPLEMENTATION
+
+Implement:
+- Metadata
+- Canonical
+- Schema
+- Sitemap
+- Robots
+- Breadcrumbs
+- Internal linking
+- Open Graph
+- Image SEO
+
+STAGE 10 — PERFORMANCE
+
+Optimize:
+- Core Web Vitals
+- Images
+- CSS
+- JS
+- Caching
+- Fonts
+- Third-party scripts
+
+STAGE 11 — SECURITY
+
+Run:
+- Security audit
+- Dependency audit
+- Form security
+- Headers
+- Input validation
+- Source-code inspection
+- Secret scanning
+
+STAGE 12 — QA
+
+Test:
+- Chrome
+- Edge
+- Firefox
+- Mobile
+- Tablet
+- Desktop
+
+STAGE 13 — PRE-LAUNCH SEO AUDIT
+
+Complete full crawl and fix all critical issues.
+
+STAGE 14 — DEPLOYMENT
+
+Deploy:
+https://alqasimmovers.com
+
+Configure:
+- Google Search Console
+- Google Analytics
+- Google Business Profile alignment
+- Sitemap submission
+- Indexing verification
+
+==================================================
+37. RECOMMENDED FOLDER STRUCTURE
+==================================================
+
+alqasim-movers/
+|
+|-- CLAUDE.md
+|-- README.md
+|
+|-- .claude/
+|   |-- agents/
+|   |-- skills/
+|   |-- rules/
+|
+|-- docs/
+|   |-- research/
+|   |-- seo/
+|   |-- design/
+|   |-- architecture/
+|   |-- audits/
+|   |-- changelog/
+|
+|-- public/
+|   |-- images/
+|   |-- icons/
+|   |-- fonts/
+|   |-- favicon.ico
+|   |-- robots.txt
+|   |-- sitemap.xml
+|
+|-- pages/
+|   |-- services/
+|   |-- areas/
+|   |-- projects/
+|   |-- blog/
+|
+|-- css/
+|   |-- reset.css
+|   |-- variables.css
+|   |-- base.css
+|   |-- components.css
+|   |-- layout.css
+|   |-- responsive.css
+|
+|-- js/
+|   |-- main.js
+|   |-- navigation.js
+|   |-- forms.js
+|   |-- analytics.js
+|
+|-- components/
+|   |-- header.html
+|   |-- footer.html
+|   |-- breadcrumbs.html
+|   |-- CTA.html
+|   |-- review-card.html
+|
+|-- config/
+|   |-- business.json
+|
+|-- index.html
+
+Claude may adjust this architecture if it identifies a better static-site approach, but it must document why.
+
+==================================================
+38. DOCUMENTATION CLAUDE MUST MAINTAIN
+==================================================
+
+Create:
+
+docs/
+
+Files:
+- project-brief.md
+- architecture.md
+- design-system.md
+- seo-strategy.md
+- keyword-map.md
+- topical-map.md
+- internal-link-map.md
+- competitor-analysis.md
+- local-seo-strategy.md
+- content-strategy.md
+- schema-strategy.md
+- security-strategy.md
+- performance-strategy.md
+- qa-checklist.md
+- deployment-guide.md
+- changelog.md
+
+==================================================
+39. PROJECT MEMORY
+==================================================
+
+Maintain:
+
+PROJECT_MEMORY.md
+
+After every major stage record:
+
+- Completed
+- Pending
+- Decisions
+- Changes
+- Known Issues
+- Next Task
+
+Claude must read PROJECT_MEMORY.md before continuing development after an interruption.
+
+==================================================
+40. MASTER DEVELOPMENT RULES
+==================================================
+
+Rule 1:
+Do not modify completed work unless the change is required by a documented bug, security issue, SEO issue, accessibility issue, performance issue, or explicit project requirement.
+
+Rule 2:
+Before modifying an existing feature, inspect its current implementation and dependencies.
+
+Rule 3:
+Do not rewrite working systems unnecessarily.
+
+Rule 4:
+Do not invent business information, reviews, projects, services, prices, certifications, awards, guarantees, or claims.
+
+Rule 5:
+Do not create SEO pages solely for keyword manipulation.
+
+Rule 6:
+Do not duplicate service or area-page content.
+
+Rule 7:
+Every indexable page must have a clear purpose.
+
+Rule 8:
+All SEO recommendations must be based on research and documented reasoning.
+
+==================================================
+41. CLAUDE WORKFLOW
+==================================================
+
+The workflow should always be:
+
+Research
+  |
+  v
+Document findings
+  |
+  v
+Create specification
+  |
+  v
+Design
+  |
+  v
+Review design
+  |
+  v
+Develop
+  |
+  v
+SEO implementation
+  |
+  v
+Security review
+  |
+  v
+Performance review
+  |
+  v
+QA
+  |
+  v
+Fix
+  |
+  v
+Re-test
+  |
+  v
+Approve
+  |
+  v
+Next stage
+
+Do not simply ask Claude to generate the entire website and assume it is correct.
+
+==================================================
+42. FINAL AGENT STRUCTURE
+==================================================
+
+Use approximately:
+
+- project-manager
+- business-researcher
+- competitor-researcher
+- keyword-researcher
+- seo-strategist
+- local-seo-specialist
+- content-strategist
+- content-writer
+- ui-ux-designer
+- frontend-developer
+- technical-seo-auditor
+- schema-specialist
+- internal-linking-specialist
+- performance-engineer
+- accessibility-auditor
+- security-auditor
+- conversion-optimizer
+- qa-engineer
+- deployment-engineer
+- final-reviewer
+
+==================================================
+43. FINAL LAUNCH CHECKLIST
+==================================================
+
+BUSINESS:
+[ ] Correct business name
+[ ] Correct phone
+[ ] Correct Dubai location
+[ ] Consistent NAP
+[ ] Real services only
+
+SEO:
+[ ] Keyword mapping
+[ ] Search intent
+[ ] Unique titles
+[ ] Unique meta descriptions
+[ ] Correct H1
+[ ] Proper heading hierarchy
+[ ] Canonicals
+[ ] Sitemap
+[ ] Robots
+[ ] Breadcrumbs
+[ ] Internal links
+[ ] Schema
+[ ] Image SEO
+
+LOCAL SEO:
+[ ] LocalBusiness schema
+[ ] Dubai targeting
+[ ] Service-location relationships
+[ ] Real reviews
+[ ] Google Business Profile alignment
+[ ] NAP consistency
+
+PERFORMANCE:
+[ ] Responsive images
+[ ] WebP/AVIF
+[ ] Lazy loading
+[ ] Minified CSS
+[ ] Minified JS
+[ ] Font optimization
+[ ] No unnecessary libraries
+[ ] Core Web Vitals checked
+
+SECURITY:
+[ ] Forms tested
+[ ] Input validation
+[ ] No exposed secrets
+[ ] Security headers
+[ ] XSS checks
+[ ] Dependency checks
+[ ] HTTPS
+
+UX:
+[ ] Mobile navigation
+[ ] Sticky CTA
+[ ] Phone button
+[ ] WhatsApp button
+[ ] Quote form
+[ ] Clear CTAs
+[ ] Accessible forms
+[ ] 404 page
+
+FINAL:
+[ ] All links tested
+[ ] All images tested
+[ ] No console errors
+[ ] No duplicate pages
+[ ] No accidental noindex
+[ ] No broken canonical
+[ ] Sitemap valid
+[ ] Robots valid
+[ ] Schema validated
+[ ] Final crawl completed
+
+==================================================
+44. RECOMMENDED FIRST RELEASE
+==================================================
+
+For alqasimmovers.com, start with approximately 25–40 genuinely useful pages rather than creating 100+ SEO pages immediately.
+
+Suggested initial structure:
+
+- Homepage
+- About
+- Services
+- 12–15 validated service pages
+- 8–12 high-value area pages
+- Projects
+- Reviews
+- FAQ
+- Get a Quote
+- Contact
+- Blog
+- Legal pages
+- 404
+
+Expand the site later based on actual search data, business coverage, Search Console data, and content opportunities.
+
+==================================================
+45. FIRST CLAUDE PROMPT
+==================================================
+
+Use this as the FIRST instruction in Claude:
+
+Create CLAUDE.md.
+
+Create the complete project operating system before writing production website code.
+
+Tasks:
+
+1. Create CLAUDE.md.
+2. Create project architecture.
+3. Create all required specialized agents.
+4. Create all required skills.
+5. Create development rules.
+6. Create SEO rules.
+7. Create security rules.
+8. Create design rules.
+9. Create documentation structure.
+10. Create PROJECT_MEMORY.md.
+11. Create CHANGELOG.md.
+12. Create the master project roadmap.
+13. Create the initial business configuration.
+14. Define the development workflow.
+15. Define quality gates for every stage.
+
+Project:
+Al Qasim Movers
+
+Domain:
+https://alqasimmovers.com
+
+Phone:
+0556869224
+
+Location:
+Dubai, UAE
+
+Technology:
+HTML5 + CSS3 + JavaScript
+
+Primary objective:
+Local SEO + Organic Traffic + Lead Generation
+
+IMPORTANT:
+DO NOT write production website code yet.
+
+DO NOT start designing the website yet.
+
+DO NOT skip research or documentation.
+
+DO NOT invent business information.
+
+DO NOT create thin SEO pages.
+
+DO NOT create fake reviews, projects, prices, awards, certifications, guarantees, or business claims.
+
+After creating the project operating system, perform Stage 1 validation and report:
+
+1. Files created
+2. Agents created
+3. Skills created
+4. Rules created
+5. Architecture created
+6. Documentation created
+7. Business configuration created
+8. Quality gates created
+9. Any missing information required from the business owner
+10. Stage 1 completion status
+
+Do not proceed to Stage 2 until Stage 1 has been validated.

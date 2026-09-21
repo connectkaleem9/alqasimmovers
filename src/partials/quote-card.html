@@ -1,0 +1,77 @@
+<div class="quote-card">
+  <p class="eyebrow eyebrow--start eyebrow--on-dark">{{t.cta.quote}}</p>
+  <h2>{{t.quoteCard.title}}</h2>
+  <p class="quote-card__lead">{{t.quoteCard.lead}}</p>
+
+  <form class="form form--2col" name="quote-home" method="POST" action="/form/quote.php"
+        data-form data-msg-required="{{t.form.errorRequired}}" data-msg-phone="{{t.form.errorPhone}}"
+        data-msg-summary="{{t.form.errorSummary}}" data-msg-sending="{{t.form.sending}}">
+
+    <input type="hidden" name="lang" value="{{lang}}">
+    <input type="hidden" name="source_page" value="{{page.canonical}}">
+    <input type="hidden" name="ts" value="" data-timestamp>
+
+    <p class="form__honey">
+      <label>{{t.form.honeypot}} <input name="company-website" tabindex="-1" autocomplete="off"></label>
+    </p>
+
+    <div class="field field--icon">
+      <label class="visually-hidden" for="qc-name">{{t.form.name}} ({{t.form.required}})</label>
+      <svg class="icon" aria-hidden="true" width="18" height="18"><use href="/images/icons/sprite.svg#users"></use></svg>
+      <input class="input" id="qc-name" name="name" type="text" required autocomplete="name" maxlength="80" placeholder="{{t.form.name}}">
+    </div>
+
+    <div class="field field--icon">
+      <label class="visually-hidden" for="qc-phone">{{t.form.phone}} ({{t.form.required}})</label>
+      <svg class="icon" aria-hidden="true" width="18" height="18"><use href="/images/icons/sprite.svg#phone"></use></svg>
+      <input class="input" id="qc-phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" maxlength="20" placeholder="{{t.form.phone}}">
+    </div>
+
+    <div class="field field--icon">
+      <label class="visually-hidden" for="qc-from">{{t.form.movingFrom}}</label>
+      <svg class="icon" aria-hidden="true" width="18" height="18"><use href="/images/icons/sprite.svg#pin"></use></svg>
+      <input class="input" id="qc-from" name="moving_from" type="text" maxlength="80" placeholder="{{t.form.movingFrom}}">
+    </div>
+
+    <div class="field field--icon">
+      <label class="visually-hidden" for="qc-to">{{t.form.movingTo}}</label>
+      <svg class="icon" aria-hidden="true" width="18" height="18"><use href="/images/icons/sprite.svg#pin"></use></svg>
+      <input class="input" id="qc-to" name="moving_to" type="text" maxlength="80" placeholder="{{t.form.movingTo}}">
+    </div>
+
+    <div class="field field--icon">
+      <label class="visually-hidden" for="qc-property">{{t.form.propertyType}}</label>
+      <svg class="icon" aria-hidden="true" width="18" height="18"><use href="/images/icons/sprite.svg#building"></use></svg>
+      <select class="select" id="qc-property" name="property_type">
+        <option value="">{{t.form.propertyType}}</option>
+        <option value="studio">{{t.form.propertyOptions.studio}}</option>
+        <option value="apt1">{{t.form.propertyOptions.apt1}}</option>
+        <option value="apt2">{{t.form.propertyOptions.apt2}}</option>
+        <option value="apt3">{{t.form.propertyOptions.apt3}}</option>
+        <option value="villa">{{t.form.propertyOptions.villa}}</option>
+        <option value="office">{{t.form.propertyOptions.office}}</option>
+        <option value="shop">{{t.form.propertyOptions.shop}}</option>
+        <option value="items">{{t.form.propertyOptions.items}}</option>
+      </select>
+    </div>
+
+    <div class="field field--icon">
+      <label class="visually-hidden" for="qc-date">{{t.form.movingDate}}</label>
+      <svg class="icon" aria-hidden="true" width="18" height="18"><use href="/images/icons/sprite.svg#calendar"></use></svg>
+      <input class="input" id="qc-date" name="moving_date" type="date" aria-label="{{t.form.movingDate}}">
+    </div>
+
+    <div class="field field--wide">
+      <label class="visually-hidden" for="qc-message">{{t.form.message}}</label>
+      <textarea class="textarea" id="qc-message" name="message" maxlength="1200" placeholder="{{t.form.messageShort}}"></textarea>
+    </div>
+
+    <div class="field--wide">
+      <button class="btn btn--primary full" type="submit">{{t.cta.quote}} <svg class="icon" aria-hidden="true" width="18" height="18"><use href="/images/icons/sprite.svg#arrow-right"></use></svg></button>
+      <p class="form__note">
+        <svg class="icon" aria-hidden="true" width="14" height="14"><use href="/images/icons/sprite.svg#lock"></use></svg>
+        {{t.form.secure}}
+      </p>
+    </div>
+  </form>
+</div>

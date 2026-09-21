@@ -1,0 +1,132 @@
+{
+  "dir": "ltr",
+  "langName": "English",
+  "otherLangName": "العربية",
+  "skipToContent": "Skip to content",
+  "nav": {
+    "services": "Services",
+    "areas": "Areas",
+    "guides": "Guides",
+    "about": "About",
+    "contact": "Contact",
+    "faq": "FAQ",
+    "menu": "Menu",
+    "closeMenu": "Close menu",
+    "openMenu": "Open menu",
+    "home": "Home",
+    "projects": "Projects",
+    "reviews": "Reviews",
+    "blog": "Blog"
+  },
+  "cta": {
+    "quote": "Get a Free Quote",
+    "quoteLong": "Request a Free Moving Quote",
+    "whatsapp": "WhatsApp Us",
+    "call": "Call Now",
+    "callLabel": "Call {phone}",
+    "whatsappLabel": "Message us on WhatsApp",
+    "bandTitle": "Get your moving price today",
+    "bandText": "Tell us what you are moving and we will send you a price.",
+    "quoteShort": "Free Quote",
+    "ready": "Ready to move?"
+  },
+  "footer": {
+    "servicesTitle": "Services",
+    "areasTitle": "Areas we cover",
+    "companyTitle": "Company",
+    "legalTitle": "Legal",
+    "contactTitle": "Contact",
+    "serviceArea": "Dubai, United Arab Emirates — all of Dubai and every emirate",
+    "rights": "All rights reserved.",
+    "quickLinks": "Quick Links",
+    "location": "Dubai, United Arab Emirates",
+    "tagline": "Professional Moving Services in Dubai",
+    "about": "Al Qasim Movers L.L.C is a Dubai moving company. We pack, move, dismantle and reassemble homes, villas and offices across all of Dubai and to every emirate."
+  },
+  "breadcrumb": {
+    "label": "Breadcrumb",
+    "home": "Home"
+  },
+  "form": {
+    "required": "required",
+    "optional": "optional",
+    "name": "Your name",
+    "phone": "Phone number",
+    "email": "Email",
+    "movingFrom": "Moving from",
+    "movingTo": "Moving to",
+    "propertyType": "Property type",
+    "movingDate": "Moving date",
+    "services": "What do you need?",
+    "rooms": "Number of rooms",
+    "message": "Anything else we should know?",
+    "submit": "Request a Free Moving Quote",
+    "errorSummary": "Please check the following:",
+    "errorRequired": "This field is required.",
+    "errorPhone": "Please enter a valid UAE phone number.",
+    "sending": "Sending…",
+    "serviceOptions": {
+      "packing": "Packing",
+      "unpacking": "Unpacking",
+      "assembly": "Dismantling & reassembly",
+      "storage": "Storage",
+      "handyman": "Handyman (curtains, TV mounting)",
+      "heavy": "Heavy items (piano, safe, gym)",
+      "truck": "Truck with driver"
+    },
+    "propertyOptions": {
+      "choose": "Please choose",
+      "studio": "Studio",
+      "apt1": "1 bedroom apartment",
+      "apt2": "2 bedroom apartment",
+      "apt3": "3+ bedroom apartment",
+      "villa": "Villa",
+      "office": "Office",
+      "shop": "Shop or warehouse",
+      "items": "A few items only"
+    },
+    "honeypot": "Leave this field empty",
+    "privacy": "We use your details only to reply to your enquiry.",
+    "messageShort": "Additional message (optional)",
+    "secure": "Your information is secure with us."
+  },
+  "misc": {
+    "lastUpdated": "Last updated",
+    "onThisPage": "On this page",
+    "readGuide": "Read the guide",
+    "allServices": "See all services",
+    "allAreas": "See all areas",
+    "relatedServices": "Related services",
+    "sources": "Sources"
+  },
+  "quoteCard": {
+    "title": "Request Your Moving Quote Today",
+    "lead": "Quick, easy and no obligation."
+  },
+  "contactStrip": {
+    "call": "Call Us",
+    "location": "Our Location",
+    "hours": "Working Hours"
+  },
+  "services": {
+    "home": "Home Movers",
+    "villa": "Villa Movers",
+    "apartment": "Apartment Movers",
+    "office": "Office Movers",
+    "packing": "Packing & Unpacking",
+    "furniture": "Furniture Movers",
+    "loading": "Loading & Unloading",
+    "storage": "Storage Services"
+  },
+  "areas": {
+    "eyebrow": "Service Areas",
+    "title": "Proudly Serving All Areas in",
+    "titleAccent": "Dubai",
+    "lead": "No matter where you are in Dubai, we are just a call away.",
+    "all": "View All Areas"
+  },
+  "reviews": {
+    "sampleBanner": "SAMPLE LAYOUT — these are placeholder cards, not real customer reviews. They appear in local preview only and are never published.",
+    "empty": "We publish reviews only from customers who have actually moved with us, and only with their permission. Real reviews will appear here as soon as we have them — we will never invent one."
+  }
+}

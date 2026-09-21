@@ -1,0 +1,74 @@
+<form class="form" name="quote" method="POST" action="/form/quote.php"
+      data-form data-msg-required="{{t.form.errorRequired}}" data-msg-phone="{{t.form.errorPhone}}"
+      data-msg-summary="{{t.form.errorSummary}}" data-msg-sending="{{t.form.sending}}">
+
+  <input type="hidden" name="lang" value="{{lang}}">
+  <input type="hidden" name="source_page" value="{{page.canonical}}">
+  <!-- set by JS on page load; a submission faster than 3s is treated as a bot -->
+  <input type="hidden" name="ts" value="" data-timestamp>
+
+  <p class="form__honey">
+    <label>{{t.form.honeypot}} <input name="company-website" tabindex="-1" autocomplete="off"></label>
+  </p>
+
+  <div class="field">
+    <label class="field__label" for="q-name">{{t.form.name}} <span class="field__req">({{t.form.required}})</span></label>
+    <input class="input" id="q-name" name="name" type="text" required autocomplete="name" maxlength="80">
+  </div>
+
+  <div class="field">
+    <label class="field__label" for="q-phone">{{t.form.phone}} <span class="field__req">({{t.form.required}})</span></label>
+    <input class="input" id="q-phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" maxlength="20" placeholder="05X XXX XXXX">
+  </div>
+
+  <div class="field">
+    <label class="field__label" for="q-from">{{t.form.movingFrom}} <span class="field__req">({{t.form.optional}})</span></label>
+    <input class="input" id="q-from" name="moving_from" type="text" maxlength="80">
+  </div>
+
+  <div class="field">
+    <label class="field__label" for="q-to">{{t.form.movingTo}} <span class="field__req">({{t.form.optional}})</span></label>
+    <input class="input" id="q-to" name="moving_to" type="text" maxlength="80">
+  </div>
+
+  <div class="field">
+    <label class="field__label" for="q-property">{{t.form.propertyType}} <span class="field__req">({{t.form.optional}})</span></label>
+    <select class="select" id="q-property" name="property_type">
+      <option value="">{{t.form.propertyOptions.choose}}</option>
+      <option value="studio">{{t.form.propertyOptions.studio}}</option>
+      <option value="apt1">{{t.form.propertyOptions.apt1}}</option>
+      <option value="apt2">{{t.form.propertyOptions.apt2}}</option>
+      <option value="apt3">{{t.form.propertyOptions.apt3}}</option>
+      <option value="villa">{{t.form.propertyOptions.villa}}</option>
+      <option value="office">{{t.form.propertyOptions.office}}</option>
+      <option value="shop">{{t.form.propertyOptions.shop}}</option>
+      <option value="items">{{t.form.propertyOptions.items}}</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label class="field__label" for="q-date">{{t.form.movingDate}} <span class="field__req">({{t.form.optional}})</span></label>
+    <input class="input" id="q-date" name="moving_date" type="date">
+  </div>
+
+  <fieldset class="field">
+    <legend class="field__label">{{t.form.services}} <span class="field__req">({{t.form.optional}})</span></legend>
+    <div class="checkgroup">
+      <label class="checkgroup__item"><input type="checkbox" name="services[]" value="packing"> <span>{{t.form.serviceOptions.packing}}</span></label>
+      <label class="checkgroup__item"><input type="checkbox" name="services[]" value="unpacking"> <span>{{t.form.serviceOptions.unpacking}}</span></label>
+      <label class="checkgroup__item"><input type="checkbox" name="services[]" value="assembly"> <span>{{t.form.serviceOptions.assembly}}</span></label>
+      <label class="checkgroup__item"><input type="checkbox" name="services[]" value="storage"> <span>{{t.form.serviceOptions.storage}}</span></label>
+      <label class="checkgroup__item"><input type="checkbox" name="services[]" value="handyman"> <span>{{t.form.serviceOptions.handyman}}</span></label>
+      <label class="checkgroup__item"><input type="checkbox" name="services[]" value="heavy"> <span>{{t.form.serviceOptions.heavy}}</span></label>
+      <label class="checkgroup__item"><input type="checkbox" name="services[]" value="truck"> <span>{{t.form.serviceOptions.truck}}</span></label>
+    </div>
+  </fieldset>
+
+  <div class="field">
+    <label class="field__label" for="q-message">{{t.form.message}} <span class="field__req">({{t.form.optional}})</span></label>
+    <textarea class="textarea" id="q-message" name="message" maxlength="1200"></textarea>
+    <p class="field__hint">{{t.form.privacy}}</p>
+  </div>
+
+  <button class="btn btn--primary full" type="submit">{{t.form.submit}}</button>
+</form>

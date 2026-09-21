@@ -1,0 +1,32 @@
+{
+  "_note": "SAMPLE TEXT FOR LAYOUT PREVIEW ONLY. These people do not exist. The build only reads this file when PREVIEW=1 is set, and it stamps a visible warning banner on the section. It can never reach the live site — see docs/architecture/architecture.md and .claude/rules/content-integrity-rules.md.",
+  "reviews": [
+    {
+      "name": "Sample name",
+      "area": "Dubai Marina",
+      "rating": 5,
+      "text": {
+        "en": "Example review text showing how a customer comment will look on this card once a real review replaces it.",
+        "ar": "نص تجريبي يوضح كيف سيظهر تعليق العميل في هذه البطاقة بعد استبداله بتقييم حقيقي."
+      }
+    },
+    {
+      "name": "Sample name",
+      "area": "Business Bay",
+      "rating": 5,
+      "text": {
+        "en": "Example review text for the second card, long enough to show how two or three lines of a customer comment will wrap.",
+        "ar": "نص تجريبي للبطاقة الثانية، بطول كافٍ لإظهار كيفية التفاف سطرين أو ثلاثة من تعليق العميل."
+      }
+    },
+    {
+      "name": "Sample name",
+      "area": "Jumeirah",
+      "rating": 5,
+      "text": {
+        "en": "Example review text for the third card. Replace all of these with real customer words before the site goes live.",
+        "ar": "نص تجريبي للبطاقة الثالثة. استبدل كل هذه النصوص بكلمات عملاء حقيقيين قبل إطلاق الموقع."
+      }
+    }
+  ]
+}

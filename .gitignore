@@ -1,0 +1,34 @@
+# Build output
+dist/
+
+# Secrets / environment
+.env
+.env.*
+!.env.example
+# Real PHP config must never be committed (only config.sample.php is)
+alqasim-config.php
+**/config.local*.php
+**/config.production*.php
+*.pem
+*.key
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Logs / temp
+*.log
+tmp/
+.cache/
+
+# Node (in case tooling is ever added)
+node_modules/
+
+# Claude local settings
+.claude/settings.local.json
+
+# Deployment package (rebuild it any time with: npm run build + zip dist)
+alqasim-movers-site.zip

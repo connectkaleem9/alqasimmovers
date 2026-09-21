@@ -1,0 +1,50 @@
+/* Element defaults built from tokens only */
+body {
+  font-family: var(--ff-base);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--c-ink);
+  background: var(--c-white);
+  /* room for the sticky mobile CTA bar so it never covers content (A11Y-D1) */
+  padding-block-end: var(--sticky-h);
+}
+
+@media (min-width: 62rem) { body { padding-block-end: 0; } }
+
+h1, h2, h3, h4 {
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-heading);
+  color: var(--c-heading);
+  text-wrap: balance;
+}
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); font-weight: var(--fw-semi); }
+
+p, li { max-width: var(--measure); }
+p + p, p + ul, p + ol { margin-block-start: var(--sp-4); }
+
+a { color: var(--c-orange-text); text-underline-offset: 0.2em; }
+a:hover { color: var(--c-navy); }
+
+:focus-visible { outline: var(--focus-ring); outline-offset: 2px; border-radius: 2px; }
+/* on dark surfaces the ring switches to orange (5.73:1 on navy) */
+.site-header :focus-visible, .cta-band :focus-visible, .site-footer :focus-visible,
+.hero :focus-visible, .quote-card :focus-visible { outline-color: var(--c-orange); }
+
+ul:not([class]), ol:not([class]) { padding-inline-start: 1.25em; }
+ul:not([class]) li, ol:not([class]) li { margin-block-end: var(--sp-2); }
+
+strong { font-weight: var(--fw-semi); }
+hr { border: 0; border-block-start: 1px solid var(--c-hairline); margin-block: var(--sp-6); }
+
+table { border-collapse: collapse; width: 100%; font-size: var(--fs-small); }
+th, td { text-align: start; padding: var(--sp-3); border-block-end: 1px solid var(--c-hairline); }
+th { font-weight: var(--fw-semi); color: var(--c-heading); }
+
+.skip-link {
+  position: absolute; inset-inline-start: var(--sp-4); inset-block-start: -4rem;
+  background: var(--c-navy); color: var(--c-white); padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--r-sm); z-index: 100; transition: inset-block-start var(--transition);
+}
+.skip-link:focus { inset-block-start: var(--sp-3); color: var(--c-white); }

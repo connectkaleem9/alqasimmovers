@@ -1,0 +1,45 @@
+<header class="site-header" data-header>
+  <div class="container site-header__inner">
+    <a class="site-header__brand" href="{{home}}" aria-label="{{business.name.value}}">
+      <picture>
+        <source srcset="/images/logo/al-qasim-movers-logo-240.webp 240w, /images/logo/al-qasim-movers-logo-360.webp 360w, /images/logo/al-qasim-movers-logo-600.webp 600w" sizes="(min-width: 62rem) 176px, 136px" type="image/webp">
+        <img src="/images/logo/al-qasim-movers-logo-360.png" alt="{{business.name.value}}" width="360" height="106" class="site-header__logo">
+      </picture>
+    </a>
+
+    <nav class="site-nav" id="site-nav" aria-label="{{t.nav.menu}}" data-nav>
+      <ul class="site-nav__list">
+        <li><a href="{{home}}">{{t.nav.home}}</a></li>
+        <li><a href="{{url:about}}">{{t.nav.about}}</a></li>
+        <li><a href="{{url:services}}">{{t.nav.services}}</a></li>
+        <li><a href="{{url:areas}}">{{t.nav.areas}}</a></li>
+        <li><a href="{{url:projects}}">{{t.nav.projects}}</a></li>
+        <li><a href="{{url:reviews}}">{{t.nav.reviews}}</a></li>
+        <li><a href="{{url:blog}}">{{t.nav.blog}}</a></li>
+        <li><a href="{{url:contact}}">{{t.nav.contact}}</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <a class="site-nav__phone" href="{{business.phone.telLink}}" data-event="tel_click" data-placement="header">
+          <svg class="icon" aria-hidden="true" width="20" height="20"><use href="/images/icons/sprite.svg#phone"></use></svg>
+          <span>
+            <b><bdi dir="ltr">{{business.phone.local}}</bdi></b>
+            <small>{{t.cta.call}}</small>
+          </span>
+        </a>
+        <a class="site-nav__lang" href="{{altUrl}}" lang="{{altLang}}" hreflang="{{altLang}}">{{t.otherLangName}}</a>
+        <a class="btn btn--whatsapp" href="{{business.whatsapp.link}}" rel="noopener noreferrer" target="_blank" data-event="whatsapp_click" data-placement="header">
+          <svg class="icon" aria-hidden="true" width="20" height="20"><use href="/images/icons/sprite.svg#whatsapp"></use></svg>
+          <span>{{t.cta.whatsapp}}</span>
+        </a>
+      </div>
+    </nav>
+
+    <a class="btn btn--icon site-header__call" href="{{business.phone.telLink}}" aria-label="{{t.cta.callLabel}}" data-event="tel_click" data-placement="header-mobile">
+      <svg class="icon" aria-hidden="true" width="24" height="24"><use href="/images/icons/sprite.svg#phone"></use></svg>
+    </a>
+    <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+      <span class="visually-hidden" data-label-open="{{t.nav.openMenu}}" data-label-close="{{t.nav.closeMenu}}">{{t.nav.openMenu}}</span>
+      <svg class="icon" aria-hidden="true" width="24" height="24"><use href="/images/icons/sprite.svg#menu"></use></svg>
+    </button>
+  </div>
+</header>

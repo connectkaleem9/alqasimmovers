@@ -1,0 +1,80 @@
+/* Design tokens — the only place raw values are allowed.
+   v2 (2026-09-20): rebuilt to match the owner's homepage design
+   (design-reference/alqasimhompage.png). Colours sampled from that file.
+   Source of truth: docs/design/design-system.md */
+:root {
+  /* ---- brand, taken from the design ---- */
+  --c-orange: #FB7320;         /* the design's accent — backgrounds and graphics */
+  --c-orange-hover: #E4640F;
+  --c-orange-text: #B34405;    /* orange as TEXT on white (5.61:1) */
+  --c-navy: #0B233D;           /* hero overlay, footer bar, button labels */
+  --c-navy-deep: #091731;      /* quote card, darkest panels */
+  --c-navy-hover: #143A5E;
+  --c-heading: #0E2846;        /* headings on white (14.89:1) */
+
+  /* ---- text & surfaces ---- */
+  --c-ink: #0E2846;
+  --c-ink-soft: #55657A;
+  --c-white: #FFFFFF;
+  --c-surface: #F8FAFC;        /* the design's light section background */
+  --c-surface-2: #F1F5F9;
+  --c-border: #64748B;         /* interactive control borders */
+  --c-hairline: #E2E8F0;       /* decorative card edges */
+  --c-on-navy-soft: #C8D6E5;   /* secondary text on navy */
+
+  /* ---- states ---- */
+  --c-whatsapp: #0E7C43;       /* WhatsApp green, darkened so white text passes (5.27:1) */
+  --c-whatsapp-hover: #0B6837;
+  --c-success: #0E7C43;
+  --c-error: #B3261E;
+  --c-error-on-dark: #FFC4C0;  /* error text inside the navy quote card */
+
+  /* ---- typography (design uses a geometric sans) ---- */
+  --ff-base: Poppins, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --ff-ar: Tajawal, "Segoe UI", Tahoma, sans-serif;
+  --fs-display: clamp(2rem, 1.3rem + 3.2vw, 3.25rem);
+  --fs-h1: clamp(1.75rem, 1.35rem + 1.9vw, 2.5rem);
+  --fs-h2: clamp(1.5rem, 1.25rem + 1.2vw, 2rem);
+  --fs-h3: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
+  --fs-body: 1rem;
+  --fs-lead: 1.0625rem;
+  --fs-small: 0.875rem;
+  --fs-micro: 0.75rem;
+  --fs-eyebrow: 0.8125rem;
+  --lh-heading: 1.22;
+  --lh-body: 1.7;
+  --fw-regular: 400;
+  --fw-semi: 600;
+  --fw-bold: 700;
+
+  /* ---- spacing ---- */
+  --sp-1: 0.25rem; --sp-2: 0.5rem; --sp-3: 0.75rem; --sp-4: 1rem;
+  --sp-5: 1.5rem; --sp-6: 2rem; --sp-7: 3rem; --sp-8: 4rem; --sp-9: 6rem;
+  --section-y: var(--sp-7);
+  --gutter: var(--sp-4);
+  --container: 75rem;
+  --measure: 68ch;
+
+  /* ---- radius & shadow (the design uses soft cards) ---- */
+  --r-sm: 8px; --r-md: 12px; --r-lg: 18px; --r-full: 999px;
+  --sh-1: 0 1px 2px rgb(14 40 70 / .04), 0 4px 16px rgb(14 40 70 / .08);
+  --sh-2: 0 10px 30px rgb(14 40 70 / .14);
+
+  /* ---- controls ---- */
+  --control-h: 3rem;
+  --sticky-h: 3.5rem;
+  --focus-ring: 3px solid var(--c-navy);
+  --transition: 180ms ease-out;
+}
+
+@media (min-width: 48rem) {
+  :root { --section-y: var(--sp-9); --gutter: var(--sp-5); --fs-body: 1.0625rem; }
+}
+
+/* Arabic needs more vertical room */
+:root:lang(ar), [lang="ar"] {
+  --ff-base: var(--ff-ar);
+  --fs-body: 1.0625rem;
+  --lh-body: 1.9;
+  --lh-heading: 1.4;
+}

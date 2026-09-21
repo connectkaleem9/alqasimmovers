@@ -1,0 +1,440 @@
+{
+  "_meta": {
+    "description": "Single source of truth for Al Qasim Movers business facts. Only fields with verified=true may be published. Null values are unknown and must be supplied by the owner (see docs/owner-questions.md).",
+    "lastUpdated": "2026-09-19",
+    "updatedBy": "Owner answers round 1"
+  },
+  "name": {
+    "value": "Al Qasim Movers",
+    "verified": true,
+    "source": "owner brief"
+  },
+  "nameArabic": {
+    "value": "القاسم لنقل الأثاث",
+    "verified": true,
+    "source": "Owner answer 2026-09-19 (round 3): official name is 'Al Qasim Movers'; owner delegated the Arabic rendering. Standard UAE trade-name form (Al Qasim + 'for furniture moving').",
+    "short": "القاسم"
+  },
+  "legalName": {
+    "value": "Al Qasim Movers L.L.C",
+    "verified": true,
+    "source": "Owner logo artwork 2026-09-20 (design-reference/Alqasim movers logo.png)"
+  },
+  "domain": {
+    "value": "https://alqasimmovers.com",
+    "verified": true,
+    "source": "owner brief"
+  },
+  "canonicalHost": {
+    "value": "alqasimmovers.com",
+    "verified": false,
+    "source": "default assumption: non-www; owner to confirm"
+  },
+  "languages": {
+    "site": [
+      "en",
+      "ar"
+    ],
+    "default": "en",
+    "verified": true,
+    "source": "Owner answer 2026-09-19: dual language Arabic + English"
+  },
+  "phone": {
+    "local": "0556869224",
+    "international": "+971 55 686 9224",
+    "e164": "+971556869224",
+    "telLink": "tel:+971556869224",
+    "verified": true,
+    "source": "owner brief"
+  },
+  "whatsapp": {
+    "number": "+971556869224",
+    "link": "https://wa.me/971556869224",
+    "verified": true,
+    "source": "owner brief"
+  },
+  "email": {
+    "value": "info@alqasimmovers.com",
+    "verified": true,
+    "source": "Owner design mockup 2026-09-20 (design-reference/alqasimhompage.png)"
+  },
+  "address": {
+    "streetAddress": null,
+    "addressLocality": "Dubai",
+    "addressRegion": "Dubai",
+    "addressCountry": "AE",
+    "countryName": "United Arab Emirates",
+    "postalCode": null,
+    "isServiceAreaBusiness": null,
+    "verified": false,
+    "source": "city/country from owner brief; street address unknown"
+  },
+  "geo": {
+    "latitude": null,
+    "longitude": null,
+    "verified": false
+  },
+  "openingHours": {
+    "value": "Mo-Su 08:00-22:00",
+    "display": {
+      "en": "Mon – Sun: 8:00 AM – 10:00 PM",
+      "ar": "الإثنين – الأحد: 8:00 صباحاً – 10:00 مساءً"
+    },
+    "verified": true,
+    "source": "Owner design mockup 2026-09-20 (design-reference/alqasimhompage.png)"
+  },
+  "tradeLicence": {
+    "number": null,
+    "authority": null,
+    "verified": false
+  },
+  "foundingYear": {
+    "value": null,
+    "verified": false
+  },
+  "languagesSpoken": {
+    "value": null,
+    "verified": false
+  },
+  "paymentMethods": {
+    "value": null,
+    "verified": false
+  },
+  "googleBusinessProfile": {
+    "exists": false,
+    "url": null,
+    "placeId": null,
+    "verified": true,
+    "source": "Owner answer 2026-09-19: no GBP; proceed without",
+    "note": "Recommend creating one later; site must be GBP-ready (consistent NAP)."
+  },
+  "socialProfiles": {
+    "value": [],
+    "verified": false,
+    "note": "Design shows Facebook, Instagram, LinkedIn and YouTube icons but no URLs — icons stay hidden until the owner supplies links."
+  },
+  "services": {
+    "note": "All tiers resolved 2026-09-19. International moving NOT offered. Details (own vs partner storage, which emirates, equipment) still to confirm before page copy.",
+    "items": [
+      {
+        "slug": "home-movers-dubai",
+        "name": "Home Movers",
+        "offered": true,
+        "tier": 1,
+        "source": "Owner instruction 2026-09-19: offer the standard movers & packers service set (see docs/research/service-catalog.md, Tier 1)"
+      },
+      {
+        "slug": "furniture-movers-dubai",
+        "name": "Furniture Movers",
+        "offered": true,
+        "tier": 1,
+        "source": "Owner instruction 2026-09-19: offer the standard movers & packers service set (see docs/research/service-catalog.md, Tier 1)"
+      },
+      {
+        "slug": "villa-movers-dubai",
+        "name": "Villa Movers",
+        "offered": true,
+        "tier": 1,
+        "source": "Owner instruction 2026-09-19: offer the standard movers & packers service set (see docs/research/service-catalog.md, Tier 1)"
+      },
+      {
+        "slug": "apartment-movers-dubai",
+        "name": "Apartment Movers",
+        "offered": true,
+        "tier": 1,
+        "source": "Owner instruction 2026-09-19: offer the standard movers & packers service set (see docs/research/service-catalog.md, Tier 1)"
+      },
+      {
+        "slug": "studio-movers-dubai",
+        "name": "Studio Movers",
+        "offered": true,
+        "tier": 1,
+        "source": "Owner instruction 2026-09-19: offer the standard movers & packers service set (see docs/research/service-catalog.md, Tier 1)"
+      },
+      {
+        "slug": "office-movers-dubai",
+        "name": "Office Movers",
+        "offered": true,
+        "tier": 1,
+        "source": "Owner instruction 2026-09-19: offer the standard movers & packers service set (see docs/research/service-catalog.md, Tier 1)"
+      },
+      {
+        "slug": "commercial-movers-dubai",
+        "name": "Commercial Movers",
+        "offered": true,
+        "tier": 1,
+        "source": "Owner instruction 2026-09-19: offer the standard movers & packers service set (see docs/research/service-catalog.md, Tier 1)"
+      },
+      {
+        "slug": "packing-services-dubai",
+        "name": "Packing Services",
+        "offered": true,
+        "tier": 1,
+        "source": "Owner instruction 2026-09-19: offer the standard movers & packers service set (see docs/research/service-catalog.md, Tier 1)"
+      },
+      {
+        "slug": "unpacking-services-dubai",
+        "name": "Unpacking Services",
+        "offered": true,
+        "tier": 1,
+        "source": "Owner instruction 2026-09-19: offer the standard movers & packers service set (see docs/research/service-catalog.md, Tier 1)"
+      },
+      {
+        "slug": "furniture-assembly-dubai",
+        "name": "Furniture Disassembly & Assembly",
+        "offered": true,
+        "tier": 1,
+        "source": "Owner instruction 2026-09-19: offer the standard movers & packers service set (see docs/research/service-catalog.md, Tier 1)"
+      },
+      {
+        "slug": "loading-unloading-dubai",
+        "name": "Loading & Unloading",
+        "offered": true,
+        "tier": 1,
+        "source": "Owner instruction 2026-09-19: offer the standard movers & packers service set (see docs/research/service-catalog.md, Tier 1)"
+      },
+      {
+        "slug": "storage-services-dubai",
+        "name": "Storage & Warehousing",
+        "offered": true,
+        "tier": 2,
+        "source": "Owner answer 2026-09-19 (Tier 2 confirmation)"
+      },
+      {
+        "slug": "local-moving-dubai",
+        "name": "Local Moving Services",
+        "offered": true,
+        "tier": 1,
+        "source": "Owner instruction 2026-09-19: offer the standard movers & packers service set (see docs/research/service-catalog.md, Tier 1)"
+      },
+      {
+        "slug": "inter-emirate-moving",
+        "name": "Inter-emirate Moving",
+        "offered": true,
+        "tier": 2,
+        "source": "Owner answer 2026-09-19 (Tier 2 confirmation)"
+      },
+      {
+        "slug": "international-moving",
+        "name": "International Moving",
+        "offered": false,
+        "tier": 2,
+        "source": "Owner answer 2026-09-19 (Tier 2 confirmation): not offered"
+      },
+      {
+        "slug": "handyman-services",
+        "name": "Handyman (curtains, TV mounting, fixtures)",
+        "offered": true,
+        "tier": 2,
+        "source": "Owner answer 2026-09-19 (Tier 2 confirmation)"
+      },
+      {
+        "slug": "heavy-specialty-items",
+        "name": "Heavy & Specialty Items (piano, safe, gym equipment)",
+        "offered": true,
+        "tier": 2,
+        "source": "Owner answer 2026-09-19 (Tier 2 confirmation)"
+      },
+      {
+        "slug": "pickup-truck-rental",
+        "name": "Pickup / Truck with Driver",
+        "offered": true,
+        "tier": 2,
+        "source": "Owner answer 2026-09-19 (Tier 2 confirmation)"
+      },
+      {
+        "slug": "same-day-moving",
+        "name": "Same-day / Urgent Moves",
+        "offered": true,
+        "tier": 2,
+        "source": "Owner answer 2026-09-19 (Tier 2 confirmation)"
+      }
+    ]
+  },
+  "areasServed": {
+    "note": "Owner confirmed service across all of Dubai. served=true is necessary but NOT sufficient for an area page: each still needs unique local content (docs/seo/local-seo-strategy.md).",
+    "items": [
+      {
+        "slug": "dubai-marina",
+        "name": "Dubai Marina",
+        "served": true
+      },
+      {
+        "slug": "jumeirah",
+        "name": "Jumeirah",
+        "served": true
+      },
+      {
+        "slug": "jvc",
+        "name": "Jumeirah Village Circle (JVC)",
+        "served": true
+      },
+      {
+        "slug": "al-barsha",
+        "name": "Al Barsha",
+        "served": true
+      },
+      {
+        "slug": "business-bay",
+        "name": "Business Bay",
+        "served": true
+      },
+      {
+        "slug": "downtown-dubai",
+        "name": "Downtown Dubai",
+        "served": true
+      },
+      {
+        "slug": "deira",
+        "name": "Deira",
+        "served": true
+      },
+      {
+        "slug": "bur-dubai",
+        "name": "Bur Dubai",
+        "served": true
+      },
+      {
+        "slug": "al-quoz",
+        "name": "Al Quoz",
+        "served": true
+      },
+      {
+        "slug": "mirdif",
+        "name": "Mirdif",
+        "served": true
+      },
+      {
+        "slug": "arabian-ranches",
+        "name": "Arabian Ranches",
+        "served": true
+      },
+      {
+        "slug": "dubai-hills",
+        "name": "Dubai Hills",
+        "served": true
+      },
+      {
+        "slug": "al-nahda",
+        "name": "Al Nahda",
+        "served": true
+      },
+      {
+        "slug": "international-city",
+        "name": "International City",
+        "served": true
+      },
+      {
+        "slug": "silicon-oasis",
+        "name": "Dubai Silicon Oasis",
+        "served": true
+      },
+      {
+        "slug": "discovery-gardens",
+        "name": "Discovery Gardens",
+        "served": true
+      },
+      {
+        "slug": "palm-jumeirah",
+        "name": "Palm Jumeirah",
+        "served": true
+      }
+    ],
+    "otherEmirates": {
+      "value": true,
+      "emirates": [
+        "Abu Dhabi",
+        "Sharjah",
+        "Ajman",
+        "Umm Al Quwain",
+        "Ras Al Khaimah",
+        "Fujairah"
+      ],
+      "verified": true,
+      "source": "Owner answer 2026-09-19 (round 3): moves to every emirate"
+    },
+    "scope": {
+      "value": "All of Dubai emirate",
+      "verified": true,
+      "source": "Owner answer 2026-09-19"
+    }
+  },
+  "policies": {
+    "freeQuote": {
+      "value": true,
+      "verified": true,
+      "source": "Owner brief §16 and §19: primary CTA Get a Free Quote / Request a Free Moving Quote"
+    },
+    "packingMaterialsProvided": {
+      "value": null,
+      "verified": false
+    },
+    "sameDayMoving": {
+      "value": true,
+      "conditional": true,
+      "verified": true,
+      "source": "Owner answer 2026-09-19 (round 3): same-day moves are conditional",
+      "publishAs": "Same-day moves may be possible depending on crew and truck availability — call or WhatsApp to check.",
+      "note": "Never promise guaranteed same-day service."
+    },
+    "insurance": {
+      "value": null,
+      "verified": false
+    },
+    "storageFacility": {
+      "value": true,
+      "type": "partner",
+      "verified": true,
+      "source": "Owner answer 2026-09-19 (round 3): partner storage",
+      "note": "Never describe the warehouse as our own. Duration/climate-control details not confirmed: do not claim."
+    }
+  },
+  "cta": {
+    "primary": {
+      "label": "Get a Free Quote",
+      "href": "/get-a-quote/"
+    },
+    "secondary": {
+      "label": "WhatsApp Us",
+      "href": "https://wa.me/971556869224"
+    },
+    "mobileSticky": [
+      {
+        "label": "Call Now",
+        "href": "tel:+971556869224"
+      },
+      {
+        "label": "WhatsApp",
+        "href": "https://wa.me/971556869224"
+      }
+    ],
+    "quoteSubmit": {
+      "label": "Request a Free Moving Quote"
+    }
+  },
+  "defaults": {
+    "_note": "Decisions made by Claude under the owner's instruction not to re-ask (2026-09-19). Conservative; change here if wrong.",
+    "handymanTasks": [
+      "curtain and blind installation",
+      "TV wall mounting",
+      "furniture fixing and wall-mounted items"
+    ],
+    "heavyItems": [
+      "pianos",
+      "safes",
+      "gym equipment",
+      "large appliances"
+    ],
+    "arabicReviewer": "Owner reviews Arabic pages at the owner-review step of each stage gate",
+    "canonicalHost": "non-www https://alqasimmovers.com",
+    "quoteWording": "Get a Free Quote (confirmed by owner brief)",
+    "hoursDisplay": "Hidden until confirmed; CTA text says 'Call or WhatsApp' without hours",
+    "reviewsAndProjects": "Pages built with the structure only; filled when the owner shares real reviews/projects — nothing invented"
+  },
+  "tagline": {
+    "en": "Professional movers and packers in Dubai. We make your move simple, safe and hassle-free.",
+    "ar": "شركة نقل أثاث محترفة في دبي. نجعل نقلك بسيطاً وآمناً وبلا متاعب.",
+    "verified": true,
+    "source": "Owner design mockup 2026-09-20 (design-reference/alqasimhompage.png)"
+  }
+}
