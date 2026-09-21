@@ -9,7 +9,7 @@
   Header always set X-Frame-Options "DENY"
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
   # Start in Report-Only; switch the header name to Content-Security-Policy once reports are clean.
-  Header always set Content-Security-Policy-Report-Only "default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'"
+  Header always set Content-Security-Policy-Report-Only "default-src 'self'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; style-src 'self'; script-src 'self' https://www.googletagmanager.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; font-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'"
   # Long cache for fingerprintable assets, none for HTML
   <FilesMatch "\.(css|js|woff2|svg|png|jpg|jpeg|webp|avif|ico)$">
     Header set Cache-Control "public, max-age=2592000"

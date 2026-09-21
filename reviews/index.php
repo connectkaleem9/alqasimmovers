@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" data-ga="G-K39C33QF13">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,6 +10,7 @@
 <link rel="alternate" hreflang="ar" href="https://alqasimmovers.com/ar/reviews/">
 <link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/reviews/">
 
+<meta name="google-site-verification" content="UNRSFbXGFtaKRRXrKn0O3dzXPLuR4CXuFWrY4lq69yY">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Al Qasim Movers">
 <meta property="og:title" content="Customer Reviews | Al Qasim Movers Dubai">
@@ -25,7 +26,7 @@
 <link rel="apple-touch-icon" href="/images/logo/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/site.css?v=cebbf96164">
+<link rel="stylesheet" href="/css/site.css?v=c06c438393">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"MovingCompany","@id":"https://alqasimmovers.com/#business","name":"Al Qasim Movers","url":"https://alqasimmovers.com/","telephone":"+971556869224","image":"https://alqasimmovers.com/images/logo/mark-512.png","address":{"@type":"PostalAddress","addressLocality":"Dubai","addressRegion":"Dubai","addressCountry":"AE"},"areaServed":[{"@type":"City","name":"Dubai"},{"@type":"AdministrativeArea","name":"Abu Dhabi"},{"@type":"AdministrativeArea","name":"Sharjah"},{"@type":"AdministrativeArea","name":"Ajman"},{"@type":"AdministrativeArea","name":"Umm Al Quwain"},{"@type":"AdministrativeArea","name":"Ras Al Khaimah"},{"@type":"AdministrativeArea","name":"Fujairah"}],"email":"info@alqasimmovers.com"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Reviews","item":"https://alqasimmovers.com/reviews/"}]}]}</script>
 </head>
 <body class="page page--page">
@@ -275,6 +276,7 @@
   <div class="site-footer__base">
     <div class="container">
       <p>© 2026 Al Qasim Movers L.L.C. All rights reserved.</p>
+      <p><button class="site-footer__cookie" type="button" data-cookie-settings hidden>Cookie settings</button></p>
       <p class="site-footer__credit">Designed By <a href="https://imwebee.com/" rel="noopener" target="_blank">Webee</a></p>
     </div>
   </div>
@@ -291,6 +293,14 @@
   </a>
 </div>
 
-<script type="module" src="/js/main.js?v=dd942a79d2"></script>
+<div class="cookie-banner" data-cookie-banner hidden role="region" aria-label="Cookie consent">
+  <p class="cookie-banner__text">We use Google Analytics cookies to see how visitors use this site, so we can improve it. They are only set if you accept. <a href="/cookie-policy/">Cookie Policy</a></p>
+  <div class="cookie-banner__actions">
+    <button class="btn btn--primary btn--sm" type="button" data-consent="granted">Accept</button>
+    <button class="btn btn--light btn--sm" type="button" data-consent="denied">Decline</button>
+  </div>
+</div>
+
+<script type="module" src="/js/main.js?v=1a85fb9164"></script>
 </body>
 </html>

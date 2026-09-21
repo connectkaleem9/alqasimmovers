@@ -15,6 +15,13 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/"/>
   </url>
   <url>
+    <loc>https://alqasimmovers.com/ar/cookie-policy/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alqasimmovers.com/cookie-policy/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alqasimmovers.com/ar/cookie-policy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/cookie-policy/"/>
+  </url>
+  <url>
     <loc>https://alqasimmovers.com/ar/projects/</loc>
     <lastmod>2026-09-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alqasimmovers.com/projects/"/>
@@ -27,6 +34,13 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://alqasimmovers.com/reviews/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alqasimmovers.com/ar/reviews/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/reviews/"/>
+  </url>
+  <url>
+    <loc>https://alqasimmovers.com/cookie-policy/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alqasimmovers.com/cookie-policy/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alqasimmovers.com/ar/cookie-policy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alqasimmovers.com/cookie-policy/"/>
   </url>
   <url>
     <loc>https://alqasimmovers.com/projects/</loc>
