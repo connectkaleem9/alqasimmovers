@@ -478,7 +478,7 @@ if ($view === 'reviews') {
         foreach ($rows as $r) {
             $hidden = $r['status'] === 'hidden';
             $html .= '<tr' . ($hidden ? ' class="is-hidden"' : '') . '><td>' . e(substr($r['created_at'], 0, 16)) . '</td>'
-                . '<td><b>' . e($r['name']) . '</b><br><span class="muted">' . e($r['phone'] ?? '') . '<br>' . e(trim(($r['area'] ?? '') . ' ' . ($r['service'] ?? ''))) . '</span></td>'
+                . '<td><b>' . e($r['name']) . '</b><br><span class="muted">' . ($r['email'] ? '<a href="mailto:' . e($r['email']) . '">' . e($r['email']) . '</a>' : ($r['phone'] ? e($r['phone']) : '')) . '<br>' . e(trim(($r['area'] ?? '') . ' ' . ($r['service'] ?? ''))) . '</span></td>'
                 . '<td>' . str_repeat('★', (int) $r['rating']) . '</td>'
                 . '<td>' . nl2br(e($r['body'])) . '</td>'
                 . '<td>' . ($hidden ? 'Hidden' : 'Live') . '</td><td class="actions">'

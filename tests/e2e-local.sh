@@ -43,17 +43,18 @@ OLD=$(( ($(date +%s) - 60) * 1000 ))   # a form "opened" a minute ago
 echo "Reviews (public)"
 check "reviews page loads (200)"            '[ "$(code $BASE/reviews/)" = 200 ]'
 check "empty state shown"                    'curl -s $BASE/reviews/ | grep -q "No written reviews yet"'
-R=$(loc -X POST $BASE/form/review.php --data-urlencode "name=Ahmed Khan" --data-urlencode "phone=0501234567" -d "rating=5&service=villa&lang=en&ts=$OLD" --data-urlencode "area=Dubai Marina" --data-urlencode "body=Very careful team, they wrapped everything and reassembled all the beds perfectly.")
+R=$(loc -X POST $BASE/form/review.php --data-urlencode "name=Ahmed Khan" --data-urlencode "email=ahmed.k@example.com" -d "rating=5&service=villa&lang=en&ts=$OLD" --data-urlencode "area=Dubai Marina" --data-urlencode "body=Very careful team, they wrapped everything and reassembled all the beds perfectly.")
 check "valid review accepted -> thanks"      '[[ "$R" == *"/reviews/?thanks=1"* ]]'
 check "review appears on the page"           'curl -s $BASE/reviews/ | grep -q "reassembled all the beds"'
-check "phone NOT shown publicly"             '! curl -s $BASE/reviews/ | grep -q "0501234567"'
+check "email NOT shown publicly"             '! curl -s $BASE/reviews/ | grep -q "ahmed.k@example.com"'
 R=$(loc -X POST $BASE/form/review.php -d "name=Spam&phone=0501234567&rating=5&lang=en&ts=$OLD" --data-urlencode "body=Great deals at www.spam-site.com check it out now")
 check "review with a link rejected"          '[[ "$R" == *"error=links"* ]]'
-R=$(loc -X POST $BASE/form/review.php -d "name=X&phone=123&rating=5&lang=en&ts=$OLD" --data-urlencode "body=This is a long enough review body text")
-check "bad phone rejected"                   '[[ "$R" == *"error=phone"* ]]'
+R=$(loc -X POST $BASE/form/review.php -d "name=X&email=not-an-email&rating=5&lang=en&ts=$OLD" --data-urlencode "body=This is a long enough review body text")
+check "bad email rejected"                   '[[ "$R" == *"error=email"* ]]'
 R=$(loc -X POST $BASE/form/review.php -d "name=Bot&phone=0501234567&rating=5&lang=en&company-website=x&ts=$OLD" --data-urlencode "body=bot text that is long enough to pass")
 check "honeypot silently dropped"            '! curl -s $BASE/reviews/ | grep -q "bot text"'
 R=$(loc -X POST $BASE/form/review.php --data-urlencode "name=<script>alert(1)</script>" -d "phone=0507654321&rating=4&lang=en&ts=$OLD" --data-urlencode "body=Checking that scripts are escaped properly here.")
+check "review without email accepted"        '[[ "$R" == *"/reviews/?thanks=1"* ]]'
 check "script tag escaped, not executed"     'curl -s $BASE/reviews/ | grep -q "&lt;script&gt;alert(1)&lt;/script&gt;"'
 # Arabic goes through UTF-8 files: Windows mangles non-ASCII command-line arguments into "????"
 printf '%s' "أحمد" > "$SCR/e2e-ar-name.txt"
@@ -76,7 +77,7 @@ check "wrong password refused"               'curl -s -c $JAR -b $JAR $BASE/admi
 TOKEN=$(curl -s -c $JAR -b $JAR $BASE/admin/ | grep -o 'name="csrf" value="[a-f0-9]*"' | head -1 | sed 's/.*value="//;s/"//')
 curl -s -o /dev/null -c $JAR -b $JAR -X POST $BASE/admin/ -d "action=login&csrf=$TOKEN&username=owner&password=correct-horse-1"
 check "correct login -> dashboard"           'curl -s -c $JAR -b $JAR "$BASE/admin/?view=projects" | grep -q "New project"'
-check "admin sees reviewer phone"            'curl -s -c $JAR -b $JAR "$BASE/admin/?view=reviews" | grep -q "0501234567"'
+check "admin sees reviewer email"            'curl -s -c $JAR -b $JAR "$BASE/admin/?view=reviews" | grep -q "ahmed.k@example.com"'
 
 echo "Admin: projects and uploads"
 T2=$(curl -s -c $JAR -b $JAR "$BASE/admin/?view=project" | grep -o 'name="csrf" value="[a-f0-9]*"' | head -1 | sed 's/.*value="//;s/"//')

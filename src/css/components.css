@@ -529,14 +529,23 @@
 .notice--ok { background: rgb(14 124 67 / .1); color: var(--c-success); }
 .notice--error { background: rgb(179 38 30 / .08); color: var(--c-error); }
 
-/* ---------- review form ---------- */
-.review-form-wrap { display: grid; gap: var(--sp-6); max-width: 56rem; }
-@media (min-width: 62rem) { .review-form-wrap { grid-template-columns: 1fr 1.6fr; align-items: start; } }
-.review-form-intro p { color: var(--c-ink-soft); }
-.review-form { background: var(--c-white); border: 1px solid var(--c-hairline); border-radius: var(--r-lg); padding: var(--sp-5); box-shadow: var(--sh-1); }
-@media (min-width: 48rem) { .review-form { padding: var(--sp-6); } }
+/* ---------- review form ----------
+   Centred: heading and intro on top, one wide card below. Name, email, area and
+   service sit in a single row on desktop (2 per row on tablets, stacked on phones). */
+.review-form-wrap { display: grid; gap: var(--sp-5); max-width: 64rem; margin-inline: auto; }
+.review-form-intro { text-align: center; max-width: 40rem; margin-inline: auto; }
 .review-form-intro h2 { margin-block-end: var(--sp-3); }
-.review-form .btn { width: 100%; }
+.review-form-intro p { color: var(--c-ink-soft); margin: 0; }
+.review-form {
+  grid-template-columns: 1fr; background: var(--c-white); border: 1px solid var(--c-hairline);
+  border-radius: var(--r-lg); padding: var(--sp-5); box-shadow: var(--sh-1);
+}
+.review-form .field--wide, .review-form .form__summary, .review-form .form__honey { grid-column: 1 / -1; }
+@media (min-width: 40rem) { .review-form { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 62rem) { .review-form { grid-template-columns: repeat(4, 1fr); padding: var(--sp-6); } }
+.review-form .input, .review-form .select { block-size: var(--control-h); }
+.review-form__actions { display: flex; justify-content: center; }
+.review-form__actions .btn { min-width: 16rem; }
 .rating-input { border: 0; padding: 0; margin: 0; min-width: 0; }
 .rating-input .field__label { display: block; margin-block-end: var(--sp-2); padding: 0; }
 /* DOM order is 5..1 and the row is reversed, so the stars read 1..5 in either direction,

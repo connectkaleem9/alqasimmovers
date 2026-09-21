@@ -2,6 +2,13 @@
 
 All notable changes to the Al Qasim Movers project. Newest first. Format: date — stage — summary.
 
+## 2026-09-21 — Review form: centred layout, optional email instead of phone
+
+### Changed
+- The heading and intro are centred, with one wide form card below. Name, email, area and service sit in a single row on desktop, two per row on tablets, and are stacked on phones. The submit button is centred.
+- Phone number removed. There is an optional **email** field instead (validated if filled in, private, shown only in the admin). Owner's request.
+- The database gains a `reviews.email` column automatically on the next request (`migrate()` adds missing columns).
+
 ## 2026-09-21 — Google Search Console + Google Analytics 4
 
 ### Added

@@ -43,8 +43,8 @@
       <h2>اكتب تقييمك</h2>
       <p>نقلت معنا؟ أخبر الآخرين في دبي عن تجربتك. سيظهر تقييمك في هذه الصفحة مباشرة.</p>
     </div>
-    <form class="form form--2col review-form" method="POST" action="/form/review.php"
-          data-form data-msg-required="{{t.form.errorRequired}}" data-msg-phone="{{t.form.errorPhone}}"
+    <form class="form review-form" method="POST" action="/form/review.php"
+          data-form data-msg-required="{{t.form.errorRequired}}"
           data-msg-summary="{{t.form.errorSummary}}" data-msg-sending="{{t.form.sending}}">
       <input type="hidden" name="lang" value="ar">
       <input type="hidden" name="ts" value="" data-timestamp>
@@ -55,16 +55,15 @@
         <input class="input" id="rv-name" name="name" type="text" required maxlength="60" autocomplete="name">
       </div>
       <div class="field">
-        <label class="field__label" for="rv-phone">رقم الهاتف <span class="field__req">({{t.form.required}})</span></label>
-        <input class="input" id="rv-phone" name="phone" type="tel" required maxlength="20" inputmode="tel" autocomplete="tel" placeholder="05X XXX XXXX" aria-describedby="rv-phone-hint">
-        <p class="field__hint" id="rv-phone-hint">لا يظهر للعامة — فقط لنتأكد أنك من عملائنا.</p>
+        <label class="field__label" for="rv-email">البريد الإلكتروني <span class="field__req">(اختياري)</span></label>
+        <input class="input" id="rv-email" name="email" type="email" maxlength="120" autocomplete="email" placeholder="name@example.com" dir="ltr">
       </div>
       <div class="field">
-        <label class="field__label" for="rv-area">المنطقة (اختياري)</label>
+        <label class="field__label" for="rv-area">المنطقة <span class="field__req">(اختياري)</span></label>
         <input class="input" id="rv-area" name="area" type="text" maxlength="60" placeholder="مثال: دبي مارينا">
       </div>
       <div class="field">
-        <label class="field__label" for="rv-service">الخدمة (اختياري)</label>
+        <label class="field__label" for="rv-service">الخدمة <span class="field__req">(اختياري)</span></label>
         <select class="select" id="rv-service" name="service"><option value="">اختر الخدمة</option><option value="home">نقل منازل</option><option value="apartment">نقل شقق</option><option value="villa">نقل فلل</option><option value="office">نقل مكاتب</option><option value="packing">تغليف وتفريغ</option><option value="furniture">نقل أثاث</option><option value="storage">تخزين</option><option value="inter-emirate">نقل بين الإمارات</option><option value="other">أخرى</option></select>
       </div>
       <fieldset class="field field--wide rating-input">
@@ -76,7 +75,7 @@
         <textarea class="textarea" id="rv-body" name="body" required minlength="20" maxlength="1000" rows="5" aria-describedby="rv-body-hint"></textarea>
         <p class="field__hint" id="rv-body-hint">20 حرفاً على الأقل. يرجى عدم إضافة روابط.</p>
       </div>
-      <div class="field--wide">
+      <div class="field--wide review-form__actions">
         <button class="btn btn--primary" type="submit">إرسال التقييم</button>
       </div>
     </form>
