@@ -2,6 +2,12 @@
 
 All notable changes to the Al Qasim Movers project. Newest first. Format: date — stage — summary.
 
+## 2026-09-22 — Projects page as cards, Projects in the navigation
+
+### Changed
+- `/projects/` and `/ar/projects/` now show a card per project: cover photo on top, then the title, the location and the description, with the remaining photos and videos as small thumbnails under the text. Three cards per row on desktop, two on tablets, one on phones.
+- "Projects" added to the header navigation (both languages).
+
 ## 2026-09-22 — Admin uploads: on the create form, every photo/video format, hosting-size limits
 
 ### Fixed

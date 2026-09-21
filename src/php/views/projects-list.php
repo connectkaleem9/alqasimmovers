@@ -27,42 +27,59 @@ if (!$__projects) {
     return;
 }
 
-echo '<div class="project-list">';
+echo '<div class="project-grid">';
 foreach ($__projects as $__p) {
     $__title = ($__lang === 'ar' && !empty($__p['title_ar'])) ? $__p['title_ar'] : $__p['title_en'];
     $__desc = ($__lang === 'ar' && !empty($__p['description_ar'])) ? $__p['description_ar'] : $__p['description_en'];
     $__mediaStmt->execute([(int) $__p['id']]);
     $__media = $__mediaStmt->fetchAll();
 
-    echo '<article class="project">';
-    echo '<header class="project__head"><h2 class="project__title">' . e($__title) . '</h2>';
+    // the card's cover is the first photo; a project with only video shows the video
+    $__photos = array_values(array_filter($__media, fn($m) => $m['kind'] !== 'video'));
+    $__videos = array_values(array_filter($__media, fn($m) => $m['kind'] === 'video'));
+    $__cover = $__photos[0] ?? null;
+
+    echo '<article class="project-card">';
+    if ($__cover) {
+        $__full = '/' . ltrim((string) $__cover['path'], '/');
+        $__thumb = !empty($__cover['thumb']) ? '/' . ltrim((string) $__cover['thumb'], '/') : $__full;
+        echo '<a class="project-card__media" href="' . e($__full) . '" target="_blank" rel="noopener">'
+            . '<img src="' . e($__thumb) . '" alt="' . e($__title) . '" width="' . (int) ($__cover['width'] ?: 1200)
+            . '" height="' . (int) ($__cover['height'] ?: 800) . '" loading="lazy" decoding="async"></a>';
+    } elseif ($__videos) {
+        echo '<div class="project-card__media"><video controls preload="metadata" playsinline src="'
+            . e('/' . ltrim((string) $__videos[0]['path'], '/')) . '"></video></div>';
+    }
+
+    echo '<div class="project-card__body">';
+    echo '<h2 class="project-card__title">' . e($__title) . '</h2>';
     $__meta = array_filter([$__p['location'] ?? '', $__p['property_type'] ?? '']);
     if ($__meta) {
-        echo '<p class="project__meta">' . e(implode(' · ', $__meta)) . '</p>';
+        echo '<p class="project-card__meta">' . e(implode(' · ', $__meta)) . '</p>';
     }
-    echo '</header>';
     if (!empty($__desc)) {
-        echo '<p class="project__desc">' . nl2br(e($__desc)) . '</p>';
+        echo '<p class="project-card__desc">' . nl2br(e($__desc)) . '</p>';
     }
-    if ($__media) {
-        echo '<div class="project__gallery">';
-        foreach ($__media as $__m) {
+
+    // the rest of the photos and videos, small, under the text
+    $__more = array_merge(array_slice($__photos, 1), $__videos ? ($__cover ? $__videos : array_slice($__videos, 1)) : []);
+    if ($__more) {
+        echo '<ul class="project-card__more">';
+        foreach (array_slice($__more, 0, 4) as $__m) {
             $__src = '/' . ltrim((string) $__m['path'], '/');
             if ($__m['kind'] === 'video') {
-                echo '<figure class="project__item project__item--video">'
-                    . '<video controls preload="metadata" playsinline src="' . e($__src) . '"></video></figure>';
+                echo '<li><video preload="metadata" muted playsinline controls src="' . e($__src) . '"></video></li>';
             } else {
-                $__thumb = !empty($__m['thumb']) ? '/' . ltrim((string) $__m['thumb'], '/') : $__src;
-                $__w = (int) ($__m['width'] ?: 1200);
-                $__h = (int) ($__m['height'] ?: 800);
-                echo '<figure class="project__item">'
-                    . '<a href="' . e($__src) . '" target="_blank" rel="noopener">'
-                    . '<img src="' . e($__thumb) . '" alt="' . e($__title) . '" width="' . $__w . '" height="' . $__h . '" loading="lazy" decoding="async">'
-                    . '</a></figure>';
+                $__t2 = !empty($__m['thumb']) ? '/' . ltrim((string) $__m['thumb'], '/') : $__src;
+                echo '<li><a href="' . e($__src) . '" target="_blank" rel="noopener">'
+                    . '<img src="' . e($__t2) . '" alt="' . e($__title) . '" width="300" height="225" loading="lazy" decoding="async"></a></li>';
             }
         }
-        echo '</div>';
+        if (count($__more) > 4) {
+            echo '<li class="project-card__count">+' . (count($__more) - 4) . '</li>';
+        }
+        echo '</ul>';
     }
-    echo '</article>';
+    echo '</div></article>';
 }
 echo '</div>';
