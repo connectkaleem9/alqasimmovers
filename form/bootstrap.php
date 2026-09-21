@@ -120,6 +120,18 @@ function migrate(PDO $db, string $driver): void
     foreach ($tables as $sql) {
         $db->exec($sql);
     }
+
+    // columns added after the first release (existing databases get them on the next request)
+    $added = ['reviews' => ['email' => $str(120)]];
+    foreach ($added as $table => $columns) {
+        foreach ($columns as $column => $type) {
+            try {
+                $db->query("SELECT $column FROM $table LIMIT 0");
+            } catch (PDOException) {
+                $db->exec("ALTER TABLE $table ADD COLUMN $column $type");
+            }
+        }
+    }
 }
 
 /* ---------------------------------------------------------------- sessions */

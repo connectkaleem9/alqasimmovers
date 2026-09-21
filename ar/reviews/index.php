@@ -26,7 +26,7 @@
 <link rel="apple-touch-icon" href="/images/logo/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/fonts/tajawal-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/site.css?v=c06c438393">
+<link rel="stylesheet" href="/css/site.css?v=dfc084ac54">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"MovingCompany","@id":"https://alqasimmovers.com/#business","name":"القاسم لنقل الأثاث","url":"https://alqasimmovers.com/ar/","telephone":"+971556869224","image":"https://alqasimmovers.com/images/logo/mark-512.png","address":{"@type":"PostalAddress","addressLocality":"Dubai","addressRegion":"Dubai","addressCountry":"AE"},"areaServed":[{"@type":"City","name":"Dubai"},{"@type":"AdministrativeArea","name":"Abu Dhabi"},{"@type":"AdministrativeArea","name":"Sharjah"},{"@type":"AdministrativeArea","name":"Ajman"},{"@type":"AdministrativeArea","name":"Umm Al Quwain"},{"@type":"AdministrativeArea","name":"Ras Al Khaimah"},{"@type":"AdministrativeArea","name":"Fujairah"}],"email":"info@alqasimmovers.com"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"آراء العملاء","item":"https://alqasimmovers.com/ar/reviews/"}]}]}</script>
 </head>
 <body class="page page--page">
@@ -128,8 +128,8 @@
       <h2>اكتب تقييمك</h2>
       <p>نقلت معنا؟ أخبر الآخرين في دبي عن تجربتك. سيظهر تقييمك في هذه الصفحة مباشرة.</p>
     </div>
-    <form class="form form--2col review-form" method="POST" action="/form/review.php"
-          data-form data-msg-required="هذا الحقل مطلوب." data-msg-phone="يرجى إدخال رقم هاتف إماراتي صحيح."
+    <form class="form review-form" method="POST" action="/form/review.php"
+          data-form data-msg-required="هذا الحقل مطلوب."
           data-msg-summary="يرجى مراجعة ما يلي:" data-msg-sending="جارٍ الإرسال…">
       <input type="hidden" name="lang" value="ar">
       <input type="hidden" name="ts" value="" data-timestamp>
@@ -140,16 +140,15 @@
         <input class="input" id="rv-name" name="name" type="text" required maxlength="60" autocomplete="name">
       </div>
       <div class="field">
-        <label class="field__label" for="rv-phone">رقم الهاتف <span class="field__req">(مطلوب)</span></label>
-        <input class="input" id="rv-phone" name="phone" type="tel" required maxlength="20" inputmode="tel" autocomplete="tel" placeholder="05X XXX XXXX" aria-describedby="rv-phone-hint">
-        <p class="field__hint" id="rv-phone-hint">لا يظهر للعامة — فقط لنتأكد أنك من عملائنا.</p>
+        <label class="field__label" for="rv-email">البريد الإلكتروني <span class="field__req">(اختياري)</span></label>
+        <input class="input" id="rv-email" name="email" type="email" maxlength="120" autocomplete="email" placeholder="name@example.com" dir="ltr">
       </div>
       <div class="field">
-        <label class="field__label" for="rv-area">المنطقة (اختياري)</label>
+        <label class="field__label" for="rv-area">المنطقة <span class="field__req">(اختياري)</span></label>
         <input class="input" id="rv-area" name="area" type="text" maxlength="60" placeholder="مثال: دبي مارينا">
       </div>
       <div class="field">
-        <label class="field__label" for="rv-service">الخدمة (اختياري)</label>
+        <label class="field__label" for="rv-service">الخدمة <span class="field__req">(اختياري)</span></label>
         <select class="select" id="rv-service" name="service"><option value="">اختر الخدمة</option><option value="home">نقل منازل</option><option value="apartment">نقل شقق</option><option value="villa">نقل فلل</option><option value="office">نقل مكاتب</option><option value="packing">تغليف وتفريغ</option><option value="furniture">نقل أثاث</option><option value="storage">تخزين</option><option value="inter-emirate">نقل بين الإمارات</option><option value="other">أخرى</option></select>
       </div>
       <fieldset class="field field--wide rating-input">
@@ -161,7 +160,7 @@
         <textarea class="textarea" id="rv-body" name="body" required minlength="20" maxlength="1000" rows="5" aria-describedby="rv-body-hint"></textarea>
         <p class="field__hint" id="rv-body-hint">20 حرفاً على الأقل. يرجى عدم إضافة روابط.</p>
       </div>
-      <div class="field--wide">
+      <div class="field--wide review-form__actions">
         <button class="btn btn--primary" type="submit">إرسال التقييم</button>
       </div>
     </form>

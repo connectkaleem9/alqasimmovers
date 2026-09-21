@@ -26,7 +26,7 @@
 <link rel="apple-touch-icon" href="/images/logo/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/site.css?v=c06c438393">
+<link rel="stylesheet" href="/css/site.css?v=dfc084ac54">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"MovingCompany","@id":"https://alqasimmovers.com/#business","name":"Al Qasim Movers","url":"https://alqasimmovers.com/","telephone":"+971556869224","image":"https://alqasimmovers.com/images/logo/mark-512.png","address":{"@type":"PostalAddress","addressLocality":"Dubai","addressRegion":"Dubai","addressCountry":"AE"},"areaServed":[{"@type":"City","name":"Dubai"},{"@type":"AdministrativeArea","name":"Abu Dhabi"},{"@type":"AdministrativeArea","name":"Sharjah"},{"@type":"AdministrativeArea","name":"Ajman"},{"@type":"AdministrativeArea","name":"Umm Al Quwain"},{"@type":"AdministrativeArea","name":"Ras Al Khaimah"},{"@type":"AdministrativeArea","name":"Fujairah"}],"email":"info@alqasimmovers.com"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Reviews","item":"https://alqasimmovers.com/reviews/"}]}]}</script>
 </head>
 <body class="page page--page">
@@ -128,8 +128,8 @@
       <h2>Write a review</h2>
       <p>Moved with us? Tell other people in Dubai how it went. Your review appears on this page straight away.</p>
     </div>
-    <form class="form form--2col review-form" method="POST" action="/form/review.php"
-          data-form data-msg-required="This field is required." data-msg-phone="Please enter a valid UAE phone number."
+    <form class="form review-form" method="POST" action="/form/review.php"
+          data-form data-msg-required="This field is required."
           data-msg-summary="Please check the following:" data-msg-sending="Sending…">
       <input type="hidden" name="lang" value="en">
       <input type="hidden" name="ts" value="" data-timestamp>
@@ -140,16 +140,15 @@
         <input class="input" id="rv-name" name="name" type="text" required maxlength="60" autocomplete="name">
       </div>
       <div class="field">
-        <label class="field__label" for="rv-phone">Phone number <span class="field__req">(required)</span></label>
-        <input class="input" id="rv-phone" name="phone" type="tel" required maxlength="20" inputmode="tel" autocomplete="tel" placeholder="05X XXX XXXX" aria-describedby="rv-phone-hint">
-        <p class="field__hint" id="rv-phone-hint">Not shown publicly — only so we can confirm you are our customer.</p>
+        <label class="field__label" for="rv-email">Email <span class="field__req">(optional)</span></label>
+        <input class="input" id="rv-email" name="email" type="email" maxlength="120" autocomplete="email" placeholder="name@example.com">
       </div>
       <div class="field">
-        <label class="field__label" for="rv-area">Area (optional)</label>
+        <label class="field__label" for="rv-area">Area <span class="field__req">(optional)</span></label>
         <input class="input" id="rv-area" name="area" type="text" maxlength="60" placeholder="e.g. Dubai Marina">
       </div>
       <div class="field">
-        <label class="field__label" for="rv-service">Service (optional)</label>
+        <label class="field__label" for="rv-service">Service <span class="field__req">(optional)</span></label>
         <select class="select" id="rv-service" name="service"><option value="">Choose a service</option><option value="home">Home moving</option><option value="apartment">Apartment moving</option><option value="villa">Villa moving</option><option value="office">Office moving</option><option value="packing">Packing & unpacking</option><option value="furniture">Furniture moving</option><option value="storage">Storage</option><option value="inter-emirate">Move between emirates</option><option value="other">Other</option></select>
       </div>
       <fieldset class="field field--wide rating-input">
@@ -161,7 +160,7 @@
         <textarea class="textarea" id="rv-body" name="body" required minlength="20" maxlength="1000" rows="5" aria-describedby="rv-body-hint"></textarea>
         <p class="field__hint" id="rv-body-hint">At least 20 characters. Please do not include links.</p>
       </div>
-      <div class="field--wide">
+      <div class="field--wide review-form__actions">
         <button class="btn btn--primary" type="submit">Submit Review</button>
       </div>
     </form>

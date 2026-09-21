@@ -5,8 +5,8 @@ declare(strict_types=1);
  * the admin dashboard can hide or delete any of them.
  *
  * Abuse controls: honeypot, minimum fill time, 3 reviews per visitor per 24h,
- * links rejected, lengths capped, rating allow-listed. The phone number is kept
- * private (admin only) so the owner can verify a reviewer was a real customer.
+ * links rejected, lengths capped, rating allow-listed. The optional email address
+ * is kept private (admin only) so the owner can contact a reviewer.
  */
 require __DIR__ . '/bootstrap.php';
 
@@ -35,13 +35,13 @@ $area = clean($_POST['area'] ?? '', 60);
 $service = clean($_POST['service'] ?? '', 30);
 $rating = (int) ($_POST['rating'] ?? 0);
 $body = clean($_POST['body'] ?? '', 1000);
-$phoneRaw = clean($_POST['phone'] ?? '', 20);
+$email = clean($_POST['email'] ?? '', 120);
 
-if ($name === '' || $body === '' || $phoneRaw === '' || $rating < 1 || $rating > 5) {
+if ($name === '' || $body === '' || $rating < 1 || $rating > 5) {
     $back('required');
 }
-if (!valid_uae_phone($phoneRaw)) {
-    $back('phone');
+if ($email !== '' && filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
+    $back('email');
 }
 if (mb_strlen($body) < 20) {
     $back('short');
@@ -64,11 +64,11 @@ try {
     }
 
     $insert = $db->prepare(
-        'INSERT INTO reviews (created_at, lang, name, area, service, rating, body, phone, ip_hash, status)
+        'INSERT INTO reviews (created_at, lang, name, area, service, rating, body, email, ip_hash, status)
          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
     );
     $insert->execute([now_utc(), $lang, $name, $area ?: null, $service ?: null, $rating, $body,
-        normalise_phone($phoneRaw), ip_hash(), 'published']);
+        $email !== '' ? mb_strtolower($email) : null, ip_hash(), 'published']);
 } catch (Throwable $e) {
     error_log('[review] ' . $e->getMessage());
     $back('server');
