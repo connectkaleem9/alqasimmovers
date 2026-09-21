@@ -32,7 +32,12 @@ foreach ($__projects as $__p) {
     $__title = ($__lang === 'ar' && !empty($__p['title_ar'])) ? $__p['title_ar'] : $__p['title_en'];
     $__desc = ($__lang === 'ar' && !empty($__p['description_ar'])) ? $__p['description_ar'] : $__p['description_en'];
     $__mediaStmt->execute([(int) $__p['id']]);
-    $__media = $__mediaStmt->fetchAll();
+    // a row whose file is gone (deleted on the server) must not render a broken image
+    $__root = rtrim((string) ($_SERVER['DOCUMENT_ROOT'] ?? ''), '/');
+    $__media = array_values(array_filter(
+        $__mediaStmt->fetchAll(),
+        fn($m) => $__root === '' || is_file($__root . '/' . ltrim((string) $m['path'], '/'))
+    ));
 
     // the card's cover is the first photo; a project with only video shows the video
     $__photos = array_values(array_filter($__media, fn($m) => $m['kind'] !== 'video'));

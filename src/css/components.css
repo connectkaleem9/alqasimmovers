@@ -89,7 +89,7 @@
 .site-nav__lang { color: var(--c-heading); text-decoration: none; font-weight: var(--fw-semi); padding: var(--sp-2); }
 
 .site-nav[data-open="true"] {
-  display: block; position: fixed; inset: 4.25rem 0 0; background: var(--c-white);
+  display: block; position: fixed; inset: 4.25rem 0 0 0; background: var(--c-white);
   padding: var(--sp-5) var(--gutter); overflow-y: auto; z-index: 60;
 }
 .site-nav[data-open="true"] .site-nav__list { flex-direction: column; gap: 0; }

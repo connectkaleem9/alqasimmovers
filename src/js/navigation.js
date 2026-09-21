@@ -42,6 +42,9 @@ export function initNavigation() {
 
   const setOpen = (open) => {
     toggle.setAttribute('aria-expanded', String(open));
+    // the panel starts exactly under the header, which is taller while the top bar is visible
+    const header = document.querySelector('[data-header]');
+    nav.style.insetBlockStart = open && header ? `${Math.max(0, Math.round(header.getBoundingClientRect().bottom))}px` : '';
     nav.dataset.open = String(open);
     document.body.style.overflow = open ? 'hidden' : '';
     if (sticky) sticky.hidden = open;                       // bar must not sit over the menu

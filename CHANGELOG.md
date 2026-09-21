@@ -2,6 +2,19 @@
 
 All notable changes to the Al Qasim Movers project. Newest first. Format: date — stage — summary.
 
+## 2026-09-22 — Mobile audit of every page
+
+Checked all 84 pages at 390x844 (phone) for sideways scrolling, elements wider than the screen, tap-target size, tiny text, oversized images and console errors. 81 were clean; the findings below were fixed.
+
+### Fixed
+- **Mobile menu covered the logo.** The panel opened at a fixed offset; it now starts exactly under the header, which is taller while the top bar is on screen.
+- **Contact page printed the opening hours twice** in the same card.
+- **404 page mixed English and Arabic in one line.** They are now two lines, each with its own `lang`/`dir`.
+- **Projects page** skips media whose file is missing on the server instead of rendering a broken image.
+
+### Checked and correct
+Both dropdowns work inside the mobile panel (57–60px tap targets, scrollable, no sideways scroll), in LTR and RTL. The homepage sliders are wider than the screen by design, inside a clipped wrapper — the page itself does not scroll sideways.
+
 ## 2026-09-22 — The rest of the site: About, Contact, Quote, FAQ, guides, legal, 404
 
 ### Added
