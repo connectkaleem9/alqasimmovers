@@ -58,6 +58,10 @@ Options -Indexes
 <FilesMatch "\.(sql|md|json|log|ini|sample\.php)$">
   Require all denied
 </FilesMatch>
+# lib.php only defines helpers; it should never be requested directly
+<Files "lib.php">
+  Require all denied
+</Files>
 # site.webmanifest is JSON but must stay public
 <Files "site.webmanifest">
   Require all granted
