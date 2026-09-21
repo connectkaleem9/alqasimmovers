@@ -78,7 +78,26 @@
             <li><a class="site-nav__sub-all" href="/ar/services/">جميع الخدمات</a></li>
           </ul>
         </li>
-        <li><a href="/ar/areas/">المناطق</a></li>
+        <li class="site-nav__has-sub">
+          <a href="/ar/areas/">المناطق</a>
+          <button class="site-nav__sub-toggle" type="button" aria-expanded="false" aria-controls="nav-areas">
+            <span class="visually-hidden">عرض قائمة المناطق</span>
+            <svg class="icon" aria-hidden="true" width="14" height="14"><use href="/images/icons/sprite.svg#chevron"></use></svg>
+          </button>
+          <ul class="site-nav__sub" id="nav-areas">
+            <li><a href="/ar/areas/dubai-marina/">دبي مارينا</a></li>
+            <li><a href="/ar/areas/jlt/">أبراج بحيرات جميرا</a></li>
+            <li><a href="/ar/areas/business-bay/">الخليج التجاري</a></li>
+            <li><a href="/ar/areas/downtown-dubai/">وسط مدينة دبي</a></li>
+            <li><a href="/ar/areas/palm-jumeirah/">نخلة جميرا</a></li>
+            <li><a href="/ar/areas/jvc/">قرية جميرا الدائرية</a></li>
+            <li><a href="/ar/areas/al-barsha/">البرشاء</a></li>
+            <li><a href="/ar/areas/arabian-ranches/">المرابع العربية</a></li>
+            <li><a href="/ar/areas/dubai-hills/">دبي هيلز</a></li>
+            <li><a href="/ar/areas/silicon-oasis/">واحة دبي للسيليكون</a></li>
+            <li><a class="site-nav__sub-all" href="/ar/areas/">جميع المناطق</a></li>
+          </ul>
+        </li>
         <li><a href="/ar/about/">من نحن</a></li>
         <li><a href="/ar/contact/">اتصل بنا</a></li>
       </ul>
