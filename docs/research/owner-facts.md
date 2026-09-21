@@ -11,3 +11,4 @@ Facts supplied by the business owner that do not fit in `config/business.json` (
 | 2026-09-19 | Areas served: all of Dubai | Owner (chat) | business.json areasServed |
 | 2026-09-19 | No Google Business Profile; proceed without | Owner (chat) | business.json googleBusinessProfile |
 | 2026-09-19 | Website is dual-language: Arabic + English | Owner (chat) | ADR-006, bilingual-rules |
+| 2026-09-21 | 1,200+ completed moves; 4.9 average rating from real customer reviews (not a Google rating) | Owner (chat, explicit confirmation) | Hero social-proof strip |

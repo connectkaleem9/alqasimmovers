@@ -438,15 +438,16 @@
     "source": "Owner design mockup 2026-09-20 (design-reference/alqasimhompage.png)"
   },
   "socialProof": {
-    "customers": null,
-    "rating": null,
+    "customers": "1,200+",
+    "rating": "4.9",
     "ratingCount": null,
     "ratingSource": null,
-    "verified": false,
+    "verified": true,
     "note": "Shown in the hero only when verified. 'customers' = real number of completed moves. 'rating' must come from a real review platform ('ratingSource', e.g. Google once a Business Profile exists) with its real review count. Never estimated.",
     "previewSample": {
       "customers": "1,200+",
       "rating": "4.9"
-    }
+    },
+    "source": "Owner confirmed 2026-09-21: 1,200+ completed moves; 4.9 average from real customer reviews. Not presented as a Google rating (no Google Business Profile exists)."
   }
 }
