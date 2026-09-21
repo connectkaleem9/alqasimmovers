@@ -14,6 +14,7 @@
 import { readFile, writeFile, mkdir, readdir, copyFile, rm, stat } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -348,6 +349,18 @@ async function build() {
     }
   }
 
+  // 2b. asset versions: a short content hash appended to CSS/JS URLs, so a changed
+  //     file gets a new URL and browsers can never keep showing a stale copy
+  //     (CSS is cached for 30 days by .htaccess).
+  const cssSource = (await Promise.all(
+    ['reset', 'variables', 'fonts', 'base', 'layout', 'components', 'utilities']
+      .map((n) => readFile(path.join(SRC, 'css', `${n}.css`), 'utf8'))
+  )).join('\n');
+  const jsFiles = (await walk(path.join(SRC, 'js'))).filter((f) => f.endsWith('.js')).sort();
+  const jsSource = (await Promise.all(jsFiles.map((f) => readFile(f, 'utf8')))).join('\n');
+  const hash = (text) => createHash('sha1').update(text).digest('hex').slice(0, 10);
+  const assetVersion = { css: hash(minifyCSS(cssSource)), js: hash(jsSource) };
+
   // 3. shared partials + i18n
   const partialFiles = await walk(path.join(SRC, 'partials'));
   const layoutRaw = await readFile(path.join(SRC, 'partials', 'layout.html'), 'utf8');
@@ -413,6 +426,8 @@ async function build() {
         ogLocale: lang === 'ar' ? 'ar_AE' : 'en_AE',
         bodyFont: lang === 'ar' ? 'tajawal-400.woff2' : 'poppins-400.woff2',
         year: String(new Date().getFullYear()),
+        cssVersion: assetVersion.css,
+        jsVersion: assetVersion.js,
         tagline: esc(business.tagline?.verified ? business.tagline[lang] : ''),
         hours: esc(business.openingHours?.verified ? business.openingHours.display[lang] : ''),
         hreflang,
@@ -482,14 +497,18 @@ async function build() {
     `User-agent: *\nAllow: /\n\nSitemap: ${domain}/sitemap.xml\n`, 'utf8');
 
   // 6. assets
-  const css = (await Promise.all(
-    ['reset', 'variables', 'fonts', 'base', 'layout', 'components', 'utilities']
-      .map((n) => readFile(path.join(SRC, 'css', `${n}.css`), 'utf8'))
-  )).join('\n');
+  const css = cssSource;
   await mkdir(path.join(DIST, 'css'), { recursive: true });
   await writeFile(path.join(DIST, 'css', 'site.css'), minifyCSS(css), 'utf8');
 
-  await copyDir(path.join(SRC, 'js'), path.join(DIST, 'js'));
+  // JS: module imports get the version too, otherwise a cached navigation.js
+  // could be paired with a new main.js
+  await mkdir(path.join(DIST, 'js'), { recursive: true });
+  for (const f of jsFiles) {
+    const code = (await readFile(f, 'utf8'))
+      .replace(/(from\s+['"]\.\/[\w-]+\.js)(['"])/g, `$1?v=${assetVersion.js}$2`);
+    await writeFile(path.join(DIST, 'js', path.basename(f)), code, 'utf8');
+  }
   // PHP form handler → /form/ ; the sample config never ships (it would be a 404 anyway,
   // but .htaccess also denies *.sample.php)
   const phpFrom = path.join(SRC, 'php');
