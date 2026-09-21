@@ -21,10 +21,33 @@ header('X-Robots-Tag: noindex, nofollow');
 header('Cache-Control: no-store');
 header('X-Frame-Options: DENY');
 
-const IMAGE_TYPES = ['image/jpeg' => 'jpg', 'image/png' => 'png', 'image/webp' => 'webp'];
-const VIDEO_TYPES = ['video/mp4' => 'mp4', 'video/webm' => 'webm', 'video/quicktime' => 'mov'];
-const MAX_IMAGE_BYTES = 20 * 1024 * 1024;
-const MAX_VIDEO_BYTES = 500 * 1024 * 1024;
+/* Every common photo and video format is accepted, including what phones produce
+   (iPhone HEIC, Android 3GP). Photos are re-encoded to WebP so they load fast and
+   display everywhere; videos are stored as uploaded. Anything that is not a real
+   image or video — scripts, HTML, programs, archives — is refused: those would be
+   served from this domain and could be used to attack visitors or the admin. */
+const IMAGE_TYPES = [
+    'image/jpeg' => 'jpg', 'image/png' => 'png', 'image/webp' => 'webp', 'image/gif' => 'gif',
+    'image/bmp' => 'bmp', 'image/x-ms-bmp' => 'bmp', 'image/tiff' => 'tif', 'image/avif' => 'avif',
+    'image/heic' => 'heic', 'image/heif' => 'heif', 'image/x-icon' => 'ico',
+];
+const VIDEO_TYPES = [
+    'video/mp4' => 'mp4', 'video/webm' => 'webm', 'video/quicktime' => 'mov', 'video/x-matroska' => 'mkv',
+    'video/x-msvideo' => 'avi', 'video/avi' => 'avi', 'video/x-ms-wmv' => 'wmv', 'video/mpeg' => 'mpeg',
+    'video/3gpp' => '3gp', 'video/3gpp2' => '3g2', 'video/ogg' => 'ogv', 'video/x-flv' => 'flv',
+    'video/x-m4v' => 'm4v', 'video/mp2t' => 'ts',
+];
+/** Largest upload PHP itself will accept (hosting setting, currently 2 GB per file). */
+function max_upload_bytes(): int
+{
+    $toBytes = function (string $v): int {
+        $v = trim($v);
+        $n = (int) $v;
+        return match (strtoupper(substr($v, -1))) { 'G' => $n * 1024 ** 3, 'M' => $n * 1024 ** 2, 'K' => $n * 1024, default => $n };
+    };
+    $limits = array_filter([$toBytes((string) ini_get('upload_max_filesize')), $toBytes((string) ini_get('post_max_size'))]);
+    return $limits ? min($limits) : 2 * 1024 ** 3;
+}
 
 admin_session_start();
 
@@ -137,7 +160,11 @@ function process_image(string $tmp, string $dir, string $name): array
     $data = file_get_contents($tmp);
     $img = $data !== false ? @imagecreatefromstring($data) : false;
     if (!$img) {
-        throw new RuntimeException('The image could not be read.');
+        // formats GD cannot decode (iPhone HEIC, TIFF, AVIF): convert with Imagick first
+        $img = imagick_to_gd($tmp);
+    }
+    if (!$img) {
+        throw new RuntimeException('this photo format could not be read on the server');
     }
     if (function_exists('exif_read_data')) {
         $exif = @exif_read_data($tmp);
@@ -254,7 +281,8 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
                 $db->prepare('INSERT INTO projects (created_at, title_en, title_ar, location, property_type, description_en, description_ar, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)')
                    ->execute([now_utc(), ...$fields]);
                 $id = (int) $db->lastInsertId();
-                flash('Project created. Now add its photos and videos below.');
+                flash('Project created.');
+                store_uploads($db, $id);   // its own message replaces the line above when files were sent
             }
             go("view=project&id=$id");
 
@@ -283,58 +311,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
             if (!(int) $exists->fetchColumn()) {
                 go('view=projects');
             }
-            $dir = uploads_root() . "/projects/$id";
-            if (!is_dir($dir)) {
-                mkdir($dir, 0755, true);
-            }
-            $files = $_FILES['media'] ?? null;
-            $done = 0;
-            $problems = [];
-            $finfo = new finfo(FILEINFO_MIME_TYPE);
-            $count = is_array($files['name'] ?? null) ? count($files['name']) : 0;
-            for ($i = 0; $i < $count; $i++) {
-                $label = (string) $files['name'][$i];
-                if ($files['error'][$i] !== UPLOAD_ERR_OK || !is_uploaded_file($files['tmp_name'][$i])) {
-                    $problems[] = "$label: upload failed";
-                    continue;
-                }
-                $tmp = $files['tmp_name'][$i];
-                $mime = (string) $finfo->file($tmp);
-                $size = (int) $files['size'][$i];
-                $name = bin2hex(random_bytes(12));
-                try {
-                    if (isset(IMAGE_TYPES[$mime])) {
-                        if ($size > MAX_IMAGE_BYTES) {
-                            throw new RuntimeException('image larger than 20 MB');
-                        }
-                        [$w, $h] = process_image($tmp, $dir, $name);
-                        $path = "uploads/projects/$id/$name.webp";
-                        $thumb = "uploads/projects/$id/$name-thumb.webp";
-                        $db->prepare('INSERT INTO project_media (project_id, created_at, kind, path, thumb, width, height) VALUES (?, ?, ?, ?, ?, ?, ?)')
-                           ->execute([$id, now_utc(), 'image', $path, $thumb, $w, $h]);
-                    } elseif (isset(VIDEO_TYPES[$mime])) {
-                        if ($size > MAX_VIDEO_BYTES) {
-                            throw new RuntimeException('video larger than 500 MB');
-                        }
-                        $file = "$name." . VIDEO_TYPES[$mime];
-                        if (!move_uploaded_file($tmp, "$dir/$file")) {
-                            throw new RuntimeException('could not save the video');
-                        }
-                        $db->prepare('INSERT INTO project_media (project_id, created_at, kind, path) VALUES (?, ?, ?, ?)')
-                           ->execute([$id, now_utc(), 'video', "uploads/projects/$id/$file"]);
-                    } else {
-                        throw new RuntimeException('not a supported photo or video (JPG, PNG, WebP, MP4, WebM, MOV)');
-                    }
-                    $done++;
-                } catch (Throwable $e) {
-                    $problems[] = "$label: " . $e->getMessage();
-                }
-            }
-            $msg = "$done file(s) uploaded.";
-            if ($problems) {
-                $msg .= ' Not uploaded — ' . implode('; ', $problems);
-            }
-            flash($msg, $problems ? 'error' : 'ok');
+            store_uploads($db, $id);
             go("view=project&id=$id");
 
         case 'media_delete':
@@ -367,6 +344,126 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
             go('view=reviews');
     }
     go();
+}
+
+/** Converts a photo GD cannot open (HEIC/HEIF/TIFF/AVIF) into a GD image via Imagick. */
+function imagick_to_gd(string $tmp): \GdImage|false
+{
+    if (!class_exists('Imagick')) {
+        return false;
+    }
+    try {
+        $im = new Imagick();
+        $im->setResourceLimit(Imagick::RESOURCETYPE_THREAD, 1);
+        $im->readImage($tmp);
+        $im->setIteratorIndex(0);
+        $im = $im->getImage();
+        if (method_exists($im, 'autoOrient')) {
+            $im->autoOrient();
+        }
+        $im->setImageFormat('png');
+        $img = @imagecreatefromstring($im->getImageBlob());
+        $im->clear();
+        return $img;
+    } catch (Throwable $e) {
+        error_log('[admin] imagick: ' . $e->getMessage());
+        return false;
+    }
+}
+
+/**
+ * Saves whatever was uploaded in $_FILES['media'] against a project.
+ * Photos are re-encoded to WebP (plus a thumbnail); videos are stored as they are.
+ * Used both by "New project" (files sent with the form) and by the upload box.
+ */
+function store_uploads(PDO $db, int $id): void
+{
+    if (empty($_FILES['media']['name'][0])) {
+        return;
+    }
+    $dir = uploads_root() . "/projects/$id";
+    if (!is_dir($dir)) {
+        mkdir($dir, 0755, true);
+    }
+    $files = $_FILES['media'];
+    $max = max_upload_bytes();
+    $maxLabel = size_label($max);
+    $done = 0;
+    $problems = [];
+    $finfo = new finfo(FILEINFO_MIME_TYPE);
+    $count = is_array($files['name']) ? count($files['name']) : 0;
+
+    for ($i = 0; $i < $count; $i++) {
+        $label = (string) $files['name'][$i];
+        if (($files['error'][$i] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_OK || !is_uploaded_file($files['tmp_name'][$i])) {
+            $problems[] = $label . ': ' . upload_error_text((int) ($files['error'][$i] ?? 0), $maxLabel);
+            continue;
+        }
+        $tmp = $files['tmp_name'][$i];
+        $mime = (string) $finfo->file($tmp);
+        $size = (int) $files['size'][$i];
+        $name = bin2hex(random_bytes(12));
+        try {
+            if ($size > $max) {
+                throw new RuntimeException("larger than $maxLabel, which is the hosting limit for one file");
+            }
+            if (isset(IMAGE_TYPES[$mime])) {
+                [$w, $h] = process_image($tmp, $dir, $name);
+                $db->prepare('INSERT INTO project_media (project_id, created_at, kind, path, thumb, width, height) VALUES (?, ?, ?, ?, ?, ?, ?)')
+                   ->execute([$id, now_utc(), 'image', "uploads/projects/$id/$name.webp", "uploads/projects/$id/$name-thumb.webp", $w, $h]);
+            } elseif (isset(VIDEO_TYPES[$mime])) {
+                $file = "$name." . VIDEO_TYPES[$mime];
+                if (!move_uploaded_file($tmp, "$dir/$file")) {
+                    throw new RuntimeException('the video could not be saved');
+                }
+                $db->prepare('INSERT INTO project_media (project_id, created_at, kind, path) VALUES (?, ?, ?, ?)')
+                   ->execute([$id, now_utc(), 'video', "uploads/projects/$id/$file"]);
+            } else {
+                throw new RuntimeException('this is not a photo or a video, so it was not uploaded');
+            }
+            $done++;
+        } catch (Throwable $e) {
+            $problems[] = "$label: " . $e->getMessage();
+        }
+    }
+
+    $msg = $done . ' file(s) uploaded.';
+    if ($problems) {
+        $msg .= ' Not uploaded — ' . implode('; ', $problems);
+    }
+    flash($msg, $problems ? 'error' : 'ok');
+}
+
+/** "2 GB" / "128 MB" — whichever reads better for the hosting's own limit. */
+function size_label(int $bytes): string
+{
+    return $bytes >= 1024 ** 3
+        ? rtrim(rtrim(number_format($bytes / 1024 ** 3, 1), '0'), '.') . ' GB'
+        : round($bytes / 1024 ** 2) . ' MB';
+}
+
+/** Plain-language reason a browser/PHP rejected a file before we ever saw it. */
+/** The file picker used on the create form and in the "Photos & videos" box. */
+function upload_drop_html(): string
+{
+    $max = size_label(max_upload_bytes());
+    $count = (int) ini_get('max_file_uploads') ?: 20;
+    return '<label class="upload__drop"><span><b>Choose photos or videos</b><br>'
+        . 'Any photo format (JPG, PNG, HEIC from iPhone, WebP, GIF, TIFF…) and any video format '
+        . '(MP4, MOV, WebM, AVI, MKV, 3GP…). Up to ' . $max . ' per file, ' . $count . ' files at a time. '
+        . 'Photos are compressed for the website automatically.</span>'
+        . '<input type="file" name="media[]" multiple accept="image/*,video/*"></label>';
+}
+
+function upload_error_text(int $code, string $maxLabel): string
+{
+    return match ($code) {
+        UPLOAD_ERR_INI_SIZE, UPLOAD_ERR_FORM_SIZE => "larger than $maxLabel, which is the hosting limit for one file",
+        UPLOAD_ERR_PARTIAL => 'the upload stopped before it finished — please try again',
+        UPLOAD_ERR_NO_FILE => 'no file was chosen',
+        UPLOAD_ERR_NO_TMP_DIR, UPLOAD_ERR_CANT_WRITE => 'the server could not write the file',
+        default => 'upload failed',
+    };
 }
 
 function clean_multiline(?string $value, int $max): string
@@ -421,7 +518,7 @@ if ($view === 'project') {
     $sel = fn(string $v) => $p['status'] === $v ? ' selected' : '';
     $html = '<p><a href="/admin/?view=projects">← All projects</a></p>'
         . '<div class="panel"><h1>' . ($id ? 'Edit project' : 'New project') . '</h1>'
-        . '<form method="post" action="/admin/" class="form form--grid">' . csrf_field()
+        . '<form method="post" action="/admin/" class="form form--grid" enctype="multipart/form-data">' . csrf_field()
         . '<input type="hidden" name="action" value="project_save"><input type="hidden" name="id" value="' . (int) $p['id'] . '">'
         . field('Title (English) *', '<input name="title_en" required maxlength="120" value="' . e($p['title_en']) . '" placeholder="e.g. 4-bedroom villa move in Arabian Ranches">')
         . field('Title (Arabic)', '<input name="title_ar" dir="rtl" maxlength="120" value="' . e($p['title_ar']) . '">')
@@ -430,7 +527,8 @@ if ($view === 'project') {
         . field('Description (English)', '<textarea name="description_en" rows="4" maxlength="2000">' . e($p['description_en']) . '</textarea>')
         . field('Description (Arabic)', '<textarea name="description_ar" dir="rtl" rows="4" maxlength="2000">' . e($p['description_ar']) . '</textarea>')
         . field('Status', '<select name="status"><option value="published"' . $sel('published') . '>Published — visible on the website</option><option value="draft"' . $sel('draft') . '>Draft — hidden</option></select>')
-        . '<div class="form__actions"><button class="btn" type="submit">Save project</button></div></form></div>';
+        . ($id ? '' : '<div class="field--wide">' . upload_drop_html() . '</div>')
+        . '<div class="form__actions"><button class="btn" type="submit">' . ($id ? 'Save project' : 'Save project and upload') . '</button></div></form></div>';
 
     if ($id) {
         $m = $db->prepare('SELECT * FROM project_media WHERE project_id = ? ORDER BY sort, id');
@@ -439,8 +537,7 @@ if ($view === 'project') {
         $html .= '<div class="panel"><h2>Photos &amp; videos</h2>'
             . '<form method="post" action="/admin/" enctype="multipart/form-data" class="upload">' . csrf_field()
             . '<input type="hidden" name="action" value="media_upload"><input type="hidden" name="id" value="' . $id . '">'
-            . '<label class="upload__drop"><span><b>Choose photos or videos</b><br>JPG, PNG, WebP up to 20 MB · MP4, WebM, MOV up to 500 MB · several at once</span>'
-            . '<input type="file" name="media[]" multiple required accept="image/jpeg,image/png,image/webp,video/mp4,video/webm,video/quicktime"></label>'
+            . upload_drop_html()
             . '<button class="btn" type="submit">Upload</button></form>';
         if ($media) {
             $html .= '<div class="media-grid">';
