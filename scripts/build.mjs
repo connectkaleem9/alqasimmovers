@@ -210,7 +210,7 @@ function buildSchema(page, ctx) {
  * preview only, with a visible warning banner. A normal build can never output
  * sample reviews — see .claude/rules/content-integrity-rules.md.
  */
-function renderReviews(reviews, sample, t, lang, preview) {
+function renderReviews(reviews, sample, t, lang, preview, business) {
   const stars = (n) => `<p class="review-card__stars" aria-label="${n} / 5">${'★'.repeat(n)}${'☆'.repeat(5 - n)}</p>`;
   const initials = (name) => (name || '?').trim().split(/\s+/).map((w) => w[0]).slice(0, 2).join('').toUpperCase();
 
@@ -233,6 +233,31 @@ function renderReviews(reviews, sample, t, lang, preview) {
     warn('PREVIEW build: sample review cards rendered — never deploy this output');
     return `<p class="sample-banner">${esc(t.reviews.sampleBanner)}</p>
     <div class="card-grid card-grid--3" data-sample="true">\n      ${sample.map(card).join('\n      ')}\n    </div>`;
+  }
+  // No written reviews yet, but the owner has confirmed the aggregate figures:
+  // show those (true) with a way for customers to leave a review.
+  const sp = business.socialProof || {};
+  if (sp.verified === true && sp.customers && sp.rating) {
+    const wa = business.whatsapp?.verified ? business.whatsapp.link : '';
+    const msg = encodeURIComponent(t.reviews.waMessage);
+    return `<div class="review-summary">
+      <div class="review-summary__score">
+        <p class="review-summary__num">${esc(sp.rating)}</p>
+        <p class="review-summary__stars" aria-label="${esc(sp.rating)} / 5">★★★★★</p>
+        <p class="review-summary__label">${esc(t.reviews.avgLabel)}</p>
+      </div>
+      <div class="review-summary__people">
+        <picture>
+          <source type="image/webp" srcset="/images/hero/customer-avatars.webp">
+          <img src="/images/hero/customer-avatars.png" alt="" width="390" height="109" loading="lazy" decoding="async">
+        </picture>
+        <p><b>${esc(sp.customers)}</b> ${esc(t.reviews.customersLabel)}</p>
+      </div>
+      <div class="review-summary__cta">
+        <p>${esc(t.reviews.ctaText)}</p>
+        ${wa ? `<a class="btn btn--whatsapp" href="${esc(wa)}?text=${msg}" rel="noopener noreferrer" target="_blank" data-event="whatsapp_click" data-placement="review">${esc(t.reviews.ctaButton)}</a>` : ''}
+      </div>
+    </div>`;
   }
   return `<p class="empty-note">${esc(t.reviews.empty)}</p>`;
 }
@@ -418,7 +443,7 @@ async function build() {
       business, domain, lang, t, page: page.meta, urls, legal,
       navLists: { services: listFor('services'), areas: listFor('areas') },
       blocks: {
-        reviews: renderReviews(reviewsFile.reviews || [], sampleFile.reviews || [], t, lang, preview),
+        reviews: renderReviews(reviewsFile.reviews || [], sampleFile.reviews || [], t, lang, preview, business),
         socialProof: renderSocialProof(business, t, preview)
       },
       scalars: {

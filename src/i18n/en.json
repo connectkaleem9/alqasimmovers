@@ -128,7 +128,12 @@
   },
   "reviews": {
     "sampleBanner": "SAMPLE LAYOUT — these are placeholder cards, not real customer reviews. They appear in local preview only and are never published.",
-    "empty": "We publish reviews only from customers who have actually moved with us, and only with their permission. Real reviews will appear here as soon as we have them — we will never invent one."
+    "empty": "We publish reviews only from customers who have actually moved with us, and only with their permission. Real reviews will appear here as soon as we have them — we will never invent one.",
+    "avgLabel": "Average customer rating",
+    "customersLabel": "happy customers moved",
+    "ctaText": "Moved with us? We would love to hear how it went.",
+    "ctaButton": "Leave a review on WhatsApp",
+    "waMessage": "Hi Al Qasim Movers, I'd like to leave a review of my move:"
   },
   "proof": {
     "customers": "Happy Customers",

@@ -98,43 +98,16 @@
 
 @media (min-width: 62rem) {
   .site-header__inner { min-height: 5rem; }
-  .site-header__logo { width: 11rem; }
-  .site-nav { display: flex; align-items: center; gap: var(--sp-4); }
-  .site-nav__list { font-size: var(--fs-small); }
+  .site-header__logo { width: 10.5rem; }
+  /* logo | nav centred in the remaining space | phone */
+  .site-nav { display: flex; align-items: center; flex: 1; gap: var(--sp-5); }
+  .site-nav__list { margin-inline: auto; gap: var(--sp-5); font-size: 1rem; }
   .site-header__toggle, .site-header__call { display: none; }
 }
-/* 62–80rem: condense so the longer Arabic labels still fit on one row */
-@media (min-width: 62rem) and (max-width: 99.99rem) {
-  .site-header__inner { gap: var(--sp-2); }
-  .site-header__logo { width: 9.5rem; }
-  .site-nav { gap: var(--sp-2); }
-  .site-nav__list { gap: var(--sp-3); }
-  .site-nav__lang { padding-inline: var(--sp-1); }
-  .site-nav__phone small { display: none; }
-  .site-nav__phone { padding-inline: var(--sp-3); }
-  .site-header .btn--whatsapp span { display: none; }
-  .site-header .btn--whatsapp { padding-inline: var(--sp-4); }
-}
-/* Arabic labels are longer than the English ones, so Arabic stays condensed
-   until there is genuinely room for the full-size header (measured: ~1500px). */
-@media (min-width: 62rem) and (max-width: 93.99rem) {
-  [lang="ar"] .site-header__inner { gap: var(--sp-2); }
-  [lang="ar"] .site-header__logo { width: 9.5rem; }
-  [lang="ar"] .site-nav { gap: var(--sp-2); }
-  [lang="ar"] .site-nav__list { gap: var(--sp-3); font-size: var(--fs-small); }
-  [lang="ar"] .site-nav__lang { padding-inline: var(--sp-1); }
-  [lang="ar"] .site-nav__phone small { display: none; }
-  [lang="ar"] .site-nav__phone { padding-inline: var(--sp-3); }
-  [lang="ar"] .site-header .btn--whatsapp span { display: none; }
-  [lang="ar"] .site-header .btn--whatsapp { padding-inline: var(--sp-4); }
+@media (min-width: 75rem) {
+  .site-nav__list { gap: var(--sp-6); font-size: 1.0625rem; }
 }
 
-/* full-size header only once the 8-item nav, phone pill and WhatsApp button
-   genuinely fit — measured at ~1600px */
-@media (min-width: 100rem) {
-  .site-nav { gap: var(--sp-6); }
-  .site-nav__list { gap: var(--sp-5); font-size: var(--fs-body); }
-}
 
 /* ---------- hero: full-bleed photo with a navy scrim ---------- */
 .hero { position: relative; background: var(--c-navy); color: var(--c-white); isolation: isolate; }
@@ -165,6 +138,18 @@
 .hero__point { display: flex; gap: var(--sp-3); align-items: center; font-size: var(--fs-small); }
 .hero__point .icon { color: var(--c-orange); flex: none; }
 .hero__point span { color: var(--c-white); }
+/* phones: show the whole photo at its real shape above the text (cover on a tall,
+   narrow hero zoomed it ~2.4x and blurred it), fading into the navy below */
+@media (max-width: 47.99rem) {
+  .hero__bg { position: relative; inset: auto; z-index: 0; }
+  .hero__bg img { height: auto; aspect-ratio: 1440 / 617; object-fit: contain; }
+  .hero__bg::after {
+    content: ""; position: absolute; inset: auto 0 0; height: 45%;
+    background: linear-gradient(to bottom, rgb(11 35 61 / 0), var(--c-navy));
+  }
+  .hero::after { display: none; }
+  .hero__inner { padding-block-start: var(--sp-4); }
+}
 @media (min-width: 48rem) {
   .hero__inner { padding-block: var(--sp-8); }
   .hero__actions { display: flex; }
@@ -186,7 +171,9 @@
   display: grid; place-items: center; box-shadow: var(--sh-1);
 }
 .proof__avatar + .proof__avatar { margin-inline-start: -0.75rem; }
-.proof__count { color: var(--c-white); font-weight: var(--fw-bold); font-size: var(--fs-lead); line-height: 1.3; }
+.proof__text { display: grid; gap: 2px; }
+.proof__text p { margin: 0; }
+.proof__count { color: var(--c-white); font-weight: var(--fw-bold); font-size: var(--fs-lead); line-height: 1.25; }
 .proof__rating { color: var(--c-on-navy-soft); font-size: var(--fs-small); }
 .proof__stars { color: var(--c-orange); letter-spacing: .08em; font-size: 1.125rem; }
 .proof__sample {
@@ -196,28 +183,54 @@
 }
 .proof[data-sample="true"] { outline: 2px dashed var(--c-orange); outline-offset: 8px; border-radius: var(--r-sm); }
 
-/* ---------- trust bar: white card centred on the hero/services line (reference design) ----------
-   translate moves the bar up by half of its own height without changing layout,
-   so exactly half sits on the hero whatever its height. */
+/* ---------- trust bar: white card centred on the hero/services line ----------
+   translate moves the bar up by half of its own height without changing layout.
+   Phones: a continuous left-to-right marquee. Tablet/desktop: static five columns. */
 .trust-bar { position: relative; z-index: 3; translate: 0 -50%; }
-.trust-bar .trust-bar__inner {
-  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-4) var(--sp-3);
+.trust-bar__inner {
   background: var(--c-white); color: var(--c-heading);
-  border-radius: var(--r-lg); padding: var(--sp-5); box-shadow: var(--sh-2);
+  border-radius: var(--r-lg); box-shadow: var(--sh-2); overflow: hidden;
 }
+.trust-bar .trust-bar__track { list-style: none; margin: 0; }
 .trust-bar__item { display: flex; align-items: center; gap: var(--sp-3); }
-.trust-bar__item:last-child:nth-child(odd) { grid-column: 1 / -1; justify-content: center; }
 .trust-bar__icon {
   width: 2.75rem; height: 2.75rem; flex: none; border-radius: var(--r-full);
   display: grid; place-items: center;
   background: rgb(251 115 32 / .12); color: var(--c-orange-text);
 }
-.trust-bar__text { display: grid; line-height: 1.3; }
+.trust-bar__text { display: grid; line-height: 1.3; white-space: nowrap; }
 .trust-bar__text b { font-weight: var(--fw-bold); font-size: var(--fs-small); color: var(--c-heading); }
 .trust-bar__text span { font-size: var(--fs-micro); color: var(--c-ink-soft); }
+
+/* phones: marquee. Two identical sets; moving by exactly one set (50%) loops seamlessly */
+@media (max-width: 47.99rem) {
+  .trust-bar .trust-bar__track {
+    display: flex; width: max-content; padding: var(--sp-4) 0;
+    animation: trust-marquee-ltr 22s linear infinite;
+  }
+  [dir="rtl"] .trust-bar .trust-bar__track { animation-name: trust-marquee-rtl; }
+  .trust-bar__item { flex: none; padding-inline: var(--sp-4); }
+  /* pause while someone is touching or reading it */
+  .trust-bar__inner:hover .trust-bar__track,
+  .trust-bar__inner:focus-within .trust-bar__track { animation-play-state: paused; }
+}
+@keyframes trust-marquee-ltr { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+@keyframes trust-marquee-rtl { from { transform: translateX(0); } to { transform: translateX(50%); } }
+@media (max-width: 47.99rem) and (prefers-reduced-motion: reduce) {
+  /* no motion: let people swipe it instead */
+  .trust-bar .trust-bar__track { animation: none; }
+  .trust-bar__inner { overflow-x: auto; }
+  .trust-bar__item--dup { display: none; }
+}
+
+/* tablet and desktop: static, five columns, duplicates hidden */
 @media (min-width: 48rem) {
-  .trust-bar .trust-bar__inner { grid-template-columns: repeat(5, minmax(0, 1fr)); padding: var(--sp-5) var(--sp-6); }
-  .trust-bar__item:last-child:nth-child(odd) { grid-column: auto; justify-content: flex-start; }
+  .trust-bar .trust-bar__track {
+    display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--sp-3);
+    padding: var(--sp-5) var(--sp-6);
+  }
+  .trust-bar__item--dup { display: none; }
+  .trust-bar__text { white-space: normal; }
   .trust-bar__text b { font-size: var(--fs-body); }
   .trust-bar__text span { font-size: var(--fs-small); }
 }
@@ -381,6 +394,11 @@
 }
 .area-chip .icon { color: var(--c-orange); flex: none; }
 .area-chip:hover { color: var(--c-orange-text); box-shadow: var(--sh-2); }
+@media (max-width: 47.99rem) {
+  /* even two-column grid instead of ragged centred wrapping */
+  .area-chips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 28rem; }
+  .area-chip { justify-content: flex-start; padding-inline: var(--sp-4); }
+}
 
 /* ---------- area tiles (used on the areas hub page) ---------- */
 .area-grid { display: grid; gap: var(--sp-3); grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -391,6 +409,28 @@
 .area-tile__media img { width: 100%; height: 100%; object-fit: cover; }
 .area-tile a { display: block; padding: var(--sp-4) var(--sp-3); font-size: var(--fs-small); font-weight: var(--fw-semi); color: var(--c-heading); text-decoration: none; }
 .area-tile a:hover { color: var(--c-orange-text); text-decoration: underline; }
+
+/* ---------- reviews: rating summary (shown until written reviews exist) ---------- */
+.review-summary {
+  display: grid; gap: var(--sp-5); align-items: center; text-align: center;
+  background: var(--c-white); border: 1px solid var(--c-hairline); border-radius: var(--r-lg);
+  padding: var(--sp-6); box-shadow: var(--sh-1); max-width: 60rem; margin-inline: auto;
+}
+.review-summary p { margin: 0; }
+.review-summary__num { font-size: 3.5rem; font-weight: var(--fw-bold); color: var(--c-heading); line-height: 1; }
+.review-summary__stars { color: var(--c-orange); font-size: 1.5rem; letter-spacing: .08em; margin-block: var(--sp-2); }
+.review-summary__label { color: var(--c-ink-soft); font-size: var(--fs-small); }
+.review-summary__people { display: grid; justify-items: center; gap: var(--sp-3); }
+.review-summary__people img { height: 3rem; width: auto; }
+.review-summary__people p { color: var(--c-ink-soft); }
+.review-summary__people b { color: var(--c-heading); font-size: var(--fs-h3); }
+.review-summary__cta { display: grid; gap: var(--sp-3); justify-items: center; }
+.review-summary__cta p { color: var(--c-ink); font-weight: var(--fw-semi); }
+@media (min-width: 48rem) {
+  .review-summary { grid-template-columns: auto 1fr 1fr; text-align: start; gap: var(--sp-7); }
+  .review-summary__score { text-align: center; padding-inline-end: var(--sp-7); border-inline-end: 1px solid var(--c-hairline); }
+  .review-summary__people, .review-summary__cta { justify-items: start; }
+}
 
 /* ---------- reviews ---------- */
 .review-card { background: var(--c-white); border: 1px solid var(--c-hairline); border-radius: var(--r-md); padding: var(--sp-5); box-shadow: var(--sh-1); }
@@ -523,7 +563,8 @@
 .site-footer__contact a { color: var(--c-ink-soft); text-decoration: none; display: inline-block; padding-block: var(--sp-2); min-height: 1.75rem; }
 .site-footer__contact a:hover { color: var(--c-orange-text); text-decoration: underline; }
 .site-footer__base { background: var(--c-navy); color: var(--c-on-navy-soft); margin-block-start: var(--sp-6); padding-block: var(--sp-4); font-size: var(--fs-micro); }
-.site-footer__base .container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--sp-3); }
+.site-footer__base .container { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--sp-3); }
+.site-footer__base p { margin: 0; }
 .site-footer__base a { color: var(--c-white); display: inline-block; padding-block: var(--sp-2); }
 .site-footer__credit { color: var(--c-on-navy-soft); }
 .site-footer__credit a { color: var(--c-orange); font-weight: var(--fw-semi); }
