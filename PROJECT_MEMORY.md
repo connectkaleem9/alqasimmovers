@@ -7,6 +7,13 @@
 
 ---
 
+## Live content + admin (2026-09-21)
+- /reviews/, /projects/ and /admin/ are live. See ADR-007. SQLite is at `~/domains/alqasimmovers.com/private/alqasim.sqlite`, and the config is next to it (600).
+- The owner creates the admin account at /admin/ with the one-time setup key, which is in the server config and was given to the owner in chat. After an account exists, the key is no longer accepted.
+- Still waiting on: Facebook and Instagram URLs (top-bar icons stay hidden until `socialProfiles` is verified).
+
+---
+
 ## Reviews policy decision (2026-09-20)
 
 Owner asked twice for "dummy reviews" in the testimonials section. Resolution that satisfies the design without breaking the integrity rule:

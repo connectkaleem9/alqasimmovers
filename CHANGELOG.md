@@ -2,6 +2,18 @@
 
 All notable changes to the Al Qasim Movers project. Newest first. Format: date — stage — summary.
 
+## 2026-09-21 — Live reviews, projects gallery, admin dashboard, real mobile sliders
+
+### Added
+- **Reviews page** (`/reviews/`, `/ar/reviews/`). Customers submit a review with name, phone (kept private), area, service, stars and text, and it appears on the page immediately.
+- **Projects page** (`/projects/`, `/ar/projects/`). A gallery of photos and videos uploaded by the admin.
+- **Admin dashboard** (`/admin/`). Create, edit and delete projects; upload photos and videos; hide or delete reviews; view quote leads.
+- The quote form now stores every lead in the same database.
+
+### Changed
+- The homepage review button now reads **Leave a Review** and opens the review form.
+- On phones, the trust bar and "Why choose us" slide continuously left→right and the process steps slide right→left. On desktop all three are static.
+
 ## 2026-09-21 — About section measured against the reference and rebuilt
 
 Instead of eyeballing it, the reference (`about.PNG`) was measured in pixels and the rendered

@@ -11,17 +11,15 @@ setup steps, then how to publish changes afterwards.
 
 ## One-time setup (about 20 minutes)
 
-### 1. Database (hPanel → Databases → MySQL Databases)
-1. Create a database and a user. Write the password down somewhere safe.
-2. Open **phpMyAdmin → Import** and upload `db/schema.sql` from this project.
-   That creates the `leads` table where every quote request is stored.
+### 1. Database — nothing to do
+The site uses a SQLite file above public_html by default, and it creates its own tables.
+(To use MySQL instead, set `db.driver` to `mysql` in the settings file with host, name, user and password.)
 
 ### 2. Settings file — this goes ABOVE public_html
-1. In **File Manager**, go up one level from `public_html` and create a folder called `private`.
-2. Copy `src/php/config.sample.php` into it and rename it `alqasim-config.php`.
-3. Fill in: database name, database user, database password, your email address,
-   and any random text for `ip_salt`.
-4. Set its permissions to **600**.
+It lives at `~/domains/alqasimmovers.com/private/alqasim-config.php` (permissions 600).
+Start from `src/php/config.sample.php`. Set `db => ['driver'=>'sqlite','path'=>'…/private/alqasim.sqlite']`,
+your email, a random `ip_salt`, and `admin => ['setup_key' => '<random>']`. You use the setup key
+once at `/admin/` to create the admin account.
 
 Nothing above `public_html` can be opened from the internet, so your password is safe there.
 **Never put this file inside `public_html`.**

@@ -172,3 +172,18 @@ Add a row before introducing any library, font service, or third-party script.
 
 **Companion scripts:** `qa-crawl.mjs` (links, assets, metadata, hreflang reciprocity, sitemap/robots sanity, CSS token discipline, page weight; `--allow-missing` while pages are still being written) · `secret-scan.mjs` · `serve.mjs` (local preview with real 404s).
 
+### ADR-007 — Live content: PHP pages + SQLite + admin dashboard (decided 2026-09-21)
+**Context:** the owner wants customers to post reviews that appear immediately, a projects
+gallery, and an admin dashboard for uploading project photos and videos.
+**Decision:** pages that show live data (`/reviews/`, `/projects/` and their Arabic twins) are
+built as `index.php` (page meta `"php": true`) and include server-side views from `/form/views/`.
+Data lives in SQLite at `~/domains/alqasimmovers.com/private/alqasim.sqlite` (above public_html;
+MySQL is still supported via the config's `db.driver`). `bootstrap.php` migrates the tables
+automatically. The admin is a single PHP file at `/admin/` using a one-time setup key, password_hash,
+login throttling, CSRF, a strict session cookie, and a 2h idle timeout. Images are re-encoded to WebP
+with GD; videos are checked against a MIME allowlist; `/uploads/` can never run code; and uploads are
+git-ignored on the deploy branch so deploys never delete them.
+**Reviews:** they publish instantly, as the owner asked. There is a honeypot, a timing check,
+3 reviews per IP per 24h, and links are rejected. The phone number is required but never shown.
+The admin can hide or delete reviews.
+**Tests:** `tests/e2e-local.sh` (29 checks).
