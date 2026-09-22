@@ -2,6 +2,22 @@
 
 All notable changes to the Al Qasim Movers project. Newest first. Format: date — stage — summary.
 
+## 2026-09-22 — Speed audit of every page
+
+Measured all 82 live pages in a mobile browser (TTFB, FCP, LCP, CLS, page weight, requests), then re-tested key pages with the cache cleared and on a throttled Slow 4G connection with a 4x slower CPU.
+
+### Results
+- Median TTFB 128 ms, FCP/LCP 212 ms, **0 pages above Google's 2.5 s LCP threshold and 0 above the 0.1 CLS threshold**.
+- First visit: homepage 239 KB / 20 requests, inner pages 107–138 KB / 15–16 requests.
+- Slow 4G + 4x CPU throttle: homepage FCP 888 ms, fully loaded 1.6 s.
+
+### Changed
+- The band background image (used by the CTA band on every page and the homepage areas band) now loads the 1024-wide file on phones instead of the 1440-wide one: **~17 KB less per page on mobile**.
+- Logo WebP files re-encoded at quality 88: 360w 21.3 KB → 17.9 KB, 600w 39 KB → 33 KB, with no visible loss at 3x zoom.
+
+### Already good, left alone
+Fonts are subsetted and language-scoped (8–9 KB each; Arabic files never load on English pages). Below-the-fold images are lazy-loaded, AVIF is served with a WebP fallback, CSS is one 8 KB file and JS is five modules totalling 6 KB.
+
 ## 2026-09-22 — Mobile audit of every page
 
 Checked all 84 pages at 390x844 (phone) for sideways scrolling, elements wider than the screen, tap-target size, tiny text, oversized images and console errors. 81 were clean; the findings below were fixed.

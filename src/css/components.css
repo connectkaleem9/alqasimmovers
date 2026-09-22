@@ -387,8 +387,8 @@
   background-color: var(--c-surface);
   background-image:
     linear-gradient(rgb(255 255 255 / .62), rgb(255 255 255 / .74)),
-    image-set(url("/images/hero/ready-to-move-dubai-1440.avif") type("image/avif"),
-              url("/images/hero/ready-to-move-dubai-1440.webp") type("image/webp"));
+    image-set(url("/images/hero/ready-to-move-dubai-1024.avif") type("image/avif"),
+              url("/images/hero/ready-to-move-dubai-1024.webp") type("image/webp"));
   background-size: cover;
   background-position: center;
   border-block: 1px solid var(--c-hairline);
@@ -589,15 +589,15 @@
   background-color: var(--c-navy);
   background-image:
     linear-gradient(to right, rgb(11 35 61 / .96) 0%, rgb(11 35 61 / .88) 45%, rgb(11 35 61 / .55) 100%),
-    image-set(url("/images/hero/ready-to-move-dubai-1440.avif") type("image/avif"),
-              url("/images/hero/ready-to-move-dubai-1440.webp") type("image/webp"));
+    image-set(url("/images/hero/ready-to-move-dubai-1024.avif") type("image/avif"),
+              url("/images/hero/ready-to-move-dubai-1024.webp") type("image/webp"));
   background-size: cover; background-position: center;
 }
 [dir="rtl"] .cta-band {
   background-image:
     linear-gradient(to left, rgb(11 35 61 / .96) 0%, rgb(11 35 61 / .88) 45%, rgb(11 35 61 / .55) 100%),
-    image-set(url("/images/hero/ready-to-move-dubai-1440.avif") type("image/avif"),
-              url("/images/hero/ready-to-move-dubai-1440.webp") type("image/webp"));
+    image-set(url("/images/hero/ready-to-move-dubai-1024.avif") type("image/avif"),
+              url("/images/hero/ready-to-move-dubai-1024.webp") type("image/webp"));
 }
 .cta-band__title { color: var(--c-white); }
 .cta-band__text { color: var(--c-on-navy-soft); margin-block-start: var(--sp-2); }
@@ -730,4 +730,27 @@
   .quote-panel .form > .field--wide, .quote-panel .form > .form__summary,
   .quote-panel .form > .form__honey, .quote-panel .form > fieldset,
   .quote-panel .form > .field:has(textarea), .quote-panel .form > .btn { grid-column: 1 / -1; }
+}
+
+
+/* ---------- band backgrounds: phones load the 1024-wide file, larger screens the 1440 ---------- */
+@media (min-width: 48rem) {
+  .areas-band {
+    background-image:
+      linear-gradient(rgb(255 255 255 / .62), rgb(255 255 255 / .74)),
+      image-set(url("/images/hero/ready-to-move-dubai-1440.avif") type("image/avif"),
+                url("/images/hero/ready-to-move-dubai-1440.webp") type("image/webp"));
+  }
+  .cta-band {
+    background-image:
+      linear-gradient(to right, rgb(11 35 61 / .96) 0%, rgb(11 35 61 / .88) 45%, rgb(11 35 61 / .55) 100%),
+      image-set(url("/images/hero/ready-to-move-dubai-1440.avif") type("image/avif"),
+                url("/images/hero/ready-to-move-dubai-1440.webp") type("image/webp"));
+  }
+  [dir="rtl"] .cta-band {
+    background-image:
+      linear-gradient(to left, rgb(11 35 61 / .96) 0%, rgb(11 35 61 / .88) 45%, rgb(11 35 61 / .55) 100%),
+      image-set(url("/images/hero/ready-to-move-dubai-1440.avif") type("image/avif"),
+                url("/images/hero/ready-to-move-dubai-1440.webp") type("image/webp"));
+  }
 }
