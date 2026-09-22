@@ -51,6 +51,9 @@
   color: var(--c-white); background: rgb(255 255 255 / .1); transition: background var(--transition);
 }
 .topbar__social:hover { background: var(--c-orange); color: var(--c-navy); }
+/* shown before the page URL exists: an icon, deliberately not a link */
+.topbar__social--pending { cursor: default; }
+.topbar__social--pending:hover { background: none; color: inherit; }
 .topbar__lang { display: flex; align-items: center; gap: var(--sp-2); margin-inline-start: auto; }
 .topbar__lang a { color: var(--c-on-navy-soft); text-decoration: none; padding: var(--sp-2) var(--sp-1); font-weight: var(--fw-semi); }
 .topbar__lang a:hover { color: var(--c-white); }

@@ -452,11 +452,14 @@ async function build() {
         bodyFont: lang === 'ar' ? 'tajawal-400.woff2' : 'poppins-400.woff2',
         year: String(new Date().getFullYear()),
         socialLinks: (() => {
+          // A profile becomes a real link only once its URL is in business.json. Until then the
+          // icon is shown but is NOT a link, so it can never send a visitor to a dead or wrong page.
           const sp = business.socialProfiles || {};
-          if (!sp.verified) return '';
+          const icon = (k) => `<svg class="icon" aria-hidden="true" width="16" height="16"><use href="/images/icons/sprite.svg#${k}"></use></svg>`;
           return [['facebook', 'Facebook'], ['instagram', 'Instagram']]
-            .filter(([k]) => sp[k])
-            .map(([k, label]) => `<a class="topbar__social" href="${esc(sp[k])}" rel="noopener noreferrer" target="_blank" aria-label="${label}"><svg class="icon" aria-hidden="true" width="16" height="16"><use href="/images/icons/sprite.svg#${k}"></use></svg></a>`)
+            .map(([k, label]) => (sp.verified && sp[k])
+              ? `<a class="topbar__social" href="${esc(sp[k])}" rel="noopener noreferrer" target="_blank" aria-label="${label}">${icon(k)}</a>`
+              : `<span class="topbar__social topbar__social--pending" role="img" aria-label="${label}">${icon(k)}</span>`)
             .join('');
         })(),
         langEnCurrent: lang === 'en' ? ' aria-current="true"' : '',

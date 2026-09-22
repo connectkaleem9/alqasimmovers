@@ -2,6 +2,10 @@
 
 All notable changes to the Al Qasim Movers project. Newest first. Format: date — stage — summary.
 
+## 2026-09-22 — Top-bar social icons shown before the page links exist
+
+The Facebook and Instagram icons now always render on the left of the top bar. Until a URL is set in `config/business.json` → `socialProfiles`, each icon is a `<span>`, not a link — it is visible but cannot send a visitor to a dead or wrong page. Adding the URLs (and `verified: true`) turns them into real links on the next build, with no markup change.
+
 ## 2026-09-22 — Header alignment, page heroes, breadcrumbs removed, sticky bar spacing
 
 ### Fixed
