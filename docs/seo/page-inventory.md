@@ -35,13 +35,13 @@
 | `/services/packing-services-dubai/` | packing services dubai | تغليف اثاث دبي | Packing & unpacking as a service, materials, fragile items |
 | `/services/furniture-assembly-dubai/` | furniture assembly dubai | فك وتركيب اثاث دبي | Dismantling/assembly + handyman (curtains, TV mounting) |
 | `/services/storage-services-dubai/` | storage movers dubai | تخزين اثاث دبي | Move-plus-store via **partner** storage |
-| `/services/piano-movers-dubai/` | piano movers dubai | نقل بيانو دبي | Heavy/specialty items: piano, safe, gym equipment |
-| `/services/pickup-truck-with-driver-dubai/` | pickup truck with driver dubai | بيك اب نقل اثاث دبي | Truck + driver + loading labour for small jobs |
 | `/services/inter-emirate-movers/` | inter emirate movers uae | نقل اثاث بين الامارات | Moves to all emirates (Ajman, RAK, Fujairah, UAQ, Al Ain) |
 | `/services/movers-dubai-to-abu-dhabi/` | movers dubai to abu dhabi | نقل اثاث من دبي الى ابوظبي | Route page: distance, timing, both-end permits, utilities |
 | `/services/movers-dubai-to-sharjah/` | movers dubai to sharjah | نقل اثاث من دبي الى الشارقة | Route page: busiest cross-emirate corridor, timing, permits |
 
 14 service URLs: 11 service pages + the inter-emirate hub + 2 route pages. Within the Stage 6 target of 12–15.
+
+**Withdrawn 2026-09-22 (owner decision):** `/services/piano-movers-dubai/` and `/services/pickup-truck-with-driver-dubai/` were published, then removed at the owner's request. Both URLs 301 to `/services/`. Heavy items and truck-with-driver work are no longer offered as their own pages; do not re-create them without a new owner decision.
 
 **Not created (merged; documented in keyword-map):** studio-movers-dubai, unpacking-services-dubai, loading-unloading-dubai, local-moving-dubai. No same-day page.
 

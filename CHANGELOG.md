@@ -2,6 +2,18 @@
 
 All notable changes to the Al Qasim Movers project. Newest first. Format: date — stage — summary.
 
+## 2026-09-22 — Two service pages withdrawn
+
+### Removed
+- `/services/pickup-truck-with-driver-dubai/` and `/services/piano-movers-dubai/`, in both languages, at the owner's request.
+- Every link to them: header Services menu, footer services list, homepage service card ("Loading & Unloading"), related-service blocks on other service, area and blog pages, and the services hub. Inline mentions keep their wording but are no longer links.
+- Their SEO briefs, and the unused `services.loading` / `services.heavy` i18n strings.
+
+### Added
+- **301 redirects** for both URLs (and their `/ar/` counterparts) to `/services/`, so existing links, bookmarks and anything already in Google land on a working page instead of a 404.
+
+Site is now 74 indexable pages. SEO audit: 0 errors, 0 broken links.
+
 ## 2026-09-22 — No limit on how many reviews a customer can leave
 
 ### Changed
