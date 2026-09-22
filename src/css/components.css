@@ -123,11 +123,12 @@
 }
 .hero__inner { padding-block: var(--sp-7); position: relative; }
 .hero__eyebrow {
-  font-size: var(--fs-eyebrow); letter-spacing: .14em; text-transform: uppercase;
-  color: var(--c-on-navy-soft); font-weight: var(--fw-semi);
+  display: block; font-size: var(--fs-eyebrow); letter-spacing: .14em; text-transform: uppercase;
+  color: var(--c-on-navy-soft); font-weight: var(--fw-semi); line-height: 1.4;
+  margin-block-end: var(--sp-3);
 }
 .hero__title { color: var(--c-white); font-size: var(--fs-display); margin-block-start: var(--sp-3); }
-.hero__title span { color: var(--c-orange); display: block; }
+.hero__title-accent { color: var(--c-orange); display: block; }
 .hero__lead { color: var(--c-on-navy-soft); font-size: var(--fs-lead); margin-block-start: var(--sp-4); max-width: 34rem; }
 .hero__actions { display: grid; gap: var(--sp-3); margin-block-start: var(--sp-6); }
 .hero__points {
