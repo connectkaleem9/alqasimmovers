@@ -2,6 +2,23 @@
 
 All notable changes to the Al Qasim Movers project. Newest first. Format: date — stage — summary.
 
+## 2026-09-22 — SEO audit of every page
+
+Audited all 85 built pages (titles, descriptions, headings, canonicals, hreflang, Open Graph, structured data, alt text, indexability, content depth, internal links, keyword targeting), then verified redirects, headers and schema on the live site.
+
+### Result
+**0 errors.** No duplicate titles or descriptions, no missing or mismatched canonicals, no broken hreflang, no missing alt text, no invalid JSON-LD, no orphan pages, nothing deeper than 3 clicks, and the sitemap matches the indexable set exactly (78 URLs).
+
+### Fixed
+- **The homepage H1 did not contain its primary keyword.** The keyword line ("Professional Movers and Packers in Dubai" / "شركة نقل اثاث محترفة في دبي") is now inside the `<h1>` as a styled span, so the heading carries the term while the hero looks exactly as designed. All 31 target keywords now appear in both title and H1.
+- **Blog hubs were thin** (187–246 words). They now open with a "which guide do you need?" section that routes readers by situation, which is useful rather than padding.
+
+### Verified live
+HTTP→HTTPS, www→non-www and missing-trailing-slash all 301 to the canonical URL. Brotli on HTML, gzip on CSS, 30-day asset caching, HSTS, nosniff and a referrer policy. `/admin/` returns `X-Robots-Tag: noindex, nofollow`; robots.txt allows the site and disallows `/admin/` and `/form/`. Schema on a service page resolves to MovingCompany + Service + BreadcrumbList.
+
+### Accepted as-is
+The two cookie-policy pages are ~250 words. They are complete and factual; padding a legal page to hit a word count would break the content rules.
+
 ## 2026-09-22 — Speed audit of every page
 
 Measured all 82 live pages in a mobile browser (TTFB, FCP, LCP, CLS, page weight, requests), then re-tested key pages with the cache cleared and on a throttled Slow 4G connection with a 4x slower CPU.
