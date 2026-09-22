@@ -2,6 +2,16 @@
 
 All notable changes to the Al Qasim Movers project. Newest first. Format: date — stage — summary.
 
+## 2026-09-22 — No limit on how many reviews a customer can leave
+
+### Changed
+- The "3 reviews per visitor per 24 hours" cap is gone. One person can now leave as many reviews as they like, at any time.
+- The only remaining guard is a **10-second gap** between two submissions from the same visitor. A person never notices it; a flooding script hits it on its second request. It is configurable (`limits.review_gap_seconds` in the private config) and setting it to 0 removes it entirely.
+- The old "You have already sent a review today" message is replaced by "Please wait a few seconds before sending another review" (both languages).
+
+### Tests
+`tests/e2e-local.sh` now asserts that the same person can post a second review (31 checks, all passing), and runs with the gap disabled.
+
 ## 2026-09-22 — Top-bar social icons shown before the page links exist
 
 The Facebook and Instagram icons now always render on the left of the top bar. Until a URL is set in `config/business.json` → `socialProfiles`, each icon is a `<span>`, not a link — it is visible but cannot send a visitor to a dead or wrong page. Adding the URLs (and `verified: true`) turns them into real links on the next build, with no markup change.

@@ -25,7 +25,7 @@ cat > "$CFG" <<EOF
 <?php return [
   'db' => ['driver' => 'sqlite', 'path' => '$DB'],
   'mail' => ['enabled' => false, 'to' => 'x@example.com', 'from' => 'x@example.com'],
-  'limits' => ['per_ip_per_10min' => 5, 'min_seconds' => 3],
+  'limits' => ['per_ip_per_10min' => 5, 'min_seconds' => 3, 'review_gap_seconds' => 0],
   'ip_salt' => 'e2e',
   'admin' => ['setup_key' => '$SETUP_KEY'],
 ];
@@ -55,6 +55,8 @@ R=$(loc -X POST $BASE/form/review.php -d "name=Bot&phone=0501234567&rating=5&lan
 check "honeypot silently dropped"            '! curl -s $BASE/reviews/ | grep -q "bot text"'
 R=$(loc -X POST $BASE/form/review.php --data-urlencode "name=<script>alert(1)</script>" -d "phone=0507654321&rating=4&lang=en&ts=$OLD" --data-urlencode "body=Checking that scripts are escaped properly here.")
 check "review without email accepted"        '[[ "$R" == *"/reviews/?thanks=1"* ]]'
+R=$(loc -X POST $BASE/form/review.php --data-urlencode "name=Ahmed Khan" -d "rating=5&lang=en&ts=$OLD" --data-urlencode "body=Second review from the same person, which must also be accepted.")
+check "same person can review again"         '[[ "$R" == *"/reviews/?thanks=1"* ]]'
 check "script tag escaped, not executed"     'curl -s $BASE/reviews/ | grep -q "&lt;script&gt;alert(1)&lt;/script&gt;"'
 # Arabic goes through UTF-8 files: Windows mangles non-ASCII command-line arguments into "????"
 printf '%s' "أحمد" > "$SCR/e2e-ar-name.txt"
