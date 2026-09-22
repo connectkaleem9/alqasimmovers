@@ -4,7 +4,8 @@ declare(strict_types=1);
  * Public review submission. Reviews are published immediately (owner's decision);
  * the admin dashboard can hide or delete any of them.
  *
- * Abuse controls: honeypot, minimum fill time, 3 reviews per visitor per 24h,
+ * Abuse controls: honeypot, minimum fill time, a 10-second gap between submissions from the
+ * same visitor (anti-flood only — there is no cap on how many reviews a customer may leave),
  * links rejected, lengths capped, rating allow-listed. The optional email address
  * is kept private (admin only) so the owner can contact a reviewer.
  */
@@ -56,11 +57,15 @@ if ($service !== '' && !in_array($service, REVIEW_SERVICES, true)) {
 // 3. store
 try {
     $db = db();
-    $since = gmdate('Y-m-d H:i:s', time() - 86400);
-    $count = $db->prepare('SELECT COUNT(*) FROM reviews WHERE ip_hash = ? AND created_at >= ?');
-    $count->execute([ip_hash(), $since]);
-    if ((int) $count->fetchColumn() >= 3) {
-        $back('limit');
+    // No limit on how many reviews one customer may leave. The only guard is a few seconds
+    // between submissions, which a person never notices but a flooding script hits immediately.
+    $gap = (int) (config()['limits']['review_gap_seconds'] ?? 10);
+    if ($gap > 0) {
+        $recent = $db->prepare('SELECT COUNT(*) FROM reviews WHERE ip_hash = ? AND created_at >= ?');
+        $recent->execute([ip_hash(), gmdate('Y-m-d H:i:s', time() - $gap)]);
+        if ((int) $recent->fetchColumn() > 0) {
+            $back('slow');
+        }
     }
 
     $insert = $db->prepare(
