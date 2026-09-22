@@ -2,6 +2,19 @@
 
 All notable changes to the Al Qasim Movers project. Newest first. Format: date — stage — summary.
 
+## 2026-09-22 — Header alignment, page heroes, breadcrumbs removed, sticky bar spacing
+
+### Fixed
+- **Navigation alignment.** "Services" and "Areas" sat lower than the other items because their dropdown arrow made them flex containers. Every top-level item now centres on the same line (verified: all seven sit at the same y position).
+- **The mobile Call / WhatsApp bar covered the end of the page.** Pages now reserve the bar's height at the bottom, so the last button or line is never hidden behind it.
+
+### Changed
+- **Every inner page hero now carries the team photo** behind a navy gradient (1024-wide file on phones, 1440 above 48rem), mirrored for Arabic.
+- **Breadcrumbs removed** from all 82 pages, at the owner's request. The `BreadcrumbList` structured data was removed with them (80 blocks), because schema must only describe what is visible on the page.
+
+### Still blocked
+The top-bar social icons need the Facebook and Instagram URLs. A web search for the business name plus the phone number found no pages, so there is nothing to link to. The markup and styles are in place on the left of the top bar and will render the moment `socialProfiles` in `config/business.json` holds the URLs.
+
 ## 2026-09-22 — SEO audit of every page
 
 Audited all 85 built pages (titles, descriptions, headings, canonicals, hreflang, Open Graph, structured data, alt text, indexability, content depth, internal links, keyword targeting), then verified redirects, headers and schema on the live site.

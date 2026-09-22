@@ -67,7 +67,8 @@
 .site-header__call { color: var(--c-navy); }
 
 .site-nav { display: none; }
-.site-nav__list { display: flex; gap: var(--sp-4); }
+.site-nav__list { display: flex; align-items: center; gap: var(--sp-4); }
+.site-nav__list > li { display: flex; align-items: center; }
 .site-nav__list a, .site-nav__phone, .site-nav__lang, .site-header .btn { white-space: nowrap; }
 .site-nav__list a {
   color: var(--c-heading); text-decoration: none; font-weight: var(--fw-semi);
@@ -517,8 +518,38 @@
 .faq__a { padding-block-end: var(--sp-4); }
 
 /* ---------- inner-page hero ---------- */
-.page-hero { background: var(--c-navy); color: var(--c-white); padding-block: var(--sp-6) var(--sp-7); }
-.page-hero__title { color: var(--c-white); font-size: var(--fs-h1); margin-block: var(--sp-2) var(--sp-3); }
+.page-hero {
+  position: relative; color: var(--c-white);
+  padding-block: var(--sp-7) var(--sp-8);
+  background-color: var(--c-navy);
+  background-image:
+    linear-gradient(to right, rgb(9 23 49 / .94) 0%, rgb(9 23 49 / .86) 45%, rgb(9 23 49 / .62) 100%),
+    image-set(url("/images/hero/movers-packers-dubai-hero-1024.avif") type("image/avif"),
+              url("/images/hero/movers-packers-dubai-hero-1024.webp") type("image/webp"));
+  background-size: cover;
+  background-position: center;
+}
+[dir="rtl"] .page-hero {
+  background-image:
+    linear-gradient(to left, rgb(9 23 49 / .94) 0%, rgb(9 23 49 / .86) 45%, rgb(9 23 49 / .62) 100%),
+    image-set(url("/images/hero/movers-packers-dubai-hero-1024.avif") type("image/avif"),
+              url("/images/hero/movers-packers-dubai-hero-1024.webp") type("image/webp"));
+}
+@media (min-width: 48rem) {
+  .page-hero {
+    background-image:
+      linear-gradient(to right, rgb(9 23 49 / .94) 0%, rgb(9 23 49 / .86) 45%, rgb(9 23 49 / .62) 100%),
+      image-set(url("/images/hero/movers-packers-dubai-hero-1440.avif") type("image/avif"),
+                url("/images/hero/movers-packers-dubai-hero-1440.webp") type("image/webp"));
+  }
+  [dir="rtl"] .page-hero {
+    background-image:
+      linear-gradient(to left, rgb(9 23 49 / .94) 0%, rgb(9 23 49 / .86) 45%, rgb(9 23 49 / .62) 100%),
+      image-set(url("/images/hero/movers-packers-dubai-hero-1440.avif") type("image/avif"),
+                url("/images/hero/movers-packers-dubai-hero-1440.webp") type("image/webp"));
+  }
+}
+.page-hero__title { color: var(--c-white); font-size: var(--fs-h1); margin-block: 0 var(--sp-3); }
 .page-hero__lead { color: var(--c-on-navy-soft); max-width: 44rem; }
 .breadcrumb--light, .breadcrumb--light a { color: var(--c-on-navy-soft); }
 .breadcrumb--light a:hover { color: var(--c-white); }
@@ -626,6 +657,10 @@
 }
 .sticky-cta__btn { flex: 1; border-radius: 0; min-height: var(--sticky-h); }
 .sticky-cta[hidden] { display: none; }
+@media (max-width: 61.99rem) {
+  /* leave room so the bar never sits on top of the last button or line of text */
+  body { padding-block-end: calc(var(--sticky-h) + env(safe-area-inset-bottom)); }
+}
 @media (min-width: 62rem) { .sticky-cta { display: none; } }
 
 /* ---------- footer ---------- */
@@ -692,7 +727,7 @@
 .svc-links span { color: var(--c-ink-soft); font-size: var(--fs-small); }
 
 /* ---------- header dropdown (Services) ---------- */
-.site-nav__has-sub { position: relative; display: flex; align-items: center; gap: var(--sp-1); }
+.site-nav__has-sub { position: relative; gap: var(--sp-1); }
 .site-nav__sub-toggle {
   display: inline-flex; align-items: center; justify-content: center; min-width: 1.75rem; min-height: 1.75rem;
   padding: 0; border: 0; background: none; color: inherit; cursor: pointer;
